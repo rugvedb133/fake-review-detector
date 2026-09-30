@@ -1,0 +1,185 @@
+/* Fake Review Detector: base styles.
+   Palette comes from the project's own colours: the deep greens and mint of
+   the original web UI, pushed darker so mint text has plenty of contrast. */
+
+:root {
+  color-scheme: dark;
+
+  --bg:      #072F25;    /* page */
+  --panel:   #0B4A3A;    /* raised surfaces */
+  --accent:  #0F644D;    /* buttons and small accents */
+  --mint:    #A4EFC1;    /* links, highlights */
+  --paper:   #DAF8E6;    /* light "review card" surfaces */
+  --paper-2: #D1F6DF;
+  --text:    #F1FDF6;
+  --muted:   #B9E3CC;
+  --line:    rgba(164, 239, 193, 0.28);
+  --fake:    #FFC15E;    /* fake verdicts and focus rings */
+  --ink:     #072F25;    /* text on paper/mint */
+
+  --sans:  "Oxygen", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --measure: 64ch;
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: 4.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.65 var(--sans);
+}
+
+.wrap {
+  width: min(1080px, 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+}
+
+h1 {
+  max-width: 20ch;
+  font-size: clamp(2rem, 5.2vw, 3.35rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+p {
+  max-width: var(--measure);
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--mint);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--fake);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--mint);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(7, 47, 37, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.85rem;
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--mint);
+}
+
+.site-header ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* main */
+main {
+  min-height: 60vh;
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+/* footer */
+.site-footer {
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-footer p {
+  margin-bottom: 0.6rem;
+}
+
+.site-footer .fine {
+  max-width: 80ch;
+  font-size: 0.85rem;
+}

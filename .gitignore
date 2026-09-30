@@ -1,0 +1,23 @@
+# Only the finished site belongs on this branch.
+# These patterns keep private project material and
+# other local clutter from being pushed by accident.
+data/
+
+# Models and data are not ours to publish or redistribute
+*.pkl
+*.pickle
+*.joblib
+*.ipynb
+*.csv
+
+# Design sources and scratch files
+*.psd
+*.xcf
+*.tmp
+*.log
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

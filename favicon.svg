@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Review bubble with two stars and a dot" xmlns:c2pa="http://c2pa.org/manifest">
+  <rect width="64" height="64" rx="14" fill="#0F644D"/>
+  <rect x="8" y="13" width="48" height="31" rx="8" fill="#A4EFC1"/>
+  <path d="M16 42h12L17 54z" fill="#A4EFC1"/>
+  <polygon points="21.0,22.3 22.5,26.4 26.9,26.6 23.5,29.3 24.6,33.5 21.0,31.1 17.4,33.5 18.5,29.3 15.1,26.6 19.5,26.4" fill="#072F25"/>
+  <polygon points="34.0,22.3 35.5,26.4 39.9,26.6 36.5,29.3 37.6,33.5 34.0,31.1 30.4,33.5 31.5,29.3 28.1,26.6 32.5,26.4" fill="#072F25"/>
+  <circle cx="46" cy="28.5" r="4.6" fill="#072F25"/>
+</svg>
