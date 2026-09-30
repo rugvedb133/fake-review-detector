@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" aria-hidden="true" xmlns:c2pa="http://c2pa.org/manifest">
+  <!-- Decorative hero shape: a review bubble whose stars and dot fill in once.
+       The animation is plain CSS inside this file, so it works through <img>. -->
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#A4EFC1" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#A4EFC1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    .glow {
+      animation: drift 45s ease-in-out infinite alternate;
+    }
+
+    .mark {
+      fill: #072F25;
+      fill-opacity: 0;
+      stroke: #072F25;
+      stroke-width: 6;
+      stroke-linejoin: round;
+      animation: fill 0.6s ease-out both;
+    }
+
+    .m1 {
+      animation-delay: 0.5s;
+    }
+
+    .m2 {
+      animation-delay: 1s;
+    }
+
+    .m3 {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes fill {
+      to {
+        fill-opacity: 1;
+      }
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate(-26px, -14px);
+      }
+
+      to {
+        transform: translate(26px, 16px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow {
+        animation: none;
+      }
+
+      .mark {
+        animation: none;
+        fill-opacity: 1;
+      }
+    }
+  </style>
+  <ellipse class="glow" cx="240" cy="200" rx="230" ry="190" fill="url(#glow)"/>
+  <rect x="90" y="90" width="300" height="180" rx="36" fill="#A4EFC1"/>
+  <path d="M128 266h64l-72 62z" fill="#A4EFC1"/>
+  <polygon class="mark m1" points="160.0,144.0 168.9,167.8 194.2,168.9 174.4,184.7 181.2,209.1 160.0,195.1 138.8,209.1 145.6,184.7 125.8,168.9 151.1,167.8"/>
+  <polygon class="mark m2" points="240.0,144.0 248.9,167.8 274.2,168.9 254.4,184.7 261.2,209.1 240.0,195.1 218.8,209.1 225.6,184.7 205.8,168.9 231.1,167.8"/>
+  <circle class="mark m3" cx="322" cy="180" r="27"/>
+</svg>
