@@ -96,20 +96,20 @@
     }
   </style>
   <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#A4EFC1"/></marker></defs>
-  <g class="node"><title>Data acquisition: the labelled hotel review corpus</title><rect x="0" y="100" width="148" height="64" rx="9"/><text class="bt" x="74.0" y="121.0">Data acquisition</text><text class="bs" x="74.0" y="141.0">1,600 labelled</text><text class="bs" x="74.0" y="156.0">hotel reviews</text></g>
-  <g class="node"><title>Preprocessing and text mining using NLP</title><rect x="176" y="85" width="154" height="94" rx="9"/><text class="bt" x="253.0" y="113.5">Preprocessing</text><text class="bs" x="253.0" y="133.5">text mining with NLP:</text><text class="bs" x="253.0" y="148.5">regex cleaning,</text><text class="bs" x="253.0" y="163.5">lemmas, TF-IDF n-grams</text></g>
+  <g class="node"><title>Data acquisition: the labelled hotel review corpus</title><rect x="0" y="100" width="148" height="64" rx="9"/><text class="bt" x="74.0" y="121.0">Data acquisition</text><text class="bs" x="74.0" y="138.5">1,600 labelled</text><text class="bs" x="74.0" y="153.5">hotel reviews</text></g>
+  <g class="node"><title>Preprocessing and text mining using NLP</title><rect x="176" y="85" width="154" height="94" rx="9"/><text class="bt" x="253.0" y="113.5">Preprocessing</text><text class="bs" x="253.0" y="133.5">text mining with NLP :</text><text class="bs" x="253.0" y="148.5">regex cleaning,</text><text class="bs" x="253.0" y="163.5">lemmas, TF-IDF n-grams</text></g>
   <g class="node"><title>Training data</title><rect x="380" y="14" width="140" height="72" rx="9"/><text class="bt" x="450.0" y="39.0">Training data</text><text class="bs" x="450.0" y="59.0">used to fit</text><text class="bs" x="450.0" y="74.0">the models</text></g>
-  <g class="node"><title>Classification modelling</title><rect x="560" y="14" width="160" height="72" rx="9"/><text class="bt" x="640.0" y="37.5">Classification</text><text class="bt" x="640.0" y="55.5">modelling</text><text class="bs" x="640.0" y="75.5">5 classifiers</text></g>
-  <g class="node"><title>Testing data</title><rect x="380" y="114" width="140" height="64" rx="9"/><text class="bt" x="450.0" y="135.0">Testing data</text><text class="bs" x="450.0" y="155.0">held back for</text><text class="bs" x="450.0" y="170.0">scoring</text></g>
-  <g class="node"><title>Predictions</title><rect x="560" y="214" width="160" height="64" rx="9"/><text class="bt" x="640.0" y="235.0">Predictions</text><text class="bs" x="640.0" y="255.0">genuine or fake</text><text class="bs" x="640.0" y="270.0">for each review</text></g>
-  <g class="node"><title>Evaluation metrics</title><rect x="380" y="214" width="140" height="64" rx="9"/><text class="bt" x="450.0" y="235.0">Evaluation</text><text class="bs" x="450.0" y="255.0">accuracy, precision,</text><text class="bs" x="450.0" y="270.0">recall, F1</text></g>
-  <path d="M148 132H176" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M330 132H355V50H380" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M330 132H355V146H380" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M520 50H560" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M640 86V214" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M520 146H590V214" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M560 246H520" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M380 246H253V179" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
+  <g class="node"><title>Classification modelling</title><rect x="560" y="14" width="160" height="72" rx="9"/><text class="bt" x="640.0" y="37.5">Classification</text><text class="bt" x="640.0" y="55.5">modelling</text><text class="bs" x="640.0" y="74.0">5 classifiers</text></g>
+  <g class="node"><title>Testing data</title><rect x="380" y="114" width="140" height="64" rx="9"/><text class="bt" x="450.0" y="135.0">Testing data</text><text class="bs" x="450.0" y="153.5">held back for</text><text class="bs" x="450.0" y="168.5">scoring</text></g>
+  <g class="node"><title>Predictions</title><rect x="560" y="214" width="160" height="64" rx="9"/><text class="bt" x="640.0" y="235.0">Predictions</text><text class="bs" x="640.0" y="253.5">genuine or fake</text><text class="bs" x="640.0" y="268.5">for each review</text></g>
+  <g class="node"><title>Evaluation metrics</title><rect x="380" y="214" width="140" height="64" rx="9"/><text class="bt" x="450.0" y="235.0">Evaluation</text><text class="bs" x="450.0" y="253.5">accuracy, precision,</text><text class="bs" x="450.0" y="268.5">recall, F1</text></g>
+  <path d="M148 132H176" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M330 132H355V50H380" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M330 132H355V146H380" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M520 50H560" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M640 86V214" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M520 146H590V214" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M560 246H520" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M380 246H253V179" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
   <text class="bs" x="260" y="236" style="text-anchor:start">refine and repeat</text>
 </svg>

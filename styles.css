@@ -397,8 +397,15 @@ details summary {
 .sample mark {
   padding: 0 0.15em;
   border-radius: 0.2em;
-  background: var(--fake);
+  background: linear-gradient(var(--fake), var(--fake)) no-repeat left center / 100% 100%;
   color: var(--ink);
+  transition: background-size 0.35s ease-out, color 0.35s ease-out;
+}
+
+/* set by the script until step 3 is first viewed, then removed to wipe in */
+.sample mark.wipe-pending {
+  background-size: 0% 100%;
+  color: var(--text);
 }
 
 .step-note {
@@ -440,13 +447,13 @@ details summary {
   font-size: 0.93rem;
 }
 
-.weights .bar {
+.weights .wbar {
   height: 0.7rem;
   border-radius: 0.4rem;
   background: var(--bg);
 }
 
-.weights .bar i {
+.weights .wbar i {
   display: block;
   height: 100%;
   border-radius: 0.4rem;
@@ -491,9 +498,168 @@ details summary {
   border-color: var(--line);
   color: var(--muted);
   cursor: not-allowed;
-  opacity: 0.75;
 }
 
 .btn:disabled:hover {
   opacity: 0.4; 
+}
+
+/* verdict card (mirrors the app's result screen) */
+.result-card {
+  margin: 0 0 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.8rem;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+}
+
+.result-card p {
+  max-width: none;
+  margin: 0 0 0.4rem;
+}
+
+.result-card .rc-small {
+  font-size: 0.9rem;
+}
+
+.result-card .rc-label {
+  font-weight: 700;
+}
+
+.result-card .rc-verdict {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+}
+
+.section .result-card strong {
+  color: var(--ink);
+}
+
+/* results explorer */
+.explorer {
+  max-width: 720px;
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--panel);
+}
+
+.explorer fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.explorer legend {
+  margin-bottom: 0.6rem;
+  padding: 0;
+  font-weight: 700;
+}
+
+.chips-radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips-radio label {
+  cursor: pointer;
+}
+
+.chips-radio input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.chips-radio span {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+}
+
+.chips-radio input:checked + span {
+  border-color: var(--mint);
+  background: var(--accent);
+  font-weight: 700;
+}
+
+.chips-radio input:focus-visible + span {
+  outline: 3px solid var(--fake);
+  outline-offset: 3px;
+}
+
+.rbars {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.1rem 0 0.9rem;
+  padding: 0;
+  list-style: none;
+}
+
+.rbars li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) 1fr 4.6rem;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.rbar {
+  height: 0.8rem;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  background: var(--bg);
+}
+
+.rbar i {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 0.4rem;
+  background: var(--mint);
+  opacity: 0.5;
+  transition: width 0.5s ease-out;
+}
+
+.rbars .top i {
+  opacity: 1;
+}
+
+.rbars .top {
+  font-weight: 700;
+}
+
+.rbars .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table tr.best th,
+.data-table tr.best td {
+  color: var(--mint);
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .rbars li {
+    grid-template-columns: 1fr 4.6rem;
+  }
+
+  .rbars .rbar {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sample mark,
+  .rbar i {
+    transition: none;
+  }
 }

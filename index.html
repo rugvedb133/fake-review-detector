@@ -50,6 +50,7 @@
           <li><a href="#problem">Problem</a></li>
           <li><a href="#data">Data</a></li>
           <li><a href="#pipeline">Pipeline</a></li>
+          <li><a href="#results">Results</a></li>
           <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
         </ul>
       </nav>
@@ -274,7 +275,7 @@
             <p class="sample">during my stay at the hilton chicago it has been quite unpleasant how so you might ask well ill tell you the towels where scratchy and the service was terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all meals and felt little sick after lunch finally the bill was charging me for stuff didn want or ask for but overall the hotel was very bad and unpleasant for me and others give it half star </p>
             <p class="step-note">Regular expressions strip punctuation, drop single letters like &ldquo;I&rdquo; and &ldquo;a&rdquo;, and lowercase everything: 97 words left. They also do some collateral damage. &ldquo;weren't&rdquo; became &ldquo;weren&rdquo;, because the apostrophe split the word and the lone &ldquo;t&rdquo; was dropped.</p>
           </li>
-          <li class="step">
+          <li class="step" data-wipe>
             <h4>3. Reduce words to their base form</h4>
             <p class="sample">during my stay at the hilton chicago it <mark>ha</mark> been quite unpleasant how so you might ask well ill tell you the <mark>towel</mark> where scratchy and the service <mark>wa</mark> terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all <mark>meal</mark> and felt little sick after lunch finally the bill <mark>wa</mark> charging me for stuff didn want or ask for but overall the hotel <mark>wa</mark> very bad and unpleasant for me and others give it half star</p>
             <p class="step-note">A WordNet lemmatizer maps each word to a dictionary form. Six words changed (highlighted). It runs without part-of-speech tags, so it treats every word as a noun: &ldquo;towels&rdquo; correctly becomes &ldquo;towel&rdquo;, but &ldquo;was&rdquo; becomes &ldquo;wa&rdquo; and &ldquo;has&rdquo; becomes &ldquo;ha&rdquo;. The model only needs consistency, so it's harmless, but it's a known wart.</p>
@@ -286,10 +287,81 @@
           </li>
           <li class="step">
             <h4>5. Weigh each term</h4>
-            <ol class="weights"><li><span class="term">unpleasant</span><span class="bar" aria-hidden="true"><i style="width:100%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="bar" aria-hidden="true"><i style="width:89%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="bar" aria-hidden="true"><i style="width:79%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="bar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="bar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="bar" aria-hidden="true"><i style="width:51%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="bar" aria-hidden="true"><i style="width:50%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="bar" aria-hidden="true"><i style="width:47%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="bar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="bar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.159</span></li></ol>
+            <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:100%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:89%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:79%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:51%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:50%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:47%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.159</span></li></ol>
             <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
           </li>
+          <li class="step">
+            <h4>6. The verdict</h4>
+            <div class="result-card">
+              <p class="rc-small">User details successfully verified</p>
+              <p class="rc-label">Prediction:</p>
+              <p class="rc-verdict">This is a <strong>fake review</strong>.</p>
+            </div>
+            <p class="step-note">The vector goes to our final model, Multinomial Naive Bayes on unigrams and bigrams, and the app prints one line, in the wording of Figure 4.5 in our report. This review is labelled deceptive in the dataset, so that is the right answer. We didn't re-run our saved model for this page, so this step shows the correct answer, not a recorded prediction.</p>
+          </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section" id="results" aria-labelledby="results-title">
+      <div class="wrap">
+        <h2 id="results-title">What we compared, and what won</h2>
+        <p class="lede">
+          Five models and six ways of counting words: 30 combinations, each scored on the same held-back reviews.
+        </p>
+
+        <h3>First attempt: raw text</h3>
+        <p>
+          We started by giving unprocessed review text to five classifiers: Random Forest, Multinomial Naive Bayes, a Support Vector Classifier, XGBoost and XGBoost's random-forest mode. Random Forest led on accuracy, recall and F1, and the Support Vector Classifier led on precision.
+        </p>
+        <p>
+          The scores looked good, but as our report puts it, the models failed to perform on unseen data that wasn't part of the dataset. The report doesn't put a number on that failure. We went back to the text, added the preprocessing from the last section, and tried n-grams.
+        </p>
+        <table class="data-table">
+          <caption>Models trained on unprocessed text</caption>
+          <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead>
+          <tbody><tr><th scope="row">Random Forest</th><td>86.25%</td><td>84.57%</td><td>89.69%</td><td>87.06%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>85.94%</td><td>84.48%</td><td>89.09%</td><td>86.73%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85.31%</td><td>85.98%</td><td>85.45%</td><td>85.71%</td></tr><tr><th scope="row">XGBoost</th><td>80.31%</td><td>78.98%</td><td>84.24%</td><td>81.52%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.06%</td><td>75.63%</td><td>73.33%</td><td>74.46%</td></tr></tbody>
+        </table>
+
+        <h3>Same models, six n-gram settings</h3>
+        <p>
+          An n-gram setting decides what the model counts: single words (1), pairs (2), triples (3), or a mix. Pick a setting to see how the five models rank on it.
+        </p>
+        <div class="explorer" data-explorer hidden>
+          <fieldset>
+            <legend>n-gram setting (words per phrase)</legend>
+            <div class="chips-radio"><label><input type="radio" name="ngram" value="1"><span>1</span></label><label><input type="radio" name="ngram" value="2"><span>2</span></label><label><input type="radio" name="ngram" value="3"><span>3</span></label><label><input type="radio" name="ngram" value="1-2" checked><span>1&ndash;2</span></label><label><input type="radio" name="ngram" value="2-3"><span>2&ndash;3</span></label><label><input type="radio" name="ngram" value="1-2-3"><span>1&ndash;2&ndash;3</span></label></div>
+          </fieldset>
+          <ul class="rbars" aria-live="polite"></ul>
+          <p class="step-note" data-best></p>
+          <p class="step-note">Bars start at 50%, which is chance for a balanced two-class problem.</p>
+        </div>
+        <table class="data-table">
+          <caption>Accuracy of each model for each n-gram setting</caption>
+          <thead><tr><th scope="col">Model</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">1&ndash;2</th><th scope="col">2&ndash;3</th><th scope="col">1&ndash;2&ndash;3</th></tr></thead>
+          <tbody><tr><th scope="row">Random Forest</th><td>84.375%</td><td>78.125%</td><td>72.8125%</td><td>86.25%</td><td>78.75%</td><td>85.3125%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>86.25%</td><td>82.5%</td><td>71.5625%</td><td><strong>88.125%</strong></td><td>79.375%</td><td>87.5%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85%</td><td>70.3125%</td><td>67.1875%</td><td>85.625%</td><td>73.125%</td><td>86.25%</td></tr><tr><th scope="row">XGBoost</th><td>79.375%</td><td>75.3125%</td><td>71.25%</td><td>81.5625%</td><td>75.3125%</td><td>82.8125%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.375%</td><td>67.1875%</td><td>60.3125%</td><td>72.8125%</td><td>66.5625%</td><td>72.8125%</td></tr></tbody>
+        </table>
+        <p>
+          Single words and any mix that includes them did best. Pairs or triples on their own fell away: the best triples-only score was 72.8%. That is probably because on a corpus of 1,600 reviews most three-word phrases appear once.
+        </p>
+
+        <h3>The finalists</h3>
+        <p>
+          We compared the ten best combinations on more metrics. Multinomial Naive Bayes on single words plus pairs led every column, including precision, which we cared about most because calling a genuine review fake is the costlier mistake. It became our final model.
+        </p>
+        <table class="data-table">
+          <caption>The ten best combinations</caption>
+          <thead><tr><th scope="col">Model</th><th scope="col">n-grams</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">AUC</th><th scope="col">F1</th></tr></thead>
+          <tbody><tr><th scope="row">Random Forest</th><td>1</td><td>84.375%</td><td>82.486%</td><td>84.242%</td><td>85.38%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2</td><td>86.25%</td><td>84.971%</td><td>86.158%</td><td>86.982%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2&ndash;3</td><td>85.3125%</td><td>85.119%</td><td>85.269%</td><td>85.886%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1</td><td>86.25%</td><td>85.38%</td><td>86.178%</td><td>86.905%</td></tr><tr class="best"><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2</td><td>88.125%</td><td>88.024%</td><td>88.093%</td><td>88.554%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2&ndash;3</td><td>87.5%</td><td>87.879%</td><td>87.488%</td><td>87.879%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1</td><td>85%</td><td>85.455%</td><td>84.985%</td><td>85.455%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2</td><td>85.625%</td><td>85.629%</td><td>85.591%</td><td>86.144%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2&ndash;3</td><td>86.25%</td><td>86.228%</td><td>86.217%</td><td>86.747%</td></tr><tr><th scope="row">XGBoost</th><td>1&ndash;2&ndash;3</td><td>82.8125%</td><td>81.977%</td><td>82.727%</td><td>83.68%</td></tr></tbody>
+        </table>
+
+        <h3>How much to read into 88.1%</h3>
+        <p>
+          Every accuracy above is a multiple of 1/320, so each score comes from 320 test reviews. At that size, one review is 0.3 points, and a rough 95% margin on 88% accuracy is about &plusmn;3.6 points. So Naive Bayes, Random Forest and the Support Vector Classifier are closer than their ranking suggests.
+        </p>
+        <p>
+          The gains from preprocessing were also small and uneven. Naive Bayes improved from 85.9% on raw text to 88.1%, while Random Forest finished exactly where it started at 86.25%. The best score beats the raw-text Random Forest by 1.9 points, which is inside that margin. We'd call the result a solid baseline, not proof that one model is better.
+        </p>
       </div>
     </section>
   </main>
