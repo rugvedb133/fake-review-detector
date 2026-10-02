@@ -128,8 +128,8 @@
   <text class="tick" x="425.0" y="442" style="font-size:13px">non-word</text>
   <text class="tick" x="491.0" y="442" style="font-size:13px">words</text>
   <text class="tick" x="557.0" y="442" style="font-size:13px">sentences</text>
-  <rect x="128" y="98" width="462" height="54" fill="none" stroke="#FFC15E" stroke-width="2.5" rx="3"/>
-  <rect x="194" y="44" width="66" height="378" fill="none" stroke="#FFC15E" stroke-width="2.5" rx="3"/>
+  <rect x="128" y="98" width="462" height="54" fill="none" stroke="#FFC15E" stroke-opacity="0.5" stroke-width="2.5" rx="3"/>
+  <rect x="194" y="44" width="66" height="378" fill="none" stroke="#FFC15E" stroke-opacity="0.5" stroke-width="2.5" rx="3"/>
   <rect x="616" y="44" width="16" height="378" rx="3" fill="url(#scale)"/>
   <text class="key" x="640" y="54" style="font-size:13px">1</text>
   <text class="key" x="640" y="238.0" style="font-size:13px">0</text>

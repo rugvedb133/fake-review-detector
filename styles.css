@@ -362,3 +362,138 @@ details summary {
 .data-table thead th {
   color: var(--mint);
 }
+
+/* stepper */
+.stepper {
+  max-width: 720px;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--panel);
+}
+
+.step h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.sample {
+  margin: 0 0 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--bg);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.sample mark {
+  padding: 0 0.15em;
+  border-radius: 0.2em;
+  background: var(--fake);
+  color: var(--ink);
+}
+
+.step-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 0.88rem;
+}
+
+.weights {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  list-style: none;
+}
+
+.weights li {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr 3.4rem;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.93rem;
+}
+
+.weights .bar {
+  height: 0.7rem;
+  border-radius: 0.4rem;
+  background: var(--bg);
+}
+
+.weights .bar i {
+  display: block;
+  height: 100%;
+  border-radius: 0.4rem;
+  background: var(--mint);
+}
+
+.weights .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepper-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 720px;
+  margin-top: 1.25rem;
+}
+
+.stepper-controls .status {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.btn {
+  padding: 0.55rem 1.1rem;
+  border: 2px solid var(--mint);
+  border-radius: 0.6rem;
+  background: var(--accent);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--panel);
+}
+
+.btn:disabled {
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.btn:disabled:hover {
+  opacity: 0.4; 
+}

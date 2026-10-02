@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 382" width="720" height="382" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 388" width="720" height="388" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
   <title id="t">How much reviews matter to shoppers</title>
-  <desc id="d">Diverging bars from 156 respondents on a 1 to 5 scale, centred on the neutral rating 3. 73.7% rated their likelihood of deciding from reviews 4 or 5, against 3.2% who rated it 1 or 2. 44.9% rated how often reviews focus on the brand rather than the product 4 or 5. 39.7% rated their likelihood of answering &#x27;Did you find this review useful?&#x27; 4 or 5, and 32.1% rated it 1 or 2.</desc>
+  <desc id="d">Diverging bars from 156 respondents on a 1 to 5 scale, centred on the neutral rating 3. 73.7% rated their likelihood of deciding from reviews 4 or 5, against 3.2% who rated it 1 or 2 (nobody chose 1). 44.9% rated how often reviews focus on the brand rather than the product 4 or 5. 39.7% rated their likelihood of answering &#x27;Did you find this review useful?&#x27; 4 or 5, and 32.1% rated it 1 or 2.</desc>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap");
 
@@ -72,59 +72,76 @@
   <line class="grid" x1="462.9" x2="462.9" y1="54" y2="98"/>
   <line class="grid" x1="565.7" x2="565.7" y1="54" y2="98"/>
   <line class="grid" x1="668.6" x2="668.6" y1="54" y2="98"/>
-  <g><title>Rating 3: 36 of 156 (23.1%)</title><rect class="seg" x="197.8" y="58" width="118.7" height="36" fill="#C5D3CD"/></g>
-  <g><title>Rating 2: 5 of 156 (3.2%)</title><rect class="seg" x="181.3" y="58" width="16.5" height="36" fill="#F7CE8B"/></g>
-  <g><title>Rating 4: 79 of 156 (50.6%)</title><rect class="seg" x="316.5" y="58" width="260.4" height="36" fill="#79C3A0"/></g>
-  <g><title>Rating 5: 36 of 156 (23.1%)</title><rect class="seg" x="576.9" y="58" width="118.7" height="36" fill="#3FA37F"/></g>
-  <text class="pct" x="257.1" y="81" style="fill:#072F25">23.1%</text>
-  <text class="pct" x="446.7" y="81" style="fill:#072F25">50.6%</text>
-  <text class="pct" x="636.3" y="81" style="fill:#072F25">23.1%</text>
-  <text x="0" y="133">How often do you see reviews that focus on</text>
-  <text x="0" y="153">the brand more than the product?</text>
-  <line class="grid" x1="51.4" x2="51.4" y1="162" y2="206"/>
-  <line class="grid" x1="154.3" x2="154.3" y1="162" y2="206"/>
-  <line class="zero" x1="257.1" x2="257.1" y1="162" y2="206"/>
-  <line class="grid" x1="360.0" x2="360.0" y1="162" y2="206"/>
-  <line class="grid" x1="462.9" x2="462.9" y1="162" y2="206"/>
-  <line class="grid" x1="565.7" x2="565.7" y1="162" y2="206"/>
-  <line class="grid" x1="668.6" x2="668.6" y1="162" y2="206"/>
-  <g><title>Rating 3: 57 of 156 (36.5%)</title><rect class="seg" x="163.2" y="166" width="187.9" height="36" fill="#C5D3CD"/></g>
-  <g><title>Rating 2: 23 of 156 (14.7%)</title><rect class="seg" x="87.4" y="166" width="75.8" height="36" fill="#F7CE8B"/></g>
-  <g><title>Rating 1: 6 of 156 (3.8%)</title><rect class="seg" x="67.6" y="166" width="19.8" height="36" fill="#E0962B"/></g>
-  <g><title>Rating 4: 58 of 156 (37.2%)</title><rect class="seg" x="351.1" y="166" width="191.2" height="36" fill="#79C3A0"/></g>
-  <g><title>Rating 5: 12 of 156 (7.7%)</title><rect class="seg" x="542.3" y="166" width="39.6" height="36" fill="#3FA37F"/></g>
-  <text class="pct" x="125.3" y="189" style="fill:#072F25">14.7%</text>
-  <text class="pct" x="257.1" y="189" style="fill:#072F25">36.5%</text>
-  <text class="pct" x="446.7" y="189" style="fill:#072F25">37.2%</text>
-  <text x="0" y="241">How likely are you to answer</text>
-  <text x="0" y="261">&#x27;Did you find this review useful?&#x27;</text>
-  <line class="grid" x1="51.4" x2="51.4" y1="270" y2="314"/>
-  <line class="grid" x1="154.3" x2="154.3" y1="270" y2="314"/>
-  <line class="zero" x1="257.1" x2="257.1" y1="270" y2="314"/>
-  <line class="grid" x1="360.0" x2="360.0" y1="270" y2="314"/>
-  <line class="grid" x1="462.9" x2="462.9" y1="270" y2="314"/>
-  <line class="grid" x1="565.7" x2="565.7" y1="270" y2="314"/>
-  <line class="grid" x1="668.6" x2="668.6" y1="270" y2="314"/>
-  <g><title>Rating 3: 44 of 156 (28.2%)</title><rect class="seg" x="184.6" y="274" width="145.1" height="36" fill="#C5D3CD"/></g>
-  <g><title>Rating 2: 26 of 156 (16.7%)</title><rect class="seg" x="98.9" y="274" width="85.7" height="36" fill="#F7CE8B"/></g>
-  <g><title>Rating 1: 24 of 156 (15.4%)</title><rect class="seg" x="19.8" y="274" width="79.1" height="36" fill="#E0962B"/></g>
-  <g><title>Rating 4: 42 of 156 (26.9%)</title><rect class="seg" x="329.7" y="274" width="138.5" height="36" fill="#79C3A0"/></g>
-  <g><title>Rating 5: 20 of 156 (12.8%)</title><rect class="seg" x="468.1" y="274" width="65.9" height="36" fill="#3FA37F"/></g>
-  <text class="pct" x="59.3" y="297" style="fill:#072F25">15.4%</text>
-  <text class="pct" x="141.8" y="297" style="fill:#072F25">16.7%</text>
-  <text class="pct" x="257.1" y="297" style="fill:#072F25">28.2%</text>
-  <text class="pct" x="398.9" y="297" style="fill:#072F25">26.9%</text>
-  <text class="pct" x="501.1" y="297" style="fill:#072F25">12.8%</text>
-  <text class="tick" x="51.4" y="338">40%</text>
-  <text class="tick" x="154.3" y="338">20%</text>
-  <text class="tick" x="257.1" y="338">0%</text>
-  <text class="tick" x="360.0" y="338">20%</text>
-  <text class="tick" x="462.9" y="338">40%</text>
-  <text class="tick" x="565.7" y="338">60%</text>
-  <text class="tick" x="668.6" y="338">80%</text>
-  <rect x="0" y="360" width="14" height="14" rx="3" fill="#E0962B"/><text class="key" x="20" y="372">1 (lowest)</text>
-  <rect x="118.0" y="360" width="14" height="14" rx="3" fill="#F7CE8B"/><text class="key" x="138.0" y="372">2</text>
-  <rect x="167.6" y="360" width="14" height="14" rx="3" fill="#C5D3CD"/><text class="key" x="187.6" y="372">3</text>
-  <rect x="217.2" y="360" width="14" height="14" rx="3" fill="#79C3A0"/><text class="key" x="237.2" y="372">4</text>
-  <rect x="266.8" y="360" width="14" height="14" rx="3" fill="#3FA37F"/><text class="key" x="286.8" y="372">5 (highest)</text>
+  <g><title>Rating 2: 5 of 156 (3.2%)</title><rect class="seg" x="181.3" y="58" width="16.5" height="36" fill="#F7CE8B"/>
+  <text class="pct" transform="translate(189.6 76.0) rotate(-90)" y="4" style="fill:#072F25;font-size:11px">3.2%</text>
+  </g>
+  <g><title>Rating 3: 36 of 156 (23.1%)</title><rect class="seg" x="197.8" y="58" width="118.7" height="36" fill="#C5D3CD"/>
+  <text class="pct" x="257.1" y="81.0" style="fill:#072F25;font-size:14px">23.1%</text>
+  </g>
+  <g><title>Rating 4: 79 of 156 (50.6%)</title><rect class="seg" x="316.5" y="58" width="260.4" height="36" fill="#79C3A0"/>
+  <text class="pct" x="446.7" y="81.0" style="fill:#072F25;font-size:14px">50.6%</text>
+  </g>
+  <g><title>Rating 5: 36 of 156 (23.1%)</title><rect class="seg" x="576.9" y="58" width="118.7" height="36" fill="#3FA37F"/>
+  <text class="pct" x="636.3" y="81.0" style="fill:#072F25;font-size:14px">23.1%</text>
+  </g>
+  <text x="0" y="135">How often do you see reviews that focus on</text>
+  <text x="0" y="155">the brand more than the product?</text>
+  <line class="grid" x1="51.4" x2="51.4" y1="164" y2="208"/>
+  <line class="grid" x1="154.3" x2="154.3" y1="164" y2="208"/>
+  <line class="zero" x1="257.1" x2="257.1" y1="164" y2="208"/>
+  <line class="grid" x1="360.0" x2="360.0" y1="164" y2="208"/>
+  <line class="grid" x1="462.9" x2="462.9" y1="164" y2="208"/>
+  <line class="grid" x1="565.7" x2="565.7" y1="164" y2="208"/>
+  <line class="grid" x1="668.6" x2="668.6" y1="164" y2="208"/>
+  <g><title>Rating 1: 6 of 156 (3.8%)</title><rect class="seg" x="67.6" y="168" width="19.8" height="36" fill="#E0962B"/>
+  <text class="pct" transform="translate(77.5 186.0) rotate(-90)" y="4" style="fill:#072F25;font-size:11px">3.8%</text>
+  </g>
+  <g><title>Rating 2: 23 of 156 (14.7%)</title><rect class="seg" x="87.4" y="168" width="75.8" height="36" fill="#F7CE8B"/>
+  <text class="pct" x="125.3" y="191.0" style="fill:#072F25;font-size:14px">14.7%</text>
+  </g>
+  <g><title>Rating 3: 57 of 156 (36.5%)</title><rect class="seg" x="163.2" y="168" width="187.9" height="36" fill="#C5D3CD"/>
+  <text class="pct" x="257.1" y="191.0" style="fill:#072F25;font-size:14px">36.5%</text>
+  </g>
+  <g><title>Rating 4: 58 of 156 (37.2%)</title><rect class="seg" x="351.1" y="168" width="191.2" height="36" fill="#79C3A0"/>
+  <text class="pct" x="446.7" y="191.0" style="fill:#072F25;font-size:14px">37.2%</text>
+  </g>
+  <g><title>Rating 5: 12 of 156 (7.7%)</title><rect class="seg" x="542.3" y="168" width="39.6" height="36" fill="#3FA37F"/>
+  <text class="pct" x="562.1" y="191.0" style="fill:#072F25;font-size:14px">7.7%</text>
+  </g>
+  <text x="0" y="245">How likely are you to answer</text>
+  <text x="0" y="265">&#x27;Did you find this review useful?&#x27;</text>
+  <line class="grid" x1="51.4" x2="51.4" y1="274" y2="318"/>
+  <line class="grid" x1="154.3" x2="154.3" y1="274" y2="318"/>
+  <line class="zero" x1="257.1" x2="257.1" y1="274" y2="318"/>
+  <line class="grid" x1="360.0" x2="360.0" y1="274" y2="318"/>
+  <line class="grid" x1="462.9" x2="462.9" y1="274" y2="318"/>
+  <line class="grid" x1="565.7" x2="565.7" y1="274" y2="318"/>
+  <line class="grid" x1="668.6" x2="668.6" y1="274" y2="318"/>
+  <g><title>Rating 1: 24 of 156 (15.4%)</title><rect class="seg" x="19.8" y="278" width="79.1" height="36" fill="#E0962B"/>
+  <text class="pct" x="59.3" y="301.0" style="fill:#072F25;font-size:14px">15.4%</text>
+  </g>
+  <g><title>Rating 2: 26 of 156 (16.7%)</title><rect class="seg" x="98.9" y="278" width="85.7" height="36" fill="#F7CE8B"/>
+  <text class="pct" x="141.8" y="301.0" style="fill:#072F25;font-size:14px">16.7%</text>
+  </g>
+  <g><title>Rating 3: 44 of 156 (28.2%)</title><rect class="seg" x="184.6" y="278" width="145.1" height="36" fill="#C5D3CD"/>
+  <text class="pct" x="257.1" y="301.0" style="fill:#072F25;font-size:14px">28.2%</text>
+  </g>
+  <g><title>Rating 4: 42 of 156 (26.9%)</title><rect class="seg" x="329.7" y="278" width="138.5" height="36" fill="#79C3A0"/>
+  <text class="pct" x="398.9" y="301.0" style="fill:#072F25;font-size:14px">26.9%</text>
+  </g>
+  <g><title>Rating 5: 20 of 156 (12.8%)</title><rect class="seg" x="468.1" y="278" width="65.9" height="36" fill="#3FA37F"/>
+  <text class="pct" x="501.1" y="301.0" style="fill:#072F25;font-size:14px">12.8%</text>
+  </g>
+  <text class="tick" x="51.4" y="344">40%</text>
+  <text class="tick" x="154.3" y="344">20%</text>
+  <text class="tick" x="257.1" y="344">0%</text>
+  <text class="tick" x="360.0" y="344">20%</text>
+  <text class="tick" x="462.9" y="344">40%</text>
+  <text class="tick" x="565.7" y="344">60%</text>
+  <text class="tick" x="668.6" y="344">80%</text>
+  <rect x="0" y="366" width="14" height="14" rx="3" fill="#E0962B"/><text class="key" x="20" y="378">1 (lowest)</text>
+  <rect x="118.0" y="366" width="14" height="14" rx="3" fill="#F7CE8B"/><text class="key" x="138.0" y="378">2</text>
+  <rect x="167.6" y="366" width="14" height="14" rx="3" fill="#C5D3CD"/><text class="key" x="187.6" y="378">3</text>
+  <rect x="217.2" y="366" width="14" height="14" rx="3" fill="#79C3A0"/><text class="key" x="237.2" y="378">4</text>
+  <rect x="266.8" y="366" width="14" height="14" rx="3" fill="#3FA37F"/><text class="key" x="286.8" y="378">5 (highest)</text>
 </svg>

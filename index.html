@@ -49,6 +49,7 @@
         <ul>
           <li><a href="#problem">Problem</a></li>
           <li><a href="#data">Data</a></li>
+          <li><a href="#pipeline">Pipeline</a></li>
           <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
         </ul>
       </nav>
@@ -236,6 +237,59 @@
           </table>
           </details>
         </figure>
+      </div>
+    </section>
+
+    <section class="section" id="pipeline" aria-labelledby="pipeline-title">
+      <div class="wrap">
+        <h2 id="pipeline-title">From raw text to numbers</h2>
+        <p class="lede">
+          A classifier can't read English. Most of our work went into turning a review into numbers without throwing away what makes it fake.
+        </p>
+
+        <h3>The shape of it</h3>
+        <p>
+          The flow is the usual one for a text classifier. Reviews are cleaned and converted to features, split into training and testing data, and used to fit five different models. Their predictions on the held-back reviews are scored, and the scores send us back to preprocessing to try again.
+        </p>
+        <figure class="chart">
+          <object data="images/pipeline-diagram.svg" type="image/svg+xml" role="img" aria-label="Flow diagram of the pipeline from data acquisition to evaluation, looping back to preprocessing" style="aspect-ratio: 720 / 300">
+            <img src="images/pipeline-diagram.svg" alt="Flow diagram: data acquisition, preprocessing, a split into training and testing data, classification modelling, predictions, then evaluation metrics that loop back to preprocessing." width="720" height="300">
+          </object>
+          <figcaption>The end-to-end flow, redrawn from our report.</figcaption>
+        </figure>
+
+        <h3>Following one review through</h3>
+        <p>
+          This is the review our report uses as its example: a negative, deceptive Hilton review from the dataset. The outputs below come from running our project's own preprocessing code on it.
+        </p>
+        <ol class="stepper" data-stepper>
+          <li class="step">
+            <h4>1. The raw review</h4>
+            <blockquote class="sample">During my stay at the Hilton Chicago it has been quite unpleasant. How so you might ask? Well ill tell you, the towels where scratchy and the service was terrible and by terrible I mean they weren&#x27;t even at the desk when I checked in. Also, When I ordered my breakfast, lunch, and dinner from room service I received the wrong order for all meals and felt a little sick after lunch. Finally, The bill was charging me for stuff I didn&#x27;t want or ask for. But overall the hotel was very bad and unpleasant for me and others. I give it a half a star.
+</blockquote>
+            <p class="step-note">106 words, as it appears in the dataset.</p>
+          </li>
+          <li class="step">
+            <h4>2. Clean it</h4>
+            <p class="sample">during my stay at the hilton chicago it has been quite unpleasant how so you might ask well ill tell you the towels where scratchy and the service was terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all meals and felt little sick after lunch finally the bill was charging me for stuff didn want or ask for but overall the hotel was very bad and unpleasant for me and others give it half star </p>
+            <p class="step-note">Regular expressions strip punctuation, drop single letters like &ldquo;I&rdquo; and &ldquo;a&rdquo;, and lowercase everything: 97 words left. They also do some collateral damage. &ldquo;weren't&rdquo; became &ldquo;weren&rdquo;, because the apostrophe split the word and the lone &ldquo;t&rdquo; was dropped.</p>
+          </li>
+          <li class="step">
+            <h4>3. Reduce words to their base form</h4>
+            <p class="sample">during my stay at the hilton chicago it <mark>ha</mark> been quite unpleasant how so you might ask well ill tell you the <mark>towel</mark> where scratchy and the service <mark>wa</mark> terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all <mark>meal</mark> and felt little sick after lunch finally the bill <mark>wa</mark> charging me for stuff didn want or ask for but overall the hotel <mark>wa</mark> very bad and unpleasant for me and others give it half star</p>
+            <p class="step-note">A WordNet lemmatizer maps each word to a dictionary form. Six words changed (highlighted). It runs without part-of-speech tags, so it treats every word as a noun: &ldquo;towels&rdquo; correctly becomes &ldquo;towel&rdquo;, but &ldquo;was&rdquo; becomes &ldquo;wa&rdquo; and &ldquo;has&rdquo; becomes &ldquo;ha&rdquo;. The model only needs consistency, so it's harmless, but it's a known wart.</p>
+          </li>
+          <li class="step">
+            <h4>4. Drop filler, then count words and pairs</h4>
+            <ul class="chips"><li>stay</li><li>hilton</li><li>chicago</li><li>ha</li><li>quite</li><li>unpleasant</li><li>might</li><li>ask</li><li>well</li><li>tell</li><li>towel</li><li>service</li><li>terrible</li><li>mean</li><li>even</li><li>desk</li><li>checked</li><li>also</li><li>ordered</li><li>breakfast</li><li>dinner</li><li>received</li><li>wrong</li><li>order</li><li>meal</li><li>felt</li><li>little</li><li>finally</li><li>bill</li><li>stuff</li><li>want</li><li>overall</li><li>bad</li><li>others</li><li>give</li><li>half</li><li>star</li><li>stay hilton</li><li>hilton chicago</li><li>chicago ha</li><li>service wa</li><li>wa terrible</li><li>room service</li><li>hotel wa</li><li>wa bad</li></ul>
+            <p class="step-note">The vectorizer drops 45 common words (&ldquo;the&rdquo;, &ldquo;at&rdquo;, &ldquo;it&rdquo;), leaving 52 single words, and pairs neighbours into 51 two-word phrases. Only terms that appear in at least five training reviews, and are among the 1,500 most frequent, are kept, so this review ends up with 45 distinct terms (shown above) out of 49 occurrences.</p>
+          </li>
+          <li class="step">
+            <h4>5. Weigh each term</h4>
+            <ol class="weights"><li><span class="term">unpleasant</span><span class="bar" aria-hidden="true"><i style="width:100%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="bar" aria-hidden="true"><i style="width:89%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="bar" aria-hidden="true"><i style="width:79%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="bar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="bar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="bar" aria-hidden="true"><i style="width:51%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="bar" aria-hidden="true"><i style="width:50%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="bar" aria-hidden="true"><i style="width:47%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="bar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="bar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.159</span></li></ol>
+            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
+          </li>
+        </ol>
       </div>
     </section>
   </main>
