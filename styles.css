@@ -335,18 +335,6 @@ details summary {
   font-weight: 400;
 }
 
-.more {
-  max-width: 720px;
-  margin-top: 1.5rem;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid var(--line);
-  border-radius: 0.6rem;
-}
-
-.more[open] summary {
-  margin-bottom: 0.5rem;
-}
-
 /* data tables */
 .data-table {
   display: block;

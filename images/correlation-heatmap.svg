@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 482" width="720" height="482" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+  <title id="t">Correlation heatmap of simple text features and the fake label</title>
+  <desc id="d">Heatmap of Pearson correlations for seven features over 1,600 reviews. The fake label correlates most strongly with digit count at -0.31. Its correlation with characters, non-word characters, words and sentences is between -0.03 and -0.09, and with polarity 0.00. Characters, non-word characters and words are almost perfectly correlated with each other.</desc>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap");
+
+    :root {
+      color-scheme: dark;
+    }
+
+    text {
+      fill: #F1FDF6;
+      font-family: "Oxygen", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+    }
+
+    .head {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .pct {
+      font-size: 14px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+
+    .big {
+      font-size: 30px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+
+    .mid {
+      fill: #B9E3CC;
+      font-size: 14px;
+      text-anchor: middle;
+    }
+
+    .key {
+      fill: #B9E3CC;
+      font-size: 14px;
+    }
+
+    .tick {
+      fill: #B9E3CC;
+      font-size: 13px;
+      text-anchor: middle;
+    }
+
+    .seg {
+      stroke: #072F25;
+      stroke-width: 2;
+    }
+
+    .grid {
+      stroke: #A4EFC1;
+      stroke-opacity: 0.18;
+    }
+
+    .zero {
+      stroke: #B9E3CC;
+      stroke-width: 1.5;
+    }
+  </style>
+  <defs><linearGradient id="scale" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A4EFC1"/><stop offset="0.5" stop-color="#0F4A39"/><stop offset="1" stop-color="#E0962B"/></linearGradient></defs>
+  <text class="head" x="0" y="22">How simple text counts relate to the fake label</text>
+  <g><title>polarity and polarity: 1.00</title><rect class="seg" x="128" y="44" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="161.0" y="76.0" style="fill:#072F25">1.00</text></g>
+  <g><title>polarity and fake: 0.00</title><rect class="seg" x="194" y="44" width="66" height="54" fill="#0F4A39"/><text class="pct" x="227.0" y="76.0" style="fill:#F1FDF6">0.00</text></g>
+  <g><title>polarity and chars: -0.32</title><rect class="seg" x="260" y="44" width="66" height="54" fill="#526235"/><text class="pct" x="293.0" y="76.0" style="fill:#F1FDF6">-0.32</text></g>
+  <g><title>polarity and digits: -0.15</title><rect class="seg" x="326" y="44" width="66" height="54" fill="#2F5637"/><text class="pct" x="359.0" y="76.0" style="fill:#F1FDF6">-0.15</text></g>
+  <g><title>polarity and non-word: -0.33</title><rect class="seg" x="392" y="44" width="66" height="54" fill="#546334"/><text class="pct" x="425.0" y="76.0" style="fill:#F1FDF6">-0.33</text></g>
+  <g><title>polarity and words: -0.33</title><rect class="seg" x="458" y="44" width="66" height="54" fill="#556334"/><text class="pct" x="491.0" y="76.0" style="fill:#F1FDF6">-0.33</text></g>
+  <g><title>polarity and sentences: -0.25</title><rect class="seg" x="524" y="44" width="66" height="54" fill="#435D36"/><text class="pct" x="557.0" y="76.0" style="fill:#F1FDF6">-0.25</text></g>
+  <text x="118" y="76.0" style="text-anchor:end">polarity</text>
+  <g><title>fake and polarity: 0.00</title><rect class="seg" x="128" y="98" width="66" height="54" fill="#0F4A39"/><text class="pct" x="161.0" y="130.0" style="fill:#F1FDF6">0.00</text></g>
+  <g><title>fake and fake: 1.00</title><rect class="seg" x="194" y="98" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="227.0" y="130.0" style="fill:#072F25">1.00</text></g>
+  <g><title>fake and chars: -0.03</title><rect class="seg" x="260" y="98" width="66" height="54" fill="#164C39"/><text class="pct" x="293.0" y="130.0" style="fill:#F1FDF6">-0.03</text></g>
+  <g><title>fake and digits: -0.31</title><rect class="seg" x="326" y="98" width="66" height="54" fill="#506235"/><text class="pct" x="359.0" y="130.0" style="fill:#F1FDF6">-0.31</text></g>
+  <g><title>fake and non-word: -0.05</title><rect class="seg" x="392" y="98" width="66" height="54" fill="#1A4E38"/><text class="pct" x="425.0" y="130.0" style="fill:#F1FDF6">-0.05</text></g>
+  <g><title>fake and words: -0.04</title><rect class="seg" x="458" y="98" width="66" height="54" fill="#184D38"/><text class="pct" x="491.0" y="130.0" style="fill:#F1FDF6">-0.04</text></g>
+  <g><title>fake and sentences: -0.09</title><rect class="seg" x="524" y="98" width="66" height="54" fill="#225138"/><text class="pct" x="557.0" y="130.0" style="fill:#F1FDF6">-0.09</text></g>
+  <text x="118" y="130.0" style="text-anchor:end">fake</text>
+  <g><title>chars and polarity: -0.32</title><rect class="seg" x="128" y="152" width="66" height="54" fill="#526235"/><text class="pct" x="161.0" y="184.0" style="fill:#F1FDF6">-0.32</text></g>
+  <g><title>chars and fake: -0.03</title><rect class="seg" x="194" y="152" width="66" height="54" fill="#164C39"/><text class="pct" x="227.0" y="184.0" style="fill:#F1FDF6">-0.03</text></g>
+  <g><title>chars and chars: 1.00</title><rect class="seg" x="260" y="152" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="293.0" y="184.0" style="fill:#072F25">1.00</text></g>
+  <g><title>chars and digits: 0.38</title><rect class="seg" x="326" y="152" width="66" height="54" fill="#47886C"/><text class="pct" x="359.0" y="184.0" style="fill:#F1FDF6">0.38</text></g>
+  <g><title>chars and non-word: 1.00</title><rect class="seg" x="392" y="152" width="66" height="54" fill="#A3EEC0"/><text class="pct" x="425.0" y="184.0" style="fill:#072F25">1.00</text></g>
+  <g><title>chars and words: 1.00</title><rect class="seg" x="458" y="152" width="66" height="54" fill="#A3EEC0"/><text class="pct" x="491.0" y="184.0" style="fill:#072F25">1.00</text></g>
+  <g><title>chars and sentences: 0.86</title><rect class="seg" x="524" y="152" width="66" height="54" fill="#8FD7AE"/><text class="pct" x="557.0" y="184.0" style="fill:#072F25">0.86</text></g>
+  <text x="118" y="184.0" style="text-anchor:end">chars</text>
+  <g><title>digits and polarity: -0.15</title><rect class="seg" x="128" y="206" width="66" height="54" fill="#2F5637"/><text class="pct" x="161.0" y="238.0" style="fill:#F1FDF6">-0.15</text></g>
+  <g><title>digits and fake: -0.31</title><rect class="seg" x="194" y="206" width="66" height="54" fill="#506235"/><text class="pct" x="227.0" y="238.0" style="fill:#F1FDF6">-0.31</text></g>
+  <g><title>digits and chars: 0.38</title><rect class="seg" x="260" y="206" width="66" height="54" fill="#47886C"/><text class="pct" x="293.0" y="238.0" style="fill:#F1FDF6">0.38</text></g>
+  <g><title>digits and digits: 1.00</title><rect class="seg" x="326" y="206" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="359.0" y="238.0" style="fill:#072F25">1.00</text></g>
+  <g><title>digits and non-word: 0.41</title><rect class="seg" x="392" y="206" width="66" height="54" fill="#4C8D70"/><text class="pct" x="425.0" y="238.0" style="fill:#F1FDF6">0.41</text></g>
+  <g><title>digits and words: 0.40</title><rect class="seg" x="458" y="206" width="66" height="54" fill="#4B8C70"/><text class="pct" x="491.0" y="238.0" style="fill:#F1FDF6">0.40</text></g>
+  <g><title>digits and sentences: 0.40</title><rect class="seg" x="524" y="206" width="66" height="54" fill="#4A8C6F"/><text class="pct" x="557.0" y="238.0" style="fill:#F1FDF6">0.40</text></g>
+  <text x="118" y="238.0" style="text-anchor:end">digits</text>
+  <g><title>non-word and polarity: -0.33</title><rect class="seg" x="128" y="260" width="66" height="54" fill="#546334"/><text class="pct" x="161.0" y="292.0" style="fill:#F1FDF6">-0.33</text></g>
+  <g><title>non-word and fake: -0.05</title><rect class="seg" x="194" y="260" width="66" height="54" fill="#1A4E38"/><text class="pct" x="227.0" y="292.0" style="fill:#F1FDF6">-0.05</text></g>
+  <g><title>non-word and chars: 1.00</title><rect class="seg" x="260" y="260" width="66" height="54" fill="#A3EEC0"/><text class="pct" x="293.0" y="292.0" style="fill:#072F25">1.00</text></g>
+  <g><title>non-word and digits: 0.41</title><rect class="seg" x="326" y="260" width="66" height="54" fill="#4C8D70"/><text class="pct" x="359.0" y="292.0" style="fill:#F1FDF6">0.41</text></g>
+  <g><title>non-word and non-word: 1.00</title><rect class="seg" x="392" y="260" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="425.0" y="292.0" style="fill:#072F25">1.00</text></g>
+  <g><title>non-word and words: 1.00</title><rect class="seg" x="458" y="260" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="491.0" y="292.0" style="fill:#072F25">1.00</text></g>
+  <g><title>non-word and sentences: 0.87</title><rect class="seg" x="524" y="260" width="66" height="54" fill="#91DAAF"/><text class="pct" x="557.0" y="292.0" style="fill:#072F25">0.87</text></g>
+  <text x="118" y="292.0" style="text-anchor:end">non-word</text>
+  <g><title>words and polarity: -0.33</title><rect class="seg" x="128" y="314" width="66" height="54" fill="#556334"/><text class="pct" x="161.0" y="346.0" style="fill:#F1FDF6">-0.33</text></g>
+  <g><title>words and fake: -0.04</title><rect class="seg" x="194" y="314" width="66" height="54" fill="#184D38"/><text class="pct" x="227.0" y="346.0" style="fill:#F1FDF6">-0.04</text></g>
+  <g><title>words and chars: 1.00</title><rect class="seg" x="260" y="314" width="66" height="54" fill="#A3EEC0"/><text class="pct" x="293.0" y="346.0" style="fill:#072F25">1.00</text></g>
+  <g><title>words and digits: 0.40</title><rect class="seg" x="326" y="314" width="66" height="54" fill="#4B8C70"/><text class="pct" x="359.0" y="346.0" style="fill:#F1FDF6">0.40</text></g>
+  <g><title>words and non-word: 1.00</title><rect class="seg" x="392" y="314" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="425.0" y="346.0" style="fill:#072F25">1.00</text></g>
+  <g><title>words and words: 1.00</title><rect class="seg" x="458" y="314" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="491.0" y="346.0" style="fill:#072F25">1.00</text></g>
+  <g><title>words and sentences: 0.87</title><rect class="seg" x="524" y="314" width="66" height="54" fill="#91DAAF"/><text class="pct" x="557.0" y="346.0" style="fill:#072F25">0.87</text></g>
+  <text x="118" y="346.0" style="text-anchor:end">words</text>
+  <g><title>sentences and polarity: -0.25</title><rect class="seg" x="128" y="368" width="66" height="54" fill="#435D36"/><text class="pct" x="161.0" y="400.0" style="fill:#F1FDF6">-0.25</text></g>
+  <g><title>sentences and fake: -0.09</title><rect class="seg" x="194" y="368" width="66" height="54" fill="#225138"/><text class="pct" x="227.0" y="400.0" style="fill:#F1FDF6">-0.09</text></g>
+  <g><title>sentences and chars: 0.86</title><rect class="seg" x="260" y="368" width="66" height="54" fill="#8FD7AE"/><text class="pct" x="293.0" y="400.0" style="fill:#072F25">0.86</text></g>
+  <g><title>sentences and digits: 0.40</title><rect class="seg" x="326" y="368" width="66" height="54" fill="#4A8C6F"/><text class="pct" x="359.0" y="400.0" style="fill:#F1FDF6">0.40</text></g>
+  <g><title>sentences and non-word: 0.87</title><rect class="seg" x="392" y="368" width="66" height="54" fill="#91DAAF"/><text class="pct" x="425.0" y="400.0" style="fill:#072F25">0.87</text></g>
+  <g><title>sentences and words: 0.87</title><rect class="seg" x="458" y="368" width="66" height="54" fill="#91DAAF"/><text class="pct" x="491.0" y="400.0" style="fill:#072F25">0.87</text></g>
+  <g><title>sentences and sentences: 1.00</title><rect class="seg" x="524" y="368" width="66" height="54" fill="#A4EFC1"/><text class="pct" x="557.0" y="400.0" style="fill:#072F25">1.00</text></g>
+  <text x="118" y="400.0" style="text-anchor:end">sentences</text>
+  <text class="tick" x="161.0" y="442" style="font-size:13px">polarity</text>
+  <text class="tick" x="227.0" y="442" style="font-size:13px">fake</text>
+  <text class="tick" x="293.0" y="442" style="font-size:13px">chars</text>
+  <text class="tick" x="359.0" y="442" style="font-size:13px">digits</text>
+  <text class="tick" x="425.0" y="442" style="font-size:13px">non-word</text>
+  <text class="tick" x="491.0" y="442" style="font-size:13px">words</text>
+  <text class="tick" x="557.0" y="442" style="font-size:13px">sentences</text>
+  <rect x="128" y="98" width="462" height="54" fill="none" stroke="#FFC15E" stroke-width="2.5" rx="3"/>
+  <rect x="194" y="44" width="66" height="378" fill="none" stroke="#FFC15E" stroke-width="2.5" rx="3"/>
+  <rect x="616" y="44" width="16" height="378" rx="3" fill="url(#scale)"/>
+  <text class="key" x="640" y="54" style="font-size:13px">1</text>
+  <text class="key" x="640" y="238.0" style="font-size:13px">0</text>
+  <text class="key" x="640" y="420" style="font-size:13px">-1</text>
+  <text class="key" x="0" y="474" style="font-size:13px">Pearson correlation over all 1,600 reviews. Outlined row and column: the fake label.</text>
+</svg>

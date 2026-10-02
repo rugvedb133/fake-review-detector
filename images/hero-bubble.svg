@@ -14,15 +14,15 @@
   <style>
     /* Declare the page's colour scheme inside the SVG. 
        Without this, the browser paints an opaque white backdrop
-       behind it when it is embedded with object tag on a dark page. */
+       behind it when it is embedded with object element on a dark page. */
     :root {
       color-scheme: dark;
     }
 
-    .mark {
     /* Stars and dot: solid dark green.
        On first load they start in the bubble's own colour (invisible),
        then appear. */
+    .mark {
       transition: fill 0.4s ease;
       fill: #072F25;
       stroke: #072F25;
@@ -33,14 +33,17 @@
 
     .m1 {
       animation-delay: 0.8s;
+      transition-delay: 0s;
     }
 
     .m2 {
       animation-delay: 0.95s;
+      transition-delay: 0.15s;
     }
 
     .m3 {
       animation-delay: 1.1s;
+      transition-delay: 0.3s;
     }
 
     @keyframes appear {
@@ -51,13 +54,27 @@
     }
 
     /* Hover: outline only (fill matches the bubble).
+       The transition delays above make the marks empty out, 
+       and later fill back in, one by one from left to right.
        The script keeps this class on long enough
-       for the change to finish before it reverses. */
+       for the last mark to finish before it reverses. */
     .outline .mark {
       fill: #A4EFC1;
     }
 
-    /* Soft halos behind the stars and dot, drifting very slowly. */
+    /* Soft halos behind the stars and dot, drifting very slowly. They fade in
+       only after the marks have appeared: a lighter halo behind a mark that is
+       still bubble-coloured would show its outline. */
+    .halos {
+      animation: haloIn 1.2s ease-out 1.8s backwards;
+    }
+
+    @keyframes haloIn {
+      from {
+        opacity: 0;
+      }
+    }
+
     .halo {
       animation: drift 28s ease-in-out infinite alternate;
     }
@@ -83,38 +100,39 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .halo {
-        animation: none;
-      }
-
       .mark {
         animation: none;
         transition: none;
+      }
+
+      .halos,
+      .halo {
+        animation: none;
       }
     }
   </style>
 
   <g id="bubble">
-  <rect x="90" y="90" width="300" height="180" rx="36" fill="#A4EFC1"/>
-  <path d="M128 266h64l-72 62z" fill="#A4EFC1"/>
-    <g clip-path="url(#bubble-clip)">
+    <rect x="90" y="90" width="300" height="180" rx="36" fill="#A4EFC1"/>
+    <path d="M128 266h64l-72 62z" fill="#A4EFC1"/>
+    <g class="halos" clip-path="url(#bubble-clip)">
       <ellipse class="halo h1" cx="160" cy="180" rx="62" ry="62" fill="url(#halo)"/>
       <ellipse class="halo h2" cx="240" cy="180" rx="62" ry="62" fill="url(#halo)"/>
       <ellipse class="halo h3" cx="322" cy="180" rx="58" ry="58" fill="url(#halo)"/>
     </g>
-  <polygon class="mark m1" points="160.0,144.0 168.9,167.8 194.2,168.9 174.4,184.7 181.2,209.1 160.0,195.1 138.8,209.1 145.6,184.7 125.8,168.9 151.1,167.8"/>
-  <polygon class="mark m2" points="240.0,144.0 248.9,167.8 274.2,168.9 254.4,184.7 261.2,209.1 240.0,195.1 218.8,209.1 225.6,184.7 205.8,168.9 231.1,167.8"/>
-  <circle class="mark m3" cx="322" cy="180" r="27"/>
+    <polygon class="mark m1" points="160.0,144.0 168.9,167.8 194.2,168.9 174.4,184.7 181.2,209.1 160.0,195.1 138.8,209.1 145.6,184.7 125.8,168.9 151.1,167.8"/>
+    <polygon class="mark m2" points="240.0,144.0 248.9,167.8 274.2,168.9 254.4,184.7 261.2,209.1 240.0,195.1 218.8,209.1 225.6,184.7 205.8,168.9 231.1,167.8"/>
+    <circle class="mark m3" cx="322" cy="180" r="27"/>
   </g>
 
   <script><![CDATA[
     // Hover (or touch) turns the marks to outlines, then back to solid.
-    // The outline stays for at least as long as its transition, so even a
-    // quick pass finishes the whole cycle.
+    // The outline stays for at least as long as the full staggered change,
+    // so even a quick pass finishes the whole cycle.
     var root = document.documentElement;
     var bubble = document.getElementById('bubble');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var HOLD = reduce ? 0 : 400;
+    var HOLD = reduce ? 0 : 700; // last mark's delay (0.3s) + its transition (0.4s)
     var since = 0;
     var timer = 0;
 
