@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 374" width="720" height="374" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+  <title id="t">How much reviews matter to shoppers</title>
+  <desc id="d">Stacked bars from 156 respondents on a 1 to 5 scale. 73.7% rated their likelihood of deciding from reviews 4 or 5. 44.9% rated how often reviews focus on the brand rather than the product 4 or 5. 39.7% rated their likelihood of answering &#x27;Did you find this review useful?&#x27; 4 or 5.</desc>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap");
+
+    :root {
+      color-scheme: dark;
+    }
+
+    text {
+      fill: #F1FDF6;
+      font-family: "Oxygen", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+    }
+
+    .seg {
+      stroke: #072F25;
+      stroke-width: 2;
+    }
+
+    .pct {
+      font-size: 14px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+
+    .key {
+      fill: #B9E3CC;
+      font-size: 14px;
+    }
+  </style>
+  <text x="0" y="25">How likely are you to make a buying decision</text>
+  <text x="0" y="45">based on reviews?</text>
+  <g><title>2: 5 of 156 (3.2%)</title><rect class="seg" x="0.0" y="58" width="23.1" height="40" rx="4" fill="#4E9F83"/>
+  </g>
+  <g><title>3: 36 of 156 (23.1%)</title><rect class="seg" x="23.1" y="58" width="166.2" height="40" rx="4" fill="#79C3A0"/>
+  <text class="pct" x="106.2" y="83" fill="#072F25" style="fill:#072F25">23.1%</text>
+  </g>
+  <g><title>4: 79 of 156 (50.6%)</title><rect class="seg" x="189.2" y="58" width="364.6" height="40" rx="4" fill="#A4EFC1"/>
+  <text class="pct" x="371.5" y="83" fill="#072F25" style="fill:#072F25">50.6%</text>
+  </g>
+  <g><title>5: 36 of 156 (23.1%)</title><rect class="seg" x="553.8" y="58" width="166.2" height="40" rx="4" fill="#F1FDF6"/>
+  <text class="pct" x="636.9" y="83" fill="#072F25" style="fill:#072F25">23.1%</text>
+  </g>
+  <text x="0" y="139">How often do you see reviews that focus on</text>
+  <text x="0" y="159">the brand more than the product?</text>
+  <g><title>1: 6 of 156 (3.8%)</title><rect class="seg" x="0.0" y="172" width="27.7" height="40" rx="4" fill="#2F7F67"/>
+  </g>
+  <g><title>2: 23 of 156 (14.7%)</title><rect class="seg" x="27.7" y="172" width="106.2" height="40" rx="4" fill="#4E9F83"/>
+  <text class="pct" x="80.8" y="197" fill="#072F25" style="fill:#072F25">14.7%</text>
+  </g>
+  <g><title>3: 57 of 156 (36.5%)</title><rect class="seg" x="133.8" y="172" width="263.1" height="40" rx="4" fill="#79C3A0"/>
+  <text class="pct" x="265.4" y="197" fill="#072F25" style="fill:#072F25">36.5%</text>
+  </g>
+  <g><title>4: 58 of 156 (37.2%)</title><rect class="seg" x="396.9" y="172" width="267.7" height="40" rx="4" fill="#A4EFC1"/>
+  <text class="pct" x="530.8" y="197" fill="#072F25" style="fill:#072F25">37.2%</text>
+  </g>
+  <g><title>5: 12 of 156 (7.7%)</title><rect class="seg" x="664.6" y="172" width="55.4" height="40" rx="4" fill="#F1FDF6"/>
+  <text class="pct" x="692.3" y="197" fill="#072F25" style="fill:#072F25">7.7%</text>
+  </g>
+  <text x="0" y="253">How likely are you to answer</text>
+  <text x="0" y="273">&#x27;Did you find this review useful?&#x27;</text>
+  <g><title>1: 24 of 156 (15.4%)</title><rect class="seg" x="0.0" y="286" width="110.8" height="40" rx="4" fill="#2F7F67"/>
+  <text class="pct" x="55.4" y="311" fill="#F1FDF6" style="fill:#F1FDF6">15.4%</text>
+  </g>
+  <g><title>2: 26 of 156 (16.7%)</title><rect class="seg" x="110.8" y="286" width="120.0" height="40" rx="4" fill="#4E9F83"/>
+  <text class="pct" x="170.8" y="311" fill="#072F25" style="fill:#072F25">16.7%</text>
+  </g>
+  <g><title>3: 44 of 156 (28.2%)</title><rect class="seg" x="230.8" y="286" width="203.1" height="40" rx="4" fill="#79C3A0"/>
+  <text class="pct" x="332.3" y="311" fill="#072F25" style="fill:#072F25">28.2%</text>
+  </g>
+  <g><title>4: 42 of 156 (26.9%)</title><rect class="seg" x="433.8" y="286" width="193.8" height="40" rx="4" fill="#A4EFC1"/>
+  <text class="pct" x="530.8" y="311" fill="#072F25" style="fill:#072F25">26.9%</text>
+  </g>
+  <g><title>5: 20 of 156 (12.8%)</title><rect class="seg" x="627.7" y="286" width="92.3" height="40" rx="4" fill="#F1FDF6"/>
+  <text class="pct" x="673.8" y="311" fill="#072F25" style="fill:#072F25">12.8%</text>
+  </g>
+  <rect x="0" y="344" width="14" height="14" rx="3" fill="#2F7F67"/><text class="key" x="20" y="356">1 (lowest)</text>
+  <rect x="118.0" y="344" width="14" height="14" rx="3" fill="#4E9F83"/><text class="key" x="138.0" y="356">2</text>
+  <rect x="167.6" y="344" width="14" height="14" rx="3" fill="#79C3A0"/><text class="key" x="187.6" y="356">3</text>
+  <rect x="217.2" y="344" width="14" height="14" rx="3" fill="#A4EFC1"/><text class="key" x="237.2" y="356">4</text>
+  <rect x="266.8" y="344" width="14" height="14" rx="3" fill="#F1FDF6"/><text class="key" x="286.8" y="356">5 (highest)</text>
+</svg>

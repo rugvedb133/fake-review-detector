@@ -1,73 +1,137 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" aria-hidden="true" xmlns:c2pa="http://c2pa.org/manifest">
-  <!-- Decorative hero shape: a review bubble whose stars and dot fill in once.
-       The animation is plain CSS inside this file, so it works through <img>. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 320 260" width="320" height="260" aria-hidden="true" xmlns:c2pa="http://c2pa.org/manifest">
+  <!-- Decorative hero shape: a review bubble with two stars and a dot.
+       Load it with object (not img) so hover and the script below work. -->
   <defs>
-    <radialGradient id="glow">
-      <stop offset="0" stop-color="#A4EFC1" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#A4EFC1" stop-opacity="0"/>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#F1FDF6" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#F1FDF6" stop-opacity="0"/>
     </radialGradient>
+    <clipPath id="bubble-clip">
+      <rect x="90" y="90" width="300" height="180" rx="36"/>
+    </clipPath>
   </defs>
+
   <style>
+    /* Declare the page's colour scheme inside the SVG. 
+       Without this, the browser paints an opaque white backdrop
+       behind it when it is embedded with object tag on a dark page. */
     :root {
       color-scheme: dark;
     }
 
-    .glow {
-      animation: drift 45s ease-in-out infinite alternate;
-    }
-
     .mark {
+    /* Stars and dot: solid dark green.
+       On first load they start in the bubble's own colour (invisible),
+       then appear. */
+      transition: fill 0.4s ease;
       fill: #072F25;
-      fill-opacity: 0;
       stroke: #072F25;
       stroke-width: 6;
       stroke-linejoin: round;
-      animation: fill 0.6s ease-out both;
+      animation: appear 0.5s ease-out backwards;
     }
 
     .m1 {
-      animation-delay: 0.5s;
+      animation-delay: 0.8s;
     }
 
     .m2 {
-      animation-delay: 1s;
+      animation-delay: 0.95s;
     }
 
     .m3 {
-      animation-delay: 1.5s;
+      animation-delay: 1.1s;
     }
 
-    @keyframes fill {
-      to {
-        fill-opacity: 1;
+    @keyframes appear {
+      from {
+        fill: #A4EFC1;
+        stroke: #A4EFC1;
       }
+    }
+
+    /* Hover: outline only (fill matches the bubble).
+       The script keeps this class on long enough
+       for the change to finish before it reverses. */
+    .outline .mark {
+      fill: #A4EFC1;
+    }
+
+    /* Soft halos behind the stars and dot, drifting very slowly. */
+    .halo {
+      animation: drift 28s ease-in-out infinite alternate;
+    }
+
+    .h2 {
+      animation-duration: 34s;
+      animation-delay: -9s;
+    }
+
+    .h3 {
+      animation-duration: 41s;
+      animation-delay: -17s;
     }
 
     @keyframes drift {
       from {
-        transform: translate(-26px, -14px);
+        transform: translate(-7px, -5px);
       }
 
       to {
-        transform: translate(26px, 16px);
+        transform: translate(7px, 5px);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .glow {
+      .halo {
         animation: none;
       }
 
       .mark {
         animation: none;
-        fill-opacity: 1;
+        transition: none;
       }
     }
   </style>
-  <ellipse class="glow" cx="240" cy="200" rx="230" ry="190" fill="url(#glow)"/>
+
+  <g id="bubble">
   <rect x="90" y="90" width="300" height="180" rx="36" fill="#A4EFC1"/>
   <path d="M128 266h64l-72 62z" fill="#A4EFC1"/>
+    <g clip-path="url(#bubble-clip)">
+      <ellipse class="halo h1" cx="160" cy="180" rx="62" ry="62" fill="url(#halo)"/>
+      <ellipse class="halo h2" cx="240" cy="180" rx="62" ry="62" fill="url(#halo)"/>
+      <ellipse class="halo h3" cx="322" cy="180" rx="58" ry="58" fill="url(#halo)"/>
+    </g>
   <polygon class="mark m1" points="160.0,144.0 168.9,167.8 194.2,168.9 174.4,184.7 181.2,209.1 160.0,195.1 138.8,209.1 145.6,184.7 125.8,168.9 151.1,167.8"/>
   <polygon class="mark m2" points="240.0,144.0 248.9,167.8 274.2,168.9 254.4,184.7 261.2,209.1 240.0,195.1 218.8,209.1 225.6,184.7 205.8,168.9 231.1,167.8"/>
   <circle class="mark m3" cx="322" cy="180" r="27"/>
+  </g>
+
+  <script><![CDATA[
+    // Hover (or touch) turns the marks to outlines, then back to solid.
+    // The outline stays for at least as long as its transition, so even a
+    // quick pass finishes the whole cycle.
+    var root = document.documentElement;
+    var bubble = document.getElementById('bubble');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var HOLD = reduce ? 0 : 400;
+    var since = 0;
+    var timer = 0;
+
+    bubble.addEventListener('pointerenter', function () {
+      clearTimeout(timer);
+      if (!root.classList.contains('outline')) {
+        root.classList.add('outline');
+        since = Date.now();
+      }
+    });
+
+    bubble.addEventListener('pointerleave', function () {
+      var wait = Math.max(0, HOLD - (Date.now() - since));
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        root.classList.remove('outline');
+      }, wait);
+    });
+  ]]></script>
 </svg>

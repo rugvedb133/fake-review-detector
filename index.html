@@ -47,18 +47,19 @@
       <a class="brand" href="#top">Fake Review Detector</a>
       <nav aria-label="Page">
         <ul>
+          <li><a href="#problem">Problem</a></li>
           <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="wrap">
+  <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-text">
           <p class="tag">Capstone Project</p>
-    <h1>Detecting fake hotel reviews with NLP and a booking check</h1>
+          <h1 id="hero-title">Detecting fake hotel reviews with NLP and a booking check</h1>
           <p class="lede">
             We trained a classifier to tell genuine hotel reviews from deceptive ones, and put a booking check in front of it so only reviews from verified reservations reach the model.
             It started as a capstone project in a group of three and was later published at IEEE ICECCT 2021.
@@ -80,9 +81,96 @@
         </div>
         <div class="hero-art">
           <object data="images/hero-bubble.svg" type="image/svg+xml" aria-hidden="true">
-            <img src="images/hero-bubble.svg" alt="" width="480" height="400">
+            <img src="images/hero-bubble.svg" alt="" width="320" height="260">
           </object>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem" aria-labelledby="problem-title">
+      <div class="wrap">
+        <h2 id="problem-title">Why fake reviews are worth solving</h2>
+        <p class="lede">
+          Reviews steer what people buy, and shoppers know they can't fully trust them. That gap is what we wanted to work on.
+        </p>
+
+        <h3>What shoppers told us</h3>
+        <p>
+          At the start of the project we ran a short survey. <strong>74%</strong> of respondents said they were likely to decide based on reviews (4 or 5 on a 5-point scale).
+          Yet <strong>61%</strong> had felt some positive reviews were posted on the company's behalf, and only 4% said no. <strong>51%</strong> had come across reviews written out of spite.
+        </p>
+        <figure class="chart">
+          <object data="images/survey-trust.svg" type="image/svg+xml" role="img" aria-label="Stacked bars of survey answers about suspected paid-for positive reviews and spite reviews" style="aspect-ratio: 720 / 260">
+            <img src="images/survey-trust.svg" alt="Bar chart: 60.9% of respondents suspect some positive reviews are posted by the company, and 51.3% have seen spite reviews." width="720" height="260">
+          </object>
+          <figcaption>Suspected company-posted positive reviews and spite reviews, 156 respondents.</figcaption>
+          <details class="table-toggle">
+            <summary>View as a table</summary>
+            <table class="data-table">
+              <caption>Answers to the two trust questions (156 respondents)</caption>
+              <thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Maybe</th></tr></thead>
+              <tbody><tr><th scope="row">Positive reviews posted on behalf of the company</th><td>95 (60.9%)</td><td>7 (4.5%)</td><td>54 (34.6%)</td></tr><tr><th scope="row">Reviews written out of spite</th><td>80 (51.3%)</td><td>29 (18.6%)</td><td>47 (30.1%)</td></tr></tbody>
+            </table>
+          </details>
+        </figure>
+        <p class="note">
+          156 people answered a Google Form that we shared with classmates and friends over five days in September 2020. Respondents came from every age band, from under 15 to over 45, though most (about 85%) were 16 to 25.
+          Read it as a snapshot of young online shoppers, not a poll of everyone.
+        </p>
+        <details class="more">
+          <summary>More from the survey</summary>
+          <div class="more-body">
+            <figure class="chart">
+          <object data="images/survey-likelihood.svg" type="image/svg+xml" role="img" aria-label="Stacked bars of three questions answered on a 1 to 5 scale" style="aspect-ratio: 720 / 374">
+            <img src="images/survey-likelihood.svg" alt="Bar chart of three 1 to 5 questions. 73.7% rated their likelihood of deciding from reviews 4 or 5." width="720" height="374">
+          </object>
+          <figcaption>The three 1 to 5 questions, 156 respondents.</figcaption>
+          <details class="table-toggle">
+            <summary>View as a table</summary>
+            <table class="data-table">
+              <caption>Answers on a 1 to 5 scale (156 respondents)</caption>
+              <thead><tr><th scope="col">Question</th><th scope="col">1 (lowest)</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5 (highest)</th></tr></thead>
+              <tbody><tr><th scope="row">Likely to decide based on reviews</th><td>0 (0.0%)</td><td>5 (3.2%)</td><td>36 (23.1%)</td><td>79 (50.6%)</td><td>36 (23.1%)</td></tr><tr><th scope="row">Reviews focus on the brand, not the product</th><td>6 (3.8%)</td><td>23 (14.7%)</td><td>57 (36.5%)</td><td>58 (37.2%)</td><td>12 (7.7%)</td></tr><tr><th scope="row">Likely to answer &ldquo;Did you find this review useful?&rdquo;</th><td>24 (15.4%)</td><td>26 (16.7%)</td><td>44 (28.2%)</td><td>42 (26.9%)</td><td>20 (12.8%)</td></tr></tbody>
+            </table>
+          </details>
+        </figure>
+            <figure class="chart">
+          <object data="images/survey-respondents.svg" type="image/svg+xml" role="img" aria-label="Stacked bars showing respondents' age groups and preferred review type" style="aspect-ratio: 720 / 246">
+            <img src="images/survey-respondents.svg" alt="Bar chart: 85.7% of respondents who gave an age were 16 to 25, and 69.9% preferred text reviews to star ratings." width="720" height="246">
+          </object>
+          <figcaption>Who answered: age group and preferred review type.</figcaption>
+          <details class="table-toggle">
+            <summary>View as a table</summary>
+            <table class="data-table">
+              <caption>Age group (154 of 156 respondents answered)</caption>
+              <thead><tr><th scope="col">Age group</th><th scope="col">Respondents</th></tr></thead>
+              <tbody><tr><th scope="row">15 and below</th><td>2 (1.3%)</td></tr><tr><th scope="row">16&ndash;25</th><td>132 (85.7%)</td></tr><tr><th scope="row">26&ndash;35</th><td>6 (3.9%)</td></tr><tr><th scope="row">36&ndash;45</th><td>2 (1.3%)</td></tr><tr><th scope="row">45 and above</th><td>12 (7.8%)</td></tr></tbody>
+            </table>
+            <table class="data-table">
+              <caption>Preferred review type (156 respondents)</caption>
+              <thead><tr><th scope="col">Type</th><th scope="col">Respondents</th></tr></thead>
+              <tbody><tr><th scope="row">Text review</th><td>109 (69.9%)</td></tr><tr><th scope="row">Star rating</th><td>47 (30.1%)</td></tr></tbody>
+            </table>
+          </details>
+        </figure>
+          </div>
+        </details>
+
+        <h3>What already existed</h3>
+        <p>
+          We surveyed the market for tools that do something similar. ReviewMeta re-scored Amazon reviews and gave an adjusted rating. Fakespot graded reviews on a handful of shopping sites. The Review Index summarised the reviews for a product.
+        </p>
+        <p>
+          They shared two limits. Each worked only on specific sites, and each judged reviews after they were already posted, so nothing stopped the fake ones from going up. The market has moved since: Mozilla shut Fakespot down in July 2025, and ReviewMeta now appears to be offline.
+        </p>
+
+        <h3>What we tried instead</h3>
+        <p>
+          We combined two signals: what a review says, and who wrote it. A classifier reads the text, and a booking check confirms the reviewer actually has a reservation before the review is classified.
+        </p>
+        <p>
+          We trained and tested on hotel reviews, because a hotel booking gives us something real to verify. The original goal was reviews for any kind of e-commerce product, and the booking check is the hotel-specific stand-in for something like a verified purchase.
+        </p>
       </div>
     </section>
   </main>

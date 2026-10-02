@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" width="720" height="260" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+  <title id="t">Shoppers suspect fake and spiteful reviews</title>
+  <desc id="d">Stacked bars from 156 survey respondents. 60.9% have felt some positive reviews were posted on behalf of the company, 4.5% have not, and 34.6% said maybe. 51.3% have seen reviews written out of spite, 18.6% have not, and 30.1% said maybe.</desc>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap");
+
+    :root {
+      color-scheme: dark;
+    }
+
+    text {
+      fill: #F1FDF6;
+      font-family: "Oxygen", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+    }
+
+    .seg {
+      stroke: #072F25;
+      stroke-width: 2;
+    }
+
+    .pct {
+      font-size: 14px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+
+    .key {
+      fill: #B9E3CC;
+      font-size: 14px;
+    }
+  </style>
+  <text x="0" y="25">Ever felt some positive reviews were posted</text>
+  <text x="0" y="45">on behalf of the company?</text>
+  <g><title>Yes: 95 of 156 (60.9%)</title><rect class="seg" x="0.0" y="58" width="438.5" height="40" rx="4" fill="#FFC15E"/>
+  <text class="pct" x="219.2" y="83" fill="#072F25" style="fill:#072F25">60.9%</text>
+  </g>
+  <g><title>No: 7 of 156 (4.5%)</title><rect class="seg" x="438.5" y="58" width="32.3" height="40" rx="4" fill="#A4EFC1"/>
+  </g>
+  <g><title>Maybe: 54 of 156 (34.6%)</title><rect class="seg" x="470.8" y="58" width="249.2" height="40" rx="4" fill="#4E9F83"/>
+  <text class="pct" x="595.4" y="83" fill="#072F25" style="fill:#072F25">34.6%</text>
+  </g>
+  <text x="0" y="139">Ever come across reviews that seemed written</text>
+  <text x="0" y="159">out of spite towards the company?</text>
+  <g><title>Yes: 80 of 156 (51.3%)</title><rect class="seg" x="0.0" y="172" width="369.2" height="40" rx="4" fill="#FFC15E"/>
+  <text class="pct" x="184.6" y="197" fill="#072F25" style="fill:#072F25">51.3%</text>
+  </g>
+  <g><title>No: 29 of 156 (18.6%)</title><rect class="seg" x="369.2" y="172" width="133.8" height="40" rx="4" fill="#A4EFC1"/>
+  <text class="pct" x="436.2" y="197" fill="#072F25" style="fill:#072F25">18.6%</text>
+  </g>
+  <g><title>Maybe: 47 of 156 (30.1%)</title><rect class="seg" x="503.1" y="172" width="216.9" height="40" rx="4" fill="#4E9F83"/>
+  <text class="pct" x="611.5" y="197" fill="#072F25" style="fill:#072F25">30.1%</text>
+  </g>
+  <rect x="0" y="230" width="14" height="14" rx="3" fill="#FFC15E"/><text class="key" x="20" y="242">Yes</text>
+  <rect x="64.8" y="230" width="14" height="14" rx="3" fill="#A4EFC1"/><text class="key" x="84.8" y="242">No</text>
+  <rect x="122.0" y="230" width="14" height="14" rx="3" fill="#4E9F83"/><text class="key" x="142.0" y="242">Maybe</text>
+</svg>
