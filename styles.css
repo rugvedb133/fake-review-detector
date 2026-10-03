@@ -700,3 +700,144 @@ details summary {
   border-radius: 0.8rem;
   background: var(--panel);
 }
+
+/* stack */
+.stack-cards {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 1.5rem 0 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .stack-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stack-card {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--panel);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.stack-card dt,
+.stack-card dd {
+  margin: 0;
+}
+
+.stack-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stack-name {
+  margin-top: 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.stack-note {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.stack-card:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.stack-card:hover .stack-label,
+.stack-card:hover .stack-note {
+  color: var(--ink);
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 720px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool {
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  font-size: 0.93rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tool:hover {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Logos load straight from Simple Icons and are used as masks, so the
+   colour comes from CSS: mint normally, the brand colour on hover. A tool
+   with no data-tool attribute (no logo yet) is text only. To add one, give
+   it a data-tool value and a rule like the ones below. */
+[data-tool="python"] {
+  --logo: url("https://cdn.simpleicons.org/python");
+  --color: #3776AB;
+}
+
+[data-tool="pandas"] {
+  --logo: url("https://cdn.simpleicons.org/pandas");
+  --color: #150458;
+}
+
+[data-tool="numpy"] {
+  --logo: url("https://cdn.simpleicons.org/numpy");
+  --color: #013243;
+}
+
+[data-tool="scikitlearn"] {
+  --logo: url("https://cdn.simpleicons.org/scikitlearn");
+  --color: #F7931E;
+}
+
+[data-tool="flask"] {
+  --logo: url("https://cdn.simpleicons.org/flask");
+  --color: #000000;
+}
+
+[data-tool="googlecolab"] {
+  --logo: url("https://cdn.simpleicons.org/googlecolab");
+  --color: #F9AB00;
+}
+
+[data-tool]::before {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.5em;
+  vertical-align: -0.17em;
+  background-color: var(--mint);
+  -webkit-mask: var(--logo) no-repeat center / contain;
+  mask: var(--logo) no-repeat center / contain;
+  transition: background-color 0.2s;
+}
+
+.tool:hover::before,
+.stack-card:hover [data-tool]::before {
+  background-color: var(--color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-card,
+  .tool,
+  [data-tool]::before {
+    transition: none;
+  }
+}

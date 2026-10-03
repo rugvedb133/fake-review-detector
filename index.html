@@ -48,12 +48,13 @@
       <nav aria-label="Page">
         <ul>
           <li><a href="#problem">Problem</a></li>
+          <li><a href="#stack">Stack</a></li>
           <li><a href="#data">Data</a></li>
           <li><a href="#pipeline">Pipeline</a></li>
           <li><a href="#results">Results</a></li>
           <li><a href="#reviewer">Reviewer check</a></li>
           <li><a href="#paper">Paper</a></li>
-          <li><a href="#startup">Startup</a></li>
+          <li><a href="#startup">Pitch</a></li>
           <li><a href="#reflection">Reflection</a></li>
           <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
         </ul>
@@ -187,6 +188,40 @@
         <p>
           We trained and tested on hotel reviews because that's where a labelled dataset existed, and our time was limited. The original goal was reviews for any kind of e-commerce product, and the booking check is the hotel-specific stand-in for something like a verified purchase. Testing other product categories is the obvious next step.
         </p>
+      </div>
+    </section>
+
+    <section class="section" id="stack" aria-labelledby="stack-title">
+      <div class="wrap">
+        <h2 id="stack-title">The stack</h2>
+        <p class="lede">
+          Plain Python end to end, in notebooks for the experiments and a small Flask app for the demo.
+        </p>
+
+        <dl class="stack-cards">
+          <div class="stack-card">
+            <dt class="stack-label">Training</dt>
+            <dd class="stack-name" data-tool="googlecolab">Google Colab</dd>
+            <dd class="stack-note">Notebooks for preprocessing, vectorizing and fitting the five models</dd>
+          </div>
+          <div class="stack-card">
+            <dt class="stack-label">Web app</dt>
+            <dd class="stack-name" data-tool="flask">Flask</dd>
+            <dd class="stack-note">Loads the saved model and vectorizer with pickle</dd>
+          </div>
+        </dl>
+
+        <ul class="tools">
+          <li class="tool" data-tool="python">Python</li>
+          <li class="tool" data-tool="pandas">pandas</li>
+          <li class="tool" data-tool="numpy">NumPy</li>
+          <li class="tool">NLTK</li>
+          <li class="tool" data-tool="scikitlearn">scikit-learn</li>
+          <li class="tool">XGBoost</li>
+          <li class="tool">Matplotlib</li>
+          <li class="tool">Seaborn</li>
+          <li class="tool" data-tool="flask">Flask</li>
+        </ul>
       </div>
     </section>
 
@@ -400,7 +435,7 @@
 
         <h3>The app itself</h3>
         <p>
-          The form takes four inputs, and the app answers with a verdict or one of three error messages. Pick a scenario in the replay below to see each one. It only ever ran on our own machines, so this replay is the closest you can get to it.
+          The form takes four inputs, and the app answers with a verdict or one of three error messages. Pick a scenario in the replay below to see each one. This replay simulates how it ran.
         </p>
         <figure class="chart demo-figure">
           <iframe class="demo-frame" src="demo.html" title="Demo replay of the frontend" loading="lazy"></iframe>
@@ -504,9 +539,10 @@
           <a href="https://sites.google.com/spit.ac.in/fidelity-tech">Visit the startup's website</a>, built for the same exercise, hosted on Google Sites.
         </p>
 
-        <h3>Where the pitch ran ahead of the project</h3>
+        <h3>How the pitch relates to the project</h3>
         <p>
-          Pitches reward confidence, and ours got ahead of what we had shown. We pitched e-commerce in general, but our model had only ever seen hotel reviews. The exercise was useful for exactly that reason: it made the gap between the claim and the evidence easy to see.
+          The pitch was built on our original proposal: reviews from any e-commerce site, filtered in real time. Within the time we had, we trained and tested on hotel reviews only, so we couldn't run the wider plan through the model. The model was trained on Google Colab. Only the web frontend ran on our own machines, and we didn't deploy it, because the evaluation didn't require that.
+          The exercise kept the bigger plan in view, and made it clear which parts we had shown and which were still ahead.
         </p>
       </div>
     </section>

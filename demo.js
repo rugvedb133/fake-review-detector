@@ -79,6 +79,7 @@
     show('form');
     playBtn.disabled = false;
     playBtn.textContent = 'Play replay';
+    skipBtn.disabled = false;
     say('Press \u201cPlay replay\u201d to start.');
   }
 
@@ -116,6 +117,9 @@
     }
     playBtn.disabled = false;
     playBtn.textContent = 'Play again';
+    // Nothing is left to skip. Move focus first so a keyboard user isn't dropped.
+    if (document.activeElement === skipBtn) playBtn.focus();
+    skipBtn.disabled = true;
   }
 
   async function play() {
@@ -123,6 +127,7 @@
     var id = ++run;
     clearFields();
     show('form');
+    skipBtn.disabled = false;
     playBtn.disabled = true;
     playBtn.textContent = 'Replaying\u2026';
 
