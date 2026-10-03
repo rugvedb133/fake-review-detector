@@ -213,6 +213,10 @@
       padding-block: 1rem;
     }
 
+    html.embedded .chips-radio span {
+      color: var(--text);
+    }
+
     html.embedded .demo .status,
     html.embedded .demo .note {
       color: var(--ink);
@@ -379,7 +383,8 @@
         var parts = byWord ? text.split(/(?<= )/) : text.split('');
         for (var i = 0; i < parts.length; i++) {
           el.textContent += parts[i];
-          if (!(await wait(ms, id))) return false;
+          el.scrollTop = el.scrollHeight;
+          if (!(await wait(ms * (0.7 + Math.random() * 0.6), id))) return false;
         }
         return true;
       }
@@ -407,19 +412,24 @@
         playBtn.disabled = true;
         playBtn.textContent = 'Replaying\u2026';
 
+        var pause = reduce ? 0 : 900;
+
         say('Typing the username.');
-        if (!(await typeInto(fields.username, s.username, 55, id))) return;
+        if (!(await typeInto(fields.username, s.username, 130, id))) return;
+        if (!(await wait(pause, id))) return;
         say('Typing the hotel name.');
-        if (!(await typeInto(fields.hotel, s.hotel, 55, id))) return;
+        if (!(await typeInto(fields.hotel, s.hotel, 130, id))) return;
+        if (!(await wait(pause, id))) return;
         say('Typing the confirmation code.');
-        if (!(await typeInto(fields.code, s.code, 55, id))) return;
+        if (!(await typeInto(fields.code, s.code, 130, id))) return;
+        if (!(await wait(pause, id))) return;
         say('Entering the review.');
-        if (!(await typeInto(fields.review, s.review, 28, id, true))) return;
+        if (!(await typeInto(fields.review, s.review, 95, id, true))) return;
+        if (!(await wait(pause, id))) return;
 
         say('Submitting.');
-        if (!(await wait(reduce ? 0 : 500, id))) return;
         submit.classList.add('pressed');
-        if (!(await wait(reduce ? 0 : 450, id))) return;
+        if (!(await wait(reduce ? 0 : 700, id))) return;
         outcome(s);
       }
 

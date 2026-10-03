@@ -31,8 +31,8 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     });
     void barsStep.offsetWidth;
     requestAnimationFrame(function () {
-      fills.forEach(function (fill, n) {
-        fill.style.transition = 'width 0.5s ease-out ' + (n * 0.08) + 's';
+      fills.forEach(function (fill) {
+        fill.style.transition = 'width 0.5s ease-out';
         fill.style.width = fill.dataset.width;
       });
     });

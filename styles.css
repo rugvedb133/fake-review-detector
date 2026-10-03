@@ -673,3 +673,20 @@ details summary {
   border-radius: 0.8rem;
   background: var(--panel);
 }
+
+/* citations */
+.citations {
+  max-width: 720px;
+  margin-top: 1.75rem;
+  font-size: 0.93rem;
+}
+
+.citations ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.4rem;
+}
+
+.citations li {
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+}

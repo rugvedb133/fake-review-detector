@@ -52,6 +52,7 @@
           <li><a href="#pipeline">Pipeline</a></li>
           <li><a href="#results">Results</a></li>
           <li><a href="#reviewer">Reviewer check</a></li>
+          <li><a href="#paper">Paper</a></li>
           <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
         </ul>
       </nav>
@@ -288,8 +289,8 @@
           </li>
           <li class="step" data-bars>
             <h4>5. Weigh each term</h4>
-            <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:69.8%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:61.8%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:54.8%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:36.6%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:36.2%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:35.8%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:35.0%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:33.0%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:32.0%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:31.8%"></i></span><span class="num">0.159</span></li></ol>
-            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.5 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
+            <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:87.2%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:77.2%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:68.5%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:45.7%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:45.2%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:44.7%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:43.7%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:41.2%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:40.0%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:39.8%"></i></span><span class="num">0.159</span></li></ol>
+            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
           </li>
           <li class="step">
             <h4>6. The verdict</h4>
@@ -413,6 +414,65 @@
         <p>
           The two halves were also never tested together. The classifier was scored on a research corpus of reviews, and the booking table was invented to match it, so we can't say how they would behave on real traffic.
         </p>
+      </div>
+    </section>
+
+    <section class="section" id="paper" aria-labelledby="paper-title">
+      <div class="wrap">
+        <h2 id="paper-title">The paper</h2>
+        <p class="lede">
+          We wrote the findings of the project up as a conference paper, and it was published in the proceedings of ICECCT 2021.
+        </p>
+        <dl class="stats">
+          <div>
+            <dt>Conference</dt>
+            <dd class="explain" title="2021 Fourth IEEE International Conference on Electrical, Computer and Communication Technologies">ICECCT 2021</dd>
+          </div>
+          <div>
+            <dt>When</dt>
+            <dd>September 2021</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Virtual</dd>
+          </div>
+          <div>
+            <dt>Published in</dt>
+            <dd>IEEE Xplore</dd>
+          </div>
+        </dl>
+        <p>
+          The paper is called <cite>A Review-and-Reviewer based approach for Fake Review Detection</cite>. We presented it at the Fourth International Conference on Electrical, Computer and Communication Technologies, and it was published in the IEEE proceedings.
+        </p>
+        <p>
+          Check it out on IEEE Xplore: <a href="https://doi.org/10.1109/ICECCT52121.2021.9616697">doi: 10.1109/ICECCT52121.2021.9616697</a>
+        </p>
+
+        <h3>What it says</h3>
+        <p>
+          The argument is simple. Most earlier work judges either the text of a review or the person who wrote it, and we tried both for hotel reviews. The paper walks through the NLP pipeline (tokenizing, lemmatizing, vectorizing), compares five classifiers on the same features, and puts the best one behind a web app that also checks the reviewer's details. Multinomial Naive Bayes on single words and pairs came out on top at 88.1% accuracy.
+        </p>
+
+        <h3>What it leaves open</h3>
+        <p>
+          The paper is upfront about two things. Asking users to type in their own details is tedious, so it suggests building that information into the model itself. And it says the approach could carry over to other services such as hospitals, restaurants, theatres and shops. We never tested either idea.
+        </p>
+
+        <details class="citations">
+          <summary>Citations</summary>
+          <ol>
+            <li>
+              J. Bhopale, R. Bhise, A. Mane and K. Talele, &ldquo;A Review-and-Reviewer based approach for Fake Review Detection,&rdquo; 2021 Fourth International Conference on Electrical, Computer and Communication Technologies (ICECCT), 2021.
+              <a href="https://doi.org/10.1109/ICECCT52121.2021.9616697">doi:10.1109/ICECCT52121.2021.9616697</a>
+            </li>
+            <li>
+              M. Ott, Y. Choi, C. Cardie and J. T. Hancock, &ldquo;Finding Deceptive Opinion Spam by Any Stretch of the Imagination,&rdquo; ACL 2011.
+            </li>
+            <li>
+              M. Ott, C. Cardie and J. T. Hancock, &ldquo;Negative Deceptive Opinion Spam,&rdquo; NAACL-HLT 2013.
+            </li>
+          </ol>
+        </details>
       </div>
     </section>
   </main>

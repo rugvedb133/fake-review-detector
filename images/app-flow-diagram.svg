@@ -67,15 +67,16 @@
     .node polygon {
       fill: #0B4A3A;
       stroke: #A4EFC1;
-      stroke-opacity: 0.55;
+      stroke-opacity: 0.65;
       stroke-width: 1.5;
       transition: stroke 0.2s;
     }
 
     .node:hover rect,
     .node:hover polygon {
-      stroke: #0F644D;
+      stroke: #B9E3CC;
       stroke-opacity: 1;
+      stroke-width: 2.5;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -108,11 +109,11 @@
   <g class="node"><title>Legitimate user? Username, hotel booking and confirmation code must all match</title><polygon points="422,44 488,95 422,146 356,95"/><text class="bt" x="422" y="90">Legitimate</text><text class="bt" x="422" y="108">user?</text></g>
   <g class="node"><title>Run the classification model</title><rect x="560" y="62" width="160" height="66" rx="9"/><text class="bt" x="640" y="86">Run classification</text><text class="bt" x="640" y="104">model</text><text class="bs" x="640" y="123">Multinomial Naive Bayes</text></g>
   <g class="node"><title>Output: genuine or fake</title><polygon points="592,186 720,186 698,246 570,246"/><text class="bt" x="645" y="212">Output</text><text class="bs" x="645" y="231">genuine or fake</text></g>
-  <path d="M154 95H208" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M336 95H356" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M488 95H560" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M640 128V186" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M422 146V224H72V138" fill="none" stroke="#A4EFC1" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M154 95H208" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M336 95H356" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M488 95H560" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M640 128V186" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M422 146V224H72V138" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
   <text class="lab" x="518" y="85">Y</text>
   <text class="lab" x="436" y="190">N</text>
   <text class="bs" x="250" y="216" style="text-anchor:start">rejected: back to the form</text>
