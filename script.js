@@ -16,6 +16,28 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   var steps = Array.prototype.slice.call(list.children);
   var current = 0;
 
+  // Step 5's weight bars grow from the left every time the step is shown.
+  var barsStep = list.querySelector('[data-bars]');
+  var fills = barsStep ? Array.prototype.slice.call(barsStep.querySelectorAll('.wbar i')) : [];
+  fills.forEach(function (fill) {
+    fill.dataset.width = fill.style.width;
+  });
+
+  function playBars() {
+    if (!fills.length || prefersReducedMotion) return;
+    fills.forEach(function (fill) {
+      fill.style.transition = 'none';
+      fill.style.width = '0%';
+    });
+    void barsStep.offsetWidth;
+    requestAnimationFrame(function () {
+      fills.forEach(function (fill, n) {
+        fill.style.transition = 'width 0.5s ease-out ' + (n * 0.08) + 's';
+        fill.style.width = fill.dataset.width;
+      });
+    });
+  }
+
   var controls = document.createElement('div');
   controls.className = 'stepper-controls';
   controls.setAttribute('role', 'group');
@@ -75,6 +97,7 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     next.disabled = current === steps.length - 1;
     status.textContent = 'Step ' + (current + 1) + ' of ' + steps.length;
     if (steps[current] === wipeStep) playWipe();
+    if (steps[current] === barsStep) playBars();
   }
 
   prev.addEventListener('click', function () { show(current - 1); });
@@ -107,17 +130,21 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   }
 
   function render(key) {
+    // Models stay in the same order for every setting, so switching settings
+    // shows how each one moves. The winner is highlighted, not moved.
     var rows = ACC[key].map(function (v, i) {
       return { name: MODELS[i], value: v };
-    }).sort(function (a, b) {
-      return b.value - a.value;
+    });
+    var winner = rows[0];
+    rows.forEach(function (row) {
+      if (row.value > winner.value) winner = row;
     });
 
     bars.innerHTML = '';
     var fills = [];
     rows.forEach(function (row, i) {
       var li = document.createElement('li');
-      if (i === 0) li.className = 'top';
+      if (row === winner) li.className = 'top';
 
       var name = document.createElement('span');
       name.textContent = row.name;
@@ -145,7 +172,6 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
       });
     });
 
-    var winner = rows[0];
     best.textContent = 'Best here: ' + winner.name + ' at ' + pct(winner.value) +
       (winner.value === BEST ? ', the best score overall.' : '.');
   }

@@ -663,3 +663,13 @@ details summary {
     transition: none;
   }
 }
+
+/* embedded demo replay */
+.demo-frame {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--panel);
+}

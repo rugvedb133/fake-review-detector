@@ -51,6 +51,7 @@
           <li><a href="#data">Data</a></li>
           <li><a href="#pipeline">Pipeline</a></li>
           <li><a href="#results">Results</a></li>
+          <li><a href="#reviewer">Reviewer check</a></li>
           <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
         </ul>
       </nav>
@@ -285,10 +286,10 @@
             <ul class="chips"><li>stay</li><li>hilton</li><li>chicago</li><li>ha</li><li>quite</li><li>unpleasant</li><li>might</li><li>ask</li><li>well</li><li>tell</li><li>towel</li><li>service</li><li>terrible</li><li>mean</li><li>even</li><li>desk</li><li>checked</li><li>also</li><li>ordered</li><li>breakfast</li><li>dinner</li><li>received</li><li>wrong</li><li>order</li><li>meal</li><li>felt</li><li>little</li><li>finally</li><li>bill</li><li>stuff</li><li>want</li><li>overall</li><li>bad</li><li>others</li><li>give</li><li>half</li><li>star</li><li>stay hilton</li><li>hilton chicago</li><li>chicago ha</li><li>service wa</li><li>wa terrible</li><li>room service</li><li>hotel wa</li><li>wa bad</li></ul>
             <p class="step-note">The vectorizer drops 45 common words (&ldquo;the&rdquo;, &ldquo;at&rdquo;, &ldquo;it&rdquo;), leaving 52 single words, and pairs neighbours into 51 two-word phrases. Only terms that appear in at least five training reviews, and are among the 1,500 most frequent, are kept, so this review ends up with 45 distinct terms (shown above) out of 49 occurrences.</p>
           </li>
-          <li class="step">
+          <li class="step" data-bars>
             <h4>5. Weigh each term</h4>
-            <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:100%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:89%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:79%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:52%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:51%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:50%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:47%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:46%"></i></span><span class="num">0.159</span></li></ol>
-            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
+            <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:69.8%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:61.8%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:54.8%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:36.6%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:36.2%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:35.8%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:35.0%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:33.0%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:32.0%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:31.8%"></i></span><span class="num">0.159</span></li></ol>
+            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.5 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
           </li>
           <li class="step">
             <h4>6. The verdict</h4>
@@ -354,6 +355,9 @@
           <thead><tr><th scope="col">Model</th><th scope="col">n-grams</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">AUC</th><th scope="col">F1</th></tr></thead>
           <tbody><tr><th scope="row">Random Forest</th><td>1</td><td>84.375%</td><td>82.486%</td><td>84.242%</td><td>85.38%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2</td><td>86.25%</td><td>84.971%</td><td>86.158%</td><td>86.982%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2&ndash;3</td><td>85.3125%</td><td>85.119%</td><td>85.269%</td><td>85.886%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1</td><td>86.25%</td><td>85.38%</td><td>86.178%</td><td>86.905%</td></tr><tr class="best"><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2</td><td>88.125%</td><td>88.024%</td><td>88.093%</td><td>88.554%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2&ndash;3</td><td>87.5%</td><td>87.879%</td><td>87.488%</td><td>87.879%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1</td><td>85%</td><td>85.455%</td><td>84.985%</td><td>85.455%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2</td><td>85.625%</td><td>85.629%</td><td>85.591%</td><td>86.144%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2&ndash;3</td><td>86.25%</td><td>86.228%</td><td>86.217%</td><td>86.747%</td></tr><tr><th scope="row">XGBoost</th><td>1&ndash;2&ndash;3</td><td>82.8125%</td><td>81.977%</td><td>82.727%</td><td>83.68%</td></tr></tbody>
         </table>
+        <p class="note">
+          About the AUC column: in the notebooks we kept, AUC was computed from each model's predicted labels, not its probabilities. For a two-class problem that makes it the same as balanced accuracy, so it is a useful cross-check but not a separate measure of how well the model ranks reviews.
+        </p>
 
         <h3>How much to read into 88.1%</h3>
         <p>
@@ -361,6 +365,53 @@
         </p>
         <p>
           The gains from preprocessing were also small and uneven. Naive Bayes improved from 85.9% on raw text to 88.1%, while Random Forest finished exactly where it started at 86.25%. The best score beats the raw-text Random Forest by 1.9 points, which is inside that margin. We'd call the result a solid baseline, not proof that one model is better.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="reviewer" aria-labelledby="reviewer-title">
+      <div class="wrap">
+        <h2 id="reviewer-title">Checking who wrote the review</h2>
+        <p class="lede">
+          Most fake-review work looks only at the text. We also wanted to ask whether the reviewer was ever there.
+        </p>
+
+        <h3>The idea</h3>
+        <p>
+          Before a review reaches the model, the web app asks for a username, a hotel name and a booking confirmation code, and checks them against a booking record. If they don't match, the review is turned away and never classified. Only reviews from verified reservations get a verdict.
+        </p>
+
+        <h3>How it works</h3>
+        <p>
+          The checks run in order and stop at the first failure: does the username exist, does that user have a booking at this hotel, and does the confirmation code match that booking? If all three pass, the review goes through the same cleaning and vectorizing as in training and into the classifier. The saved model and vectorizer are loaded into a small Flask app, and the result is printed as one line: genuine or fake.
+        </p>
+        <figure class="chart">
+          <object data="images/app-flow-diagram.svg" type="image/svg+xml" role="img" aria-label="Flow diagram of the web app: input, validate user information, a legitimate-user decision that either returns to the form or runs the classification model, then the output" style="aspect-ratio: 720 / 262">
+            <img src="images/app-flow-diagram.svg" alt="Flow diagram: the user enters a username, hotel, booking ID and review. The app validates them. If the user is not legitimate it returns to the form; otherwise it runs the classification model and shows genuine or fake." width="720" height="262">
+          </object>
+          <figcaption>The web app's validation flow, redrawn from our report.</figcaption>
+        </figure>
+        <p>
+          The booking record is a small table of 50 made-up bookings that we wrote for the hotels in the dataset. A real platform would ask its own booking system instead. We had no such data, so this stands in for it.
+        </p>
+
+        <h3>The app itself</h3>
+        <p>
+          The form takes four inputs, and the app answers with a verdict or one of three error messages. Pick a scenario in the replay below to see each one. It only ever ran on our own machines, so this replay is the closest you can get to it.
+        </p>
+        <figure class="chart demo-figure">
+          <iframe class="demo-frame" src="demo.html" title="Demo replay of the frontend" loading="lazy"></iframe>
+          <figcaption>
+            Demo replay of the frontend. The inputs are examples, and nothing here runs the model. <a href="demo.html">Open it on its own page</a>.
+          </figcaption>
+        </figure>
+
+        <h3>What we'd flag</h3>
+        <p>
+          The gate is blunt: it turns away anything it can't verify, including honest reviews from people who booked somewhere else, and it is only as good as the booking data behind it. It is also hotel-specific. For other products the stand-in would be something like a verified purchase.
+        </p>
+        <p>
+          The two halves were also never tested together. The classifier was scored on a research corpus of reviews, and the booking table was invented to match it, so we can't say how they would behave on real traffic.
         </p>
       </div>
     </section>
