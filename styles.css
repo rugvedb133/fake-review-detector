@@ -690,3 +690,13 @@ details summary {
   margin-bottom: 0.6rem;
   color: var(--muted);
 }
+
+/* embedded video */
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--panel);
+}
