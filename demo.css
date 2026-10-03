@@ -1,0 +1,200 @@
+/* Demo replay of the frontend: styles for demo.html only.
+   Loaded after styles.css, which provides the colour and type tokens. */
+
+.demo-top {
+  border-bottom: 1px solid var(--line);
+}
+
+.demo-top .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1rem;
+}
+
+.demo-top h1 {
+  max-width: none;
+  font-size: 1.4rem;
+}
+
+.demo {
+  width: min(640px, 100% - 2rem);
+  margin-inline: auto;
+  padding-block: 1.5rem 2rem;
+}
+
+.demo .intro,
+.demo .note {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.demo fieldset {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.demo legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  font-weight: 700;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.demo .status {
+  min-height: 1.6em;
+  margin: 0.9rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* the replayed app: dark by default, original mint when embedded */
+.screen {
+  --s-bg: var(--panel);
+  --s-text: var(--text);
+  --s-field: var(--bg);
+  --s-line: var(--line);
+  --s-strong: var(--mint);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  text-align: center;
+}
+
+html.embedded .screen {
+  --s-bg: var(--paper-2);
+  --s-text: var(--ink);
+  --s-field: var(--text);
+  --s-line: var(--accent);
+  --s-strong: var(--ink);
+}
+
+html.embedded .screen .view-result,
+html.embedded .screen .view-error {
+  --s-bg: var(--paper);
+}
+
+.view {
+  padding: 1.25rem 1rem 1.5rem;
+  background: var(--s-bg);
+  color: var(--s-text);
+}
+
+.view h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.15rem;
+}
+
+.view h3 {
+  margin: 1rem 0 0.4rem;
+  font-size: 0.98rem;
+}
+
+.app-title {
+  max-width: none;
+  margin: 0;
+  font-size: 1.45rem;
+  font-variant: small-caps;
+  font-weight: 700;
+}
+
+.field {
+  min-height: 2.3rem;
+  max-width: 22rem;
+  margin-inline: auto;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--s-line);
+  border-radius: 0.3rem;
+  background: var(--s-field);
+  color: var(--ink);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+html:not(.embedded) .field {
+  color: var(--text);
+}
+
+.field.tall {
+  min-height: 8rem;
+  max-height: 11rem;
+  overflow: auto;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.mock-btn {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--s-line);
+  border-radius: 0.3rem;
+  background: var(--s-field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+html:not(.embedded) .mock-btn {
+  color: var(--text);
+}
+
+.mock-btn.pressed {
+  background: var(--accent);
+  color: var(--text);
+}
+
+button.mock-btn {
+  cursor: pointer;
+}
+
+.view p {
+  max-width: none;
+  margin: 0 0 0.5rem;
+}
+
+.view .verdict {
+  font-size: 1.1rem;
+}
+
+.view strong {
+  color: var(--s-strong);
+}
+
+.given {
+  max-width: 30rem;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+html.embedded body {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+html.embedded .demo-top,
+html.embedded .intro {
+  display: none;
+}
+
+html.embedded .demo {
+  padding-block: 1rem;
+}
+
+html.embedded .chips-radio span {
+  color: var(--text);
+}
+
+html.embedded .demo .status,
+html.embedded .demo .note {
+  color: var(--ink);
+}
