@@ -337,12 +337,15 @@ details summary {
 
 /* data tables */
 .data-table {
-  display: block;
   width: 100%;
-  margin-top: 0.75rem;
-  overflow-x: auto;
   border-collapse: collapse;
   font-size: 0.9rem;
+}
+
+.table-scroll {
+  max-width: 100%;
+  margin-top: 0.75rem;
+  overflow-x: auto;
 }
 
 .data-table caption {
@@ -839,5 +842,32 @@ details summary {
   .tool,
   [data-tool]::before {
     transition: none;
+  }
+}
+
+/* narrow screens: keep the sticky header to two short rows */
+@media (max-width: 1000px) {
+  html {
+    scroll-padding-top: 6rem;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .bar {
+    flex-wrap: wrap;
+    gap: 0.15rem 1rem;
+    padding-block: 0.6rem;
+  }
+
+  .site-header nav {
+    width: 100%;
+  }
+
+  .site-header ul {
+    padding-bottom: 0.3rem;
+    white-space: nowrap;
+    justify-content: space-evenly;
   }
 }
