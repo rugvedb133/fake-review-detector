@@ -143,6 +143,10 @@ html:not(.embedded) .field {
   font-size: 0.9rem;
 }
 
+span.mock-btn {
+  cursor: default;
+}
+
 html:not(.embedded) .mock-btn {
   color: var(--text);
 }

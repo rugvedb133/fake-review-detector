@@ -1,42 +1,28 @@
 // Fake Review Detector: page behaviour.
-// The page reads fine without JavaScript. This file only adds enhancements,
-// one section at a time.
+// The page reads fine without JavaScript. This file only adds enhancements.
 'use strict';
 
 document.documentElement.classList.add('js');
 
 var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function toArray(list) {
+  return Array.prototype.slice.call(list);
+}
+
+// The root itself plus everything inside it that matches.
+function within(root, selector) {
+  var found = toArray(root.querySelectorAll(selector));
+  if (root.matches(selector)) found.unshift(root);
+  return found;
+}
+
 // Pipeline walkthrough: without JS every step is visible in a list. With JS
 // the steps show one at a time, with previous/next buttons.
-(function () {
-  var list = document.querySelector('[data-stepper]');
-  if (!list) return;
-
-  var steps = Array.prototype.slice.call(list.children);
+// It takes any [data-stepper] list, so the lightbox can start a fresh one on a clone.
+function initStepper(list) {
+  var steps = toArray(list.children);
   var current = 0;
-
-  // Step 5's weight bars grow from the left every time the step is shown.
-  var barsStep = list.querySelector('[data-bars]');
-  var fills = barsStep ? Array.prototype.slice.call(barsStep.querySelectorAll('.wbar i')) : [];
-  fills.forEach(function (fill) {
-    fill.dataset.width = fill.style.width;
-  });
-
-  function playBars() {
-    if (!fills.length || prefersReducedMotion) return;
-    fills.forEach(function (fill) {
-      fill.style.transition = 'none';
-      fill.style.width = '0%';
-    });
-    void barsStep.offsetWidth;
-    requestAnimationFrame(function () {
-      fills.forEach(function (fill) {
-        fill.style.transition = 'width 0.5s ease-out';
-        fill.style.width = fill.dataset.width;
-      });
-    });
-  }
 
   var controls = document.createElement('div');
   controls.className = 'stepper-controls';
@@ -62,11 +48,40 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   controls.appendChild(status);
   list.parentNode.insertBefore(controls, list);
 
+  // Step 5's weight bars grow from the left every time the step is shown.
+  var barsStep = list.querySelector('[data-bars]');
+  var fills = barsStep ? toArray(barsStep.querySelectorAll('.wbar i')) : [];
+  fills.forEach(function (fill) {
+    // Remember the real width once, so a clone starts from the right value.
+    if (!fill.dataset.width) fill.dataset.width = fill.style.width;
+    fill.style.transition = '';
+    fill.style.width = fill.dataset.width;
+  });
+
+  function playBars() {
+    if (!fills.length || prefersReducedMotion) return;
+    fills.forEach(function (fill) {
+      fill.style.transition = 'none';
+      fill.style.width = '0%';
+    });
+    void barsStep.offsetWidth;
+    requestAnimationFrame(function () {
+      fills.forEach(function (fill) {
+        fill.style.transition = 'width 0.5s ease-out';
+        fill.style.width = fill.dataset.width;
+      });
+    });
+  }
+
   // Step 3 highlights wipe in, once, the first time that step is viewed.
   var wipeStep = list.querySelector('[data-wipe]');
-  var marks = wipeStep ? Array.prototype.slice.call(wipeStep.querySelectorAll('mark')) : [];
+  var marks = wipeStep ? toArray(wipeStep.querySelectorAll('mark')) : [];
   var wiped = false;
 
+  marks.forEach(function (mark) {
+    mark.classList.remove('wipe-pending');
+    mark.style.transitionDelay = '';
+  });
   if (marks.length && !prefersReducedMotion) {
     marks.forEach(function (mark, i) {
       mark.classList.add('wipe-pending');
@@ -103,25 +118,22 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   prev.addEventListener('click', function () { show(current - 1); });
   next.addEventListener('click', function () { show(current + 1); });
   show(0);
-})();
+}
 
 // Results explorer: pick an n-gram setting and see the five models ranked.
 // Numbers are Table 4.3 from our report (accuracy on the test reviews).
-(function () {
-  var box = document.querySelector('[data-explorer]');
-  if (!box) return;
+var MODELS = ['Random Forest', 'Multinomial Naive Bayes', 'Support Vector Classifier', 'XGBoost', 'XGBoost Random Forest'];
+var ACC = {
+  '1':     [0.84375, 0.8625,  0.85,     0.79375,  0.74375],
+  '2':     [0.78125, 0.825,   0.703125, 0.753125, 0.671875],
+  '3':     [0.728125, 0.715625, 0.671875, 0.7125,  0.603125],
+  '1-2':   [0.8625,  0.88125, 0.85625,  0.815625, 0.728125],
+  '2-3':   [0.7875,  0.79375, 0.73125,  0.753125, 0.665625],
+  '1-2-3': [0.853125, 0.875,  0.8625,   0.828125, 0.728125]
+};
+var BEST = 0.88125;
 
-  var MODELS = ['Random Forest', 'Multinomial Naive Bayes', 'Support Vector Classifier', 'XGBoost', 'XGBoost Random Forest'];
-  var ACC = {
-    '1':     [0.84375, 0.8625,  0.85,     0.79375,  0.74375],
-    '2':     [0.78125, 0.825,   0.703125, 0.753125, 0.671875],
-    '3':     [0.728125, 0.715625, 0.671875, 0.7125,  0.603125],
-    '1-2':   [0.8625,  0.88125, 0.85625,  0.815625, 0.728125],
-    '2-3':   [0.7875,  0.79375, 0.73125,  0.753125, 0.665625],
-    '1-2-3': [0.853125, 0.875,  0.8625,   0.828125, 0.728125]
-  };
-  var BEST = 0.88125;
-
+function initExplorer(box) {
   var bars = box.querySelector('.rbars');
   var best = box.querySelector('[data-best]');
 
@@ -142,7 +154,7 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
     bars.innerHTML = '';
     var fills = [];
-    rows.forEach(function (row, i) {
+    rows.forEach(function (row) {
       var li = document.createElement('li');
       if (row === winner) li.className = 'top';
 
@@ -177,16 +189,19 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   }
 
   box.addEventListener('change', function (event) {
-    if (event.target && event.target.name === 'ngram') render(event.target.value);
+    if (event.target && event.target.type === 'radio') render(event.target.value);
   });
 
   box.hidden = false;
-  render(box.querySelector('input[name="ngram"]:checked').value);
-})();
+  render(box.querySelector('input[type="radio"]:checked').value);
+}
 
+toArray(document.querySelectorAll('[data-stepper]')).forEach(initStepper);
+toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
 // Lightbox: one native <dialog>. The enlarge buttons point at an element by
 // id; a clone of it (and its caption) goes into the dialog and is thrown away
 // when the dialog closes, however it closes.
+// Interactive pieces get a fresh, working copy of their own.
 (function () {
   var dialog = document.getElementById('lightbox');
   if (!dialog || typeof dialog.showModal !== 'function') return;
@@ -199,20 +214,28 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (!source) return;
 
     var clone = source.cloneNode(true);
-    // The clone must not repeat ids, and shouldn't carry its own controls.
+    // The clone must not repeat ids, and shouldn't carry the page's own controls.
     clone.removeAttribute('id');
-    Array.prototype.forEach.call(clone.querySelectorAll('[id]'), function (el) {
+    toArray(clone.querySelectorAll('[id]')).forEach(function (el) {
       el.removeAttribute('id');
     });
-    Array.prototype.forEach.call(clone.querySelectorAll('.enlarge, .table-toggle'), function (el) {
+    toArray(clone.querySelectorAll('.enlarge, .table-toggle, .stepper-controls')).forEach(function (el) {
       el.remove();
+    });
+    // Radio buttons with the same name would join the page's group.
+    within(clone, 'input[type="radio"]').forEach(function (radio) {
+      radio.name = radio.name + '-lightbox';
     });
 
     var caption = clone.querySelector('figcaption, caption');
-    dialog.setAttribute('aria-label', caption ? caption.textContent.replace(/\s+/g, ' ').trim() : 'Enlarged view');
+    var label = source.getAttribute('data-label') ||
+      (caption ? caption.textContent.replace(/\s+/g, ' ').trim() : 'Enlarged view');
+    dialog.setAttribute('aria-label', label);
 
     body.textContent = '';
     body.appendChild(clone);
+    within(clone, '[data-stepper]').forEach(initStepper);
+    within(clone, '[data-explorer]').forEach(initExplorer);
     dialog.showModal();
   }
 
@@ -244,7 +267,7 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   var nav = document.querySelector('.site-header nav');
   if (!nav || !('IntersectionObserver' in window)) return;
 
-  var items = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')).map(function (link) {
+  var items = toArray(nav.querySelectorAll('a[href^="#"]')).map(function (link) {
     return { link: link, section: document.getElementById(link.hash.slice(1)) };
   }).filter(function (item) {
     return item.section;

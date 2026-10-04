@@ -34,6 +34,7 @@
 
 html {
   scroll-padding-top: 4.5rem;
+  scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -164,7 +165,6 @@ a:hover {
 }
 
 .site-header nav a:hover {
-  text-decoration: underline;
   border-bottom-color: var(--muted);
 }
 
@@ -323,9 +323,18 @@ a:hover {
 }
 
 .chart figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
   margin-top: 0.5rem;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.chart figcaption .enlarge,
+.chart figcaption .pill-link {
+  margin-top: 0;
 }
 
 /* disclosure blocks */
@@ -883,8 +892,9 @@ details summary {
 }
 
 /* lightbox: one dialog, filled with a clone of whatever was enlarged */
+/* the small pill style shared by Enlarge buttons and the demo link */
+.pill-link,
 .enlarge {
-  display: none;
   margin-top: 0.6rem;
   padding: 0.3rem 0.9rem;
   border: 1px solid var(--line);
@@ -896,13 +906,24 @@ details summary {
   cursor: pointer;
 }
 
+.enlarge {
+  display: none;
+}
+
 .has-lightbox .enlarge {
   display: inline-block;
 }
 
+.pill-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.pill-link:hover,
 .enlarge:hover {
   border-color: var(--mint);
   background: var(--panel);
+  color: var(--mint);
 }
 
 .lightbox {
@@ -945,16 +966,32 @@ details summary {
   margin: 0;
 }
 
+/* Charts, diagrams and the video shrink to fit the dialog's height, so the
+   dialog itself doesn't need to scroll. 11rem covers its padding, the Close
+   button and the caption. */
+.lightbox .chart object {
+  max-height: calc(92vh - 11rem);
+  margin-inline: auto;
+}
+
+.lightbox .video-frame {
+  width: min(100%, calc((92vh - 11rem) * 16 / 9));
+  margin-inline: auto;
+}
+
+.lightbox .explorer,
+.lightbox .stepper,
+.lightbox .stepper-controls {
+  max-width: none;
+  margin-top: 0;
+}
+
 .lightbox .table-scroll {
   margin-top: 0;
 }
 
 .lightbox .data-table {
   font-size: 1rem;
-}
-
-body:has(.lightbox[open]) {
-  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
