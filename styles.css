@@ -158,11 +158,20 @@ a:hover {
 }
 
 .site-header nav a {
+  padding-block: 0.15rem;
+  border-bottom: 2px solid transparent;
   text-decoration: none;
 }
 
 .site-header nav a:hover {
   text-decoration: underline;
+  border-bottom-color: var(--muted);
+}
+
+/* the section currently in view, set by script.js */
+.site-header nav a[aria-current="location"] {
+  border-bottom-color: var(--mint);
+  color: var(--text);
 }
 
 /* hero */
@@ -336,16 +345,16 @@ details summary {
 }
 
 /* data tables */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
 .table-scroll {
   max-width: 100%;
   margin-top: 0.75rem;
   overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
 }
 
 .data-table caption {
@@ -863,11 +872,93 @@ details summary {
 
   .site-header nav {
     width: 100%;
+    overflow-x: auto;
   }
 
   .site-header ul {
     padding-bottom: 0.3rem;
     white-space: nowrap;
     justify-content: space-evenly;
+  }
+}
+
+/* lightbox: one dialog, filled with a clone of whatever was enlarged */
+.enlarge {
+  display: none;
+  margin-top: 0.6rem;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--mint);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.has-lightbox .enlarge {
+  display: inline-block;
+}
+
+.enlarge:hover {
+  border-color: var(--mint);
+  background: var(--panel);
+}
+
+.lightbox {
+  width: min(1100px, 94vw);
+  max-height: 92vh;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.lightbox::backdrop {
+  background: rgba(7, 47, 37, 0.88);
+}
+
+.lightbox[open] {
+  animation: lightbox-in 0.2s ease-out;
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+.lightbox-inner {
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+.lightbox-close {
+  display: block;
+  margin: 0 0 0.75rem auto;
+}
+
+.lightbox .chart {
+  max-width: none;
+  margin: 0;
+}
+
+.lightbox .table-scroll {
+  margin-top: 0;
+}
+
+.lightbox .data-table {
+  font-size: 1rem;
+}
+
+body:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open] {
+    animation: none;
   }
 }

@@ -102,44 +102,48 @@
           Reviews steer what people buy, and shoppers know they can't fully trust them. That gap is what we wanted to work on.
         </p>
 
-        <h3>What shoppers told us</h3>
+        <h3 id="survey">What shoppers told us</h3>
         <p>
           At the start of the project we ran a short survey. <strong>74%</strong> of respondents said they were likely to decide based on reviews (4 or 5 on a 5-point scale).
           Yet <strong>61%</strong> had felt some positive reviews were posted on the company's behalf, and only 4% said no. <strong>51%</strong> had come across reviews written out of spite.
         </p>
-        <figure class="chart">
+        <figure class="chart" id="fig-survey-trust">
           <object data="images/survey-trust.svg" type="image/svg+xml" role="img" aria-label="Stacked bars of survey answers about suspected paid-for positive reviews and spite reviews" style="aspect-ratio: 720 / 216">
             <img src="images/survey-trust.svg" alt="Bar chart: 60.9% of respondents suspect some positive reviews are posted by the company, and 51.3% have seen spite reviews." width="720" height="216">
           </object>
           <figcaption>Suspected company-posted positive reviews and spite reviews, 156 respondents.</figcaption>
+          <button type="button" class="enlarge" data-target="fig-survey-trust">Enlarge<span class="visually-hidden"> figure: Suspected company-posted positive reviews and spite reviews, 156 respondents.</span></button>
           <details class="table-toggle">
             <summary>View as a table</summary>
-            <div class="table-scroll" role="group" tabindex="0" aria-label="Answers to the two trust questions (156 respondents)">
+            <div class="table-scroll" id="tbl-survey-trust" role="group" tabindex="0" aria-label="Answers to the two trust questions (156 respondents)">
             <table class="data-table">
-            <caption>Answers to the two trust questions (156 respondents)</caption>
-            <thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Maybe</th></tr></thead>
-            <tbody><tr><th scope="row">Positive reviews posted on behalf of the company</th><td>95 (60.9%)</td><td>7 (4.5%)</td><td>54 (34.6%)</td></tr><tr><th scope="row">Reviews written out of spite</th><td>80 (51.3%)</td><td>29 (18.6%)</td><td>47 (30.1%)</td></tr></tbody>
-          </table>
+              <caption>Answers to the two trust questions (156 respondents)</caption>
+              <thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Maybe</th></tr></thead>
+              <tbody><tr><th scope="row">Positive reviews posted on behalf of the company</th><td>95 (60.9%)</td><td>7 (4.5%)</td><td>54 (34.6%)</td></tr><tr><th scope="row">Reviews written out of spite</th><td>80 (51.3%)</td><td>29 (18.6%)</td><td>47 (30.1%)</td></tr></tbody>
+            </table>
             </div>
+            <button type="button" class="enlarge" data-target="tbl-survey-trust">Enlarge<span class="visually-hidden"> table: Answers to the two trust questions (156 respondents)</span></button>
           </details>
         </figure>
         <p>
           On 1-to-5 scales the picture is similar. Most people lean on reviews, 45% often see reviews that talk about the brand more than the product, and only 40% were likely to answer a "was this review useful?" prompt.
         </p>
-        <figure class="chart">
+        <figure class="chart" id="fig-survey-likelihood">
           <object data="images/survey-likelihood.svg" type="image/svg+xml" role="img" aria-label="Diverging bars of three questions answered on a 1 to 5 scale, centred on the neutral rating" style="aspect-ratio: 700 / 282">
             <img src="images/survey-likelihood.svg" alt="Diverging bar chart of three 1 to 5 questions. 73.7% rated their likelihood of deciding from reviews 4 or 5." width="720" height="282">
           </object>
           <figcaption>The three 1-to-5 questions, centred on the neutral rating 3. 156 respondents.</figcaption>
+          <button type="button" class="enlarge" data-target="fig-survey-likelihood">Enlarge<span class="visually-hidden"> figure: The three 1-to-5 questions, centred on the neutral rating 3. 156 respondents.</span></button>
           <details class="table-toggle">
             <summary>View as a table</summary>
-            <div class="table-scroll" role="group" tabindex="0" aria-label="Answers on a 1 to 5 scale (156 respondents)">
+            <div class="table-scroll" id="tbl-survey-likelihood" role="group" tabindex="0" aria-label="Answers on a 1 to 5 scale (156 respondents)">
             <table class="data-table">
-            <caption>Answers on a 1 to 5 scale (156 respondents)</caption>
-            <thead><tr><th scope="col">Question</th><th scope="col">1 (lowest)</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5 (highest)</th></tr></thead>
-            <tbody><tr><th scope="row">Likely to decide based on reviews</th><td>0 (0.0%)</td><td>5 (3.2%)</td><td>36 (23.1%)</td><td>79 (50.6%)</td><td>36 (23.1%)</td></tr><tr><th scope="row">Reviews focus on the brand, not the product</th><td>6 (3.8%)</td><td>23 (14.7%)</td><td>57 (36.5%)</td><td>58 (37.2%)</td><td>12 (7.7%)</td></tr><tr><th scope="row">Likely to answer &ldquo;Did you find this review useful?&rdquo;</th><td>24 (15.4%)</td><td>26 (16.7%)</td><td>44 (28.2%)</td><td>42 (26.9%)</td><td>20 (12.8%)</td></tr></tbody>
-          </table>
+              <caption>Answers on a 1 to 5 scale (156 respondents)</caption>
+              <thead><tr><th scope="col">Question</th><th scope="col">1 (lowest)</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5 (highest)</th></tr></thead>
+              <tbody><tr><th scope="row">Likely to decide based on reviews</th><td>0 (0.0%)</td><td>5 (3.2%)</td><td>36 (23.1%)</td><td>79 (50.6%)</td><td>36 (23.1%)</td></tr><tr><th scope="row">Reviews focus on the brand, not the product</th><td>6 (3.8%)</td><td>23 (14.7%)</td><td>57 (36.5%)</td><td>58 (37.2%)</td><td>12 (7.7%)</td></tr><tr><th scope="row">Likely to answer &ldquo;Did you find this review useful?&rdquo;</th><td>24 (15.4%)</td><td>26 (16.7%)</td><td>44 (28.2%)</td><td>42 (26.9%)</td><td>20 (12.8%)</td></tr></tbody>
+            </table>
             </div>
+            <button type="button" class="enlarge" data-target="tbl-survey-likelihood">Enlarge<span class="visually-hidden"> table: Answers on a 1 to 5 scale (156 respondents)</span></button>
           </details>
         </figure>
 
@@ -148,36 +152,40 @@
           156 people answered a Google Form that we shared with classmates and friends over five days in September 2020. Respondents came from every age band, from under 15 to over 45, though most (about 86%) were 16 to 25.
           Read it as a snapshot of young online shoppers, not a poll of everyone. Two people left age blank and we counted them as 16 to 25, as in our report.
         </p>
-        <figure class="chart">
+        <figure class="chart" id="fig-survey-age">
           <object data="images/survey-age.svg" type="image/svg+xml" role="img" aria-label="Doughnut chart of respondents' ages, with a second doughnut splitting the other ages" style="aspect-ratio: 650 / 275">
             <img src="images/survey-age.svg" alt="Doughnut chart: 85.9% of respondents are aged 16 to 25. A second doughnut splits the remaining 22 people by age group." width="650" height="275">
           </object>
           <figcaption>Age of the respondents. The small doughnut splits everyone outside 16 to 25.</figcaption>
+          <button type="button" class="enlarge" data-target="fig-survey-age">Enlarge<span class="visually-hidden"> figure: Age of the respondents. The small doughnut splits everyone outside 16 to 25.</span></button>
           <details class="table-toggle">
             <summary>View as a table</summary>
-            <div class="table-scroll" role="group" tabindex="0" aria-label="Age group (all 156 respondents; 16–25 includes 2 who left age blank)">
+            <div class="table-scroll" id="tbl-survey-age" role="group" tabindex="0" aria-label="Age group (all 156 respondents; 16–25 includes 2 who left age blank)">
             <table class="data-table">
-            <caption>Age group (all 156 respondents; 16&ndash;25 includes 2 who left age blank)</caption>
-            <thead><tr><th scope="col">Age group</th><th scope="col">Respondents</th></tr></thead>
-            <tbody><tr><th scope="row">15 and below</th><td>2 (1.3%)</td></tr><tr><th scope="row">16&ndash;25</th><td>134 (85.9%)</td></tr><tr><th scope="row">26&ndash;35</th><td>6 (3.8%)</td></tr><tr><th scope="row">36&ndash;45</th><td>2 (1.3%)</td></tr><tr><th scope="row">45 and above</th><td>12 (7.7%)</td></tr></tbody>
-          </table>
+              <caption>Age group (all 156 respondents; 16&ndash;25 includes 2 who left age blank)</caption>
+              <thead><tr><th scope="col">Age group</th><th scope="col">Respondents</th></tr></thead>
+              <tbody><tr><th scope="row">15 and below</th><td>2 (1.3%)</td></tr><tr><th scope="row">16&ndash;25</th><td>134 (85.9%)</td></tr><tr><th scope="row">26&ndash;35</th><td>6 (3.8%)</td></tr><tr><th scope="row">36&ndash;45</th><td>2 (1.3%)</td></tr><tr><th scope="row">45 and above</th><td>12 (7.7%)</td></tr></tbody>
+            </table>
             </div>
+            <button type="button" class="enlarge" data-target="tbl-survey-age">Enlarge<span class="visually-hidden"> table: Age group (all 156 respondents; 16–25 includes 2 who left age blank)</span></button>
           </details>
         </figure>
-        <figure class="chart">
+        <figure class="chart" id="fig-survey-preference">
           <object data="images/survey-preference.svg" type="image/svg+xml" role="img" aria-label="Pie chart of preferred review type" style="aspect-ratio: 430 / 240">
             <img src="images/survey-preference.svg" alt="Pie chart: 69.9% of respondents prefer text reviews and 30.1% prefer star ratings." width="430" height="240">
           </object>
           <figcaption>When deciding what to buy, 70% preferred text reviews to star ratings.</figcaption>
+          <button type="button" class="enlarge" data-target="fig-survey-preference">Enlarge<span class="visually-hidden"> figure: When deciding what to buy, 70% preferred text reviews to star ratings.</span></button>
           <details class="table-toggle">
             <summary>View as a table</summary>
-            <div class="table-scroll" role="group" tabindex="0" aria-label="Preferred review type (156 respondents)">
+            <div class="table-scroll" id="tbl-survey-preference" role="group" tabindex="0" aria-label="Preferred review type (156 respondents)">
             <table class="data-table">
-            <caption>Preferred review type (156 respondents)</caption>
-            <thead><tr><th scope="col">Type</th><th scope="col">Respondents</th></tr></thead>
-            <tbody><tr><th scope="row">Text review</th><td>109 (69.9%)</td></tr><tr><th scope="row">Star rating</th><td>47 (30.1%)</td></tr></tbody>
-          </table>
+              <caption>Preferred review type (156 respondents)</caption>
+              <thead><tr><th scope="col">Type</th><th scope="col">Respondents</th></tr></thead>
+              <tbody><tr><th scope="row">Text review</th><td>109 (69.9%)</td></tr><tr><th scope="row">Star rating</th><td>47 (30.1%)</td></tr></tbody>
+            </table>
             </div>
+            <button type="button" class="enlarge" data-target="tbl-survey-preference">Enlarge<span class="visually-hidden"> table: Preferred review type (156 respondents)</span></button>
           </details>
         </figure>
 
@@ -223,11 +231,11 @@
           <li class="tool" data-tool="python">Python</li>
           <li class="tool" data-tool="pandas">pandas</li>
           <li class="tool" data-tool="numpy">NumPy</li>
-          <li class="tool">NLTK</li>
+          <li class="tool" data-tool="NLTK">NLTK</li>
           <li class="tool" data-tool="scikitlearn">scikit-learn</li>
-          <li class="tool">XGBoost</li>
-          <li class="tool">Matplotlib</li>
-          <li class="tool">Seaborn</li>
+          <li class="tool" data-tool="XGBoost">XGBoost</li>
+          <li class="tool" data-tool="Matplotlib">Matplotlib</li>
+          <li class="tool" data-tool="Seaborn">Seaborn</li>
           <li class="tool" data-tool="flask">Flask</li>
         </ul>
       </div>
@@ -244,7 +252,7 @@
         <p>
           The corpus holds 1,600 reviews of 20 Chicago hotels, perfectly balanced: 800 truthful and 800 deceptive, half positive and half negative, with 80 reviews per hotel. Credit for collecting it is in the footer.
         </p>
-        <div class="table-scroll" role="group" tabindex="0" aria-label="How the 1,600 reviews were collected">
+        <div class="table-scroll" id="tbl-dataset" role="group" tabindex="0" aria-label="How the 1,600 reviews were collected">
         <table class="data-table">
           <caption>How the 1,600 reviews were collected</caption>
           <thead>
@@ -258,6 +266,7 @@
           </tbody>
         </table>
         </div>
+        <button type="button" class="enlarge" data-target="tbl-dataset">Enlarge<span class="visually-hidden"> table: How the 1,600 reviews were collected</span></button>
 
         <h3>A caveat about the labels</h3>
         <p>
@@ -271,22 +280,24 @@
         <p>
           The one real signal was digits: <strong>66%</strong> of truthful reviews contain at least one, against <strong>36%</strong> of deceptive ones (r = &minus;0.31). Real guests may mention prices and room numbers, though we can't say that from the data alone. It was still nowhere near enough, which is why we moved on to the words themselves.
         </p>
-        <figure class="chart">
+        <figure class="chart" id="fig-correlation-heatmap">
           <object data="images/correlation-heatmap.svg" type="image/svg+xml" role="img" aria-label="Heatmap of correlations between simple text features and the fake label" style="aspect-ratio: 720 / 482">
             <img src="images/correlation-heatmap.svg" alt="Correlation heatmap: only the digit count correlates noticeably with the fake label (-0.31); length-type features are near zero." width="720" height="482">
           </object>
           <figcaption>
             Correlations between simple features and the fake label. We recomputed this chart for the page: the digits column in our original report had a bug, so its values differ there.
           </figcaption>
+          <button type="button" class="enlarge" data-target="fig-correlation-heatmap">Enlarge<span class="visually-hidden"> figure: Correlations between simple features and the fake label. We recomputed this chart for the page: the digits column in our original report had a bug, so its values differ there.</span></button>
           <details class="table-toggle">
             <summary>View as a table</summary>
-            <div class="table-scroll" role="group" tabindex="0" aria-label="Pearson correlations, 1,600 reviews">
+            <div class="table-scroll" id="tbl-heatmap" role="group" tabindex="0" aria-label="Pearson correlations, 1,600 reviews">
             <table class="data-table">
-            <caption>Pearson correlations, 1,600 reviews</caption>
-            <thead><tr><td></td><th scope="col">polarity</th><th scope="col">fake</th><th scope="col">characters</th><th scope="col">digits</th><th scope="col">non-word characters</th><th scope="col">words</th><th scope="col">sentences</th></tr></thead>
-            <tbody><tr><th scope="row">polarity</th><td>1.00</td><td>0.00</td><td>-0.32</td><td>-0.15</td><td>-0.33</td><td>-0.33</td><td>-0.25</td></tr><tr><th scope="row">fake</th><td>0.00</td><td>1.00</td><td>-0.03</td><td>-0.31</td><td>-0.05</td><td>-0.04</td><td>-0.09</td></tr><tr><th scope="row">characters</th><td>-0.32</td><td>-0.03</td><td>1.00</td><td>0.38</td><td>1.00</td><td>1.00</td><td>0.86</td></tr><tr><th scope="row">digits</th><td>-0.15</td><td>-0.31</td><td>0.38</td><td>1.00</td><td>0.41</td><td>0.40</td><td>0.40</td></tr><tr><th scope="row">non-word characters</th><td>-0.33</td><td>-0.05</td><td>1.00</td><td>0.41</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">words</th><td>-0.33</td><td>-0.04</td><td>1.00</td><td>0.40</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">sentences</th><td>-0.25</td><td>-0.09</td><td>0.86</td><td>0.40</td><td>0.87</td><td>0.87</td><td>1.00</td></tr></tbody>
-          </table>
+              <caption>Pearson correlations, 1,600 reviews</caption>
+              <thead><tr><td></td><th scope="col">polarity</th><th scope="col">fake</th><th scope="col">characters</th><th scope="col">digits</th><th scope="col">non-word characters</th><th scope="col">words</th><th scope="col">sentences</th></tr></thead>
+              <tbody><tr><th scope="row">polarity</th><td>1.00</td><td>0.00</td><td>-0.32</td><td>-0.15</td><td>-0.33</td><td>-0.33</td><td>-0.25</td></tr><tr><th scope="row">fake</th><td>0.00</td><td>1.00</td><td>-0.03</td><td>-0.31</td><td>-0.05</td><td>-0.04</td><td>-0.09</td></tr><tr><th scope="row">characters</th><td>-0.32</td><td>-0.03</td><td>1.00</td><td>0.38</td><td>1.00</td><td>1.00</td><td>0.86</td></tr><tr><th scope="row">digits</th><td>-0.15</td><td>-0.31</td><td>0.38</td><td>1.00</td><td>0.41</td><td>0.40</td><td>0.40</td></tr><tr><th scope="row">non-word characters</th><td>-0.33</td><td>-0.05</td><td>1.00</td><td>0.41</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">words</th><td>-0.33</td><td>-0.04</td><td>1.00</td><td>0.40</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">sentences</th><td>-0.25</td><td>-0.09</td><td>0.86</td><td>0.40</td><td>0.87</td><td>0.87</td><td>1.00</td></tr></tbody>
+            </table>
             </div>
+            <button type="button" class="enlarge" data-target="tbl-heatmap">Enlarge<span class="visually-hidden"> table: Pearson correlations, 1,600 reviews</span></button>
           </details>
         </figure>
       </div>
@@ -303,11 +314,12 @@
         <p>
           The flow is the usual one for a text classifier. Reviews are cleaned and converted to features, split into training and testing data, and used to fit five different models. Their predictions on the held-back reviews are scored, and the scores send us back to preprocessing to try again.
         </p>
-        <figure class="chart">
+        <figure class="chart" id="fig-pipeline-diagram">
           <object data="images/pipeline-diagram.svg" type="image/svg+xml" role="img" aria-label="Flow diagram of the pipeline from data acquisition to evaluation, looping back to preprocessing" style="aspect-ratio: 720 / 300">
             <img src="images/pipeline-diagram.svg" alt="Flow diagram: data acquisition, preprocessing, a split into training and testing data, classification modelling, predictions, then evaluation metrics that loop back to preprocessing." width="720" height="300">
           </object>
           <figcaption>The end-to-end flow, redrawn from our report.</figcaption>
+          <button type="button" class="enlarge" data-target="fig-pipeline-diagram">Enlarge<span class="visually-hidden"> figure: The end-to-end flow, redrawn from our report.</span></button>
         </figure>
 
         <h3>Following one review through</h3>
@@ -318,7 +330,7 @@
           <li class="step">
             <h4>1. The raw review</h4>
             <blockquote class="sample">During my stay at the Hilton Chicago it has been quite unpleasant. How so you might ask? Well ill tell you, the towels where scratchy and the service was terrible and by terrible I mean they weren&#x27;t even at the desk when I checked in. Also, When I ordered my breakfast, lunch, and dinner from room service I received the wrong order for all meals and felt a little sick after lunch. Finally, The bill was charging me for stuff I didn&#x27;t want or ask for. But overall the hotel was very bad and unpleasant for me and others. I give it a half a star.
-</blockquote>
+            </blockquote>
             <p class="step-note">106 words, as it appears in the dataset.</p>
           </li>
           <li class="step">
@@ -368,13 +380,14 @@
         <p>
           The scores looked good, but as our report puts it, the models failed to perform on unseen data that wasn't part of the dataset. The report doesn't put a number on that failure. We went back to the text, added the preprocessing from the last section, and tried n-grams.
         </p>
-        <div class="table-scroll" role="group" tabindex="0" aria-label="Models trained on unprocessed text">
+        <div class="table-scroll" id="tbl-baseline" role="group" tabindex="0" aria-label="Models trained on unprocessed text">
         <table class="data-table">
           <caption>Models trained on unprocessed text</caption>
           <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead>
           <tbody><tr><th scope="row">Random Forest</th><td>86.25%</td><td>84.57%</td><td>89.69%</td><td>87.06%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>85.94%</td><td>84.48%</td><td>89.09%</td><td>86.73%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85.31%</td><td>85.98%</td><td>85.45%</td><td>85.71%</td></tr><tr><th scope="row">XGBoost</th><td>80.31%</td><td>78.98%</td><td>84.24%</td><td>81.52%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.06%</td><td>75.63%</td><td>73.33%</td><td>74.46%</td></tr></tbody>
         </table>
         </div>
+        <button type="button" class="enlarge" data-target="tbl-baseline">Enlarge<span class="visually-hidden"> table: Models trained on unprocessed text</span></button>
 
         <h3>Same models, six n-gram settings</h3>
         <p>
@@ -389,13 +402,14 @@
           <p class="step-note" data-best></p>
           <p class="step-note">Bars start at 50%, which is chance for a balanced two-class problem.</p>
         </div>
-        <div class="table-scroll" role="group" tabindex="0" aria-label="Accuracy of each model for each n-gram setting">
+        <div class="table-scroll" id="tbl-ngram" role="group" tabindex="0" aria-label="Accuracy of each model for each n-gram setting">
         <table class="data-table">
           <caption>Accuracy of each model for each n-gram setting</caption>
           <thead><tr><th scope="col">Model</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">1&ndash;2</th><th scope="col">2&ndash;3</th><th scope="col">1&ndash;2&ndash;3</th></tr></thead>
           <tbody><tr><th scope="row">Random Forest</th><td>84.375%</td><td>78.125%</td><td>72.8125%</td><td>86.25%</td><td>78.75%</td><td>85.3125%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>86.25%</td><td>82.5%</td><td>71.5625%</td><td><strong>88.125%</strong></td><td>79.375%</td><td>87.5%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85%</td><td>70.3125%</td><td>67.1875%</td><td>85.625%</td><td>73.125%</td><td>86.25%</td></tr><tr><th scope="row">XGBoost</th><td>79.375%</td><td>75.3125%</td><td>71.25%</td><td>81.5625%</td><td>75.3125%</td><td>82.8125%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.375%</td><td>67.1875%</td><td>60.3125%</td><td>72.8125%</td><td>66.5625%</td><td>72.8125%</td></tr></tbody>
         </table>
         </div>
+        <button type="button" class="enlarge" data-target="tbl-ngram">Enlarge<span class="visually-hidden"> table: Accuracy of each model for each n-gram setting</span></button>
         <p>
           Single words and any mix that includes them did best. Pairs or triples on their own fell away: the best triples-only score was 72.8%. That is probably because on a corpus of 1,600 reviews most three-word phrases appear once.
         </p>
@@ -404,13 +418,14 @@
         <p>
           We compared the ten best combinations on more metrics. Multinomial Naive Bayes on single words plus pairs led every column, including precision, which we cared about most because calling a genuine review fake is the costlier mistake. It became our final model.
         </p>
-        <div class="table-scroll" role="group" tabindex="0" aria-label="The ten best combinations">
+        <div class="table-scroll" id="tbl-finalists" role="group" tabindex="0" aria-label="The ten best combinations">
         <table class="data-table">
           <caption>The ten best combinations</caption>
           <thead><tr><th scope="col">Model</th><th scope="col">n-grams</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">AUC</th><th scope="col">F1</th></tr></thead>
           <tbody><tr><th scope="row">Random Forest</th><td>1</td><td>84.375%</td><td>82.486%</td><td>84.242%</td><td>85.38%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2</td><td>86.25%</td><td>84.971%</td><td>86.158%</td><td>86.982%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2&ndash;3</td><td>85.3125%</td><td>85.119%</td><td>85.269%</td><td>85.886%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1</td><td>86.25%</td><td>85.38%</td><td>86.178%</td><td>86.905%</td></tr><tr class="best"><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2</td><td>88.125%</td><td>88.024%</td><td>88.093%</td><td>88.554%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2&ndash;3</td><td>87.5%</td><td>87.879%</td><td>87.488%</td><td>87.879%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1</td><td>85%</td><td>85.455%</td><td>84.985%</td><td>85.455%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2</td><td>85.625%</td><td>85.629%</td><td>85.591%</td><td>86.144%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2&ndash;3</td><td>86.25%</td><td>86.228%</td><td>86.217%</td><td>86.747%</td></tr><tr><th scope="row">XGBoost</th><td>1&ndash;2&ndash;3</td><td>82.8125%</td><td>81.977%</td><td>82.727%</td><td>83.68%</td></tr></tbody>
         </table>
         </div>
+        <button type="button" class="enlarge" data-target="tbl-finalists">Enlarge<span class="visually-hidden"> table: The ten best combinations</span></button>
         <p class="note">
           About the AUC column: in the notebooks we kept, AUC was computed from each model's predicted labels, not its probabilities. For a two-class problem that makes it the same as balanced accuracy, so it is a useful cross-check but not a separate measure of how well the model ranks reviews.
         </p>
@@ -441,11 +456,12 @@
         <p>
           The checks run in order and stop at the first failure: does the username exist, does that user have a booking at this hotel, and does the confirmation code match that booking? If all three pass, the review goes through the same cleaning and vectorizing as in training and into the classifier. The saved model and vectorizer are loaded into a small Flask app, and the result is printed as one line: genuine or fake.
         </p>
-        <figure class="chart">
+        <figure class="chart" id="fig-app-flow-diagram">
           <object data="images/app-flow-diagram.svg" type="image/svg+xml" role="img" aria-label="Flow diagram of the web app: input, validate user information, a legitimate-user decision that either returns to the form or runs the classification model, then the output" style="aspect-ratio: 720 / 262">
             <img src="images/app-flow-diagram.svg" alt="Flow diagram: the user enters a username, hotel, booking ID and review. The app validates them. If the user is not legitimate it returns to the form; otherwise it runs the classification model and shows genuine or fake." width="720" height="262">
           </object>
           <figcaption>The web app's validation flow, redrawn from our report.</figcaption>
+          <button type="button" class="enlarge" data-target="fig-app-flow-diagram">Enlarge<span class="visually-hidden"> figure: The web app&#x27;s validation flow, redrawn from our report.</span></button>
         </figure>
         <p>
           The booking record is a small table of 50 made-up bookings that we wrote for the hotels in the dataset. A real platform would ask its own booking system instead. We had no such data, so this stands in for it.
@@ -614,5 +630,12 @@
       </p>
     </div>
   </footer>
+
+  <dialog id="lightbox" class="lightbox">
+    <div class="lightbox-inner">
+      <button type="button" class="btn lightbox-close">Close<span class="visually-hidden"> enlarged view</span></button>
+      <div class="lightbox-body"></div>
+    </div>
+  </dialog>
 </body>
 </html>

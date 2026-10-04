@@ -183,3 +183,118 @@ var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   box.hidden = false;
   render(box.querySelector('input[name="ngram"]:checked').value);
 })();
+
+// Lightbox: one native <dialog>. The enlarge buttons point at an element by
+// id; a clone of it (and its caption) goes into the dialog and is thrown away
+// when the dialog closes, however it closes.
+(function () {
+  var dialog = document.getElementById('lightbox');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+
+  var body = dialog.querySelector('.lightbox-body');
+  document.documentElement.classList.add('has-lightbox');
+
+  function open(id) {
+    var source = document.getElementById(id);
+    if (!source) return;
+
+    var clone = source.cloneNode(true);
+    // The clone must not repeat ids, and shouldn't carry its own controls.
+    clone.removeAttribute('id');
+    Array.prototype.forEach.call(clone.querySelectorAll('[id]'), function (el) {
+      el.removeAttribute('id');
+    });
+    Array.prototype.forEach.call(clone.querySelectorAll('.enlarge, .table-toggle'), function (el) {
+      el.remove();
+    });
+
+    var caption = clone.querySelector('figcaption, caption');
+    dialog.setAttribute('aria-label', caption ? caption.textContent.replace(/\s+/g, ' ').trim() : 'Enlarged view');
+
+    body.textContent = '';
+    body.appendChild(clone);
+    dialog.showModal();
+  }
+
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('.enlarge[data-target]');
+    if (button) open(button.getAttribute('data-target'));
+  });
+
+  dialog.querySelector('.lightbox-close').addEventListener('click', function () {
+    dialog.close();
+  });
+
+  // The dialog has no padding of its own, so a click that lands on the dialog
+  // element itself is a click on the backdrop.
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+
+  // Fires for the button, the backdrop and the Esc key alike.
+  dialog.addEventListener('close', function () {
+    body.textContent = '';
+    dialog.removeAttribute('aria-label');
+  });
+})();
+
+// Scrollspy: mark the nav link of the section in view with aria-current.
+// "location" is the aria-current value for the current place within a page.
+(function () {
+  var nav = document.querySelector('.site-header nav');
+  if (!nav || !('IntersectionObserver' in window)) return;
+
+  var items = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')).map(function (link) {
+    return { link: link, section: document.getElementById(link.hash.slice(1)) };
+  }).filter(function (item) {
+    return item.section;
+  });
+  if (!items.length) return;
+
+  var inBand = [];
+  var current = null;
+
+  function setCurrent(link) {
+    if (link === current) return;
+    if (current) current.removeAttribute('aria-current');
+    if (link) link.setAttribute('aria-current', 'location');
+    current = link;
+
+    // On narrow screens the links scroll sideways: keep the current one visible.
+    if (link && nav.scrollWidth > nav.clientWidth) {
+      var linkBox = link.getBoundingClientRect();
+      var navBox = nav.getBoundingClientRect();
+      nav.scrollBy({
+        left: linkBox.left - navBox.left - (navBox.width - linkBox.width) / 2,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+    }
+  }
+
+  function update() {
+    if (inBand.length) {
+      // Several can touch the band at a boundary: take the later one.
+      var latest = items.filter(function (item) {
+        return inBand.indexOf(item.section) !== -1;
+      }).pop();
+      setCurrent(latest.link);
+    } else if (items[0].section.getBoundingClientRect().top > window.innerHeight * 0.3) {
+      // Still above the first section (the hero).
+      setCurrent(null);
+    }
+  }
+
+  // A thin band a little above the middle of the viewport.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var index = inBand.indexOf(entry.target);
+      if (entry.isIntersecting && index === -1) inBand.push(entry.target);
+      if (!entry.isIntersecting && index !== -1) inBand.splice(index, 1);
+    });
+    update();
+  }, { rootMargin: '-30% 0px -65% 0px' });
+
+  items.forEach(function (item) {
+    observer.observe(item.section);
+  });
+})();
