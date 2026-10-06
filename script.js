@@ -1,5 +1,6 @@
 // Fake Review Detector: page behaviour.
-// The page reads fine without JavaScript. This file only adds enhancements.
+// The page reads fine without JavaScript.
+// This file only adds enhancements.
 'use strict';
 
 document.documentElement.classList.add('js');
@@ -17,8 +18,9 @@ function within(root, selector) {
   return found;
 }
 
-// Pipeline walkthrough: without JS every step is visible in a list. With JS
-// the steps show one at a time, with previous/next buttons.
+// Pipeline walkthrough:
+// Without JS every step is visible in a list.
+// With JS the steps show one at a time, with previous/next buttons.
 // It takes any [data-stepper] list, so the lightbox can start a fresh one on a clone.
 function initStepper(list) {
   var steps = toArray(list.children);
@@ -126,7 +128,6 @@ function initStepper(list) {
 }
 
 // Results explorer: pick an n-gram setting and see the five models ranked.
-// Numbers are Table 4.3 from our report (accuracy on the test reviews).
 var MODELS = ['Random Forest', 'Multinomial Naive Bayes', 'Support Vector Classifier', 'XGBoost', 'XGBoost Random Forest'];
 var ACC = {
   '1':     [0.84375, 0.8625,  0.85,     0.79375,  0.74375],
@@ -147,8 +148,9 @@ function initExplorer(box) {
   }
 
   function render(key) {
-    // Models stay in the same order for every setting, so switching settings
-    // shows how each one moves. The winner is highlighted, not moved.
+    // Models stay in the same order for every setting,
+    // so switching settings shows how each one moves.
+    // The winner is highlighted, not moved.
     var rows = ACC[key].map(function (v, i) {
       return { name: MODELS[i], value: v };
     });
@@ -204,9 +206,10 @@ function initExplorer(box) {
 toArray(document.querySelectorAll('[data-stepper]')).forEach(initStepper);
 toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
 
-// Lightbox: one native <dialog>. The enlarge buttons point at an element by
-// id; a clone of it (and its caption) goes into the dialog and is thrown away
-// when the dialog closes, however it closes.
+// Lightbox uses a single <dialog> element.
+// The enlarge buttons point at an element by id;
+// a clone of that (and its caption) goes into the dialog
+// and is thrown away when the dialog closes.
 // Interactive pieces get a fresh, working copy of their own.
 (function () {
   var dialog = document.getElementById('lightbox');
@@ -220,7 +223,7 @@ toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
     if (!source) return;
 
     var clone = source.cloneNode(true);
-    // The clone must not repeat ids, and shouldn't carry the page's own controls.
+    // Remove id from being repated in clone and also remove other page controls.
     clone.removeAttribute('id');
     toArray(clone.querySelectorAll('[id]')).forEach(function (el) {
       el.removeAttribute('id');
@@ -228,7 +231,7 @@ toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
     toArray(clone.querySelectorAll('.enlarge, .table-toggle, .stepper-controls')).forEach(function (el) {
       el.remove();
     });
-    // Radio buttons with the same name would join the page's group.
+    // Update radio buttons group name to prevent them joining the page's group.
     within(clone, 'input[type="radio"]').forEach(function (radio) {
       radio.name = radio.name + '-lightbox';
     });
@@ -254,8 +257,7 @@ toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
     dialog.close();
   });
 
-  // The dialog has no padding of its own, so a click that lands on the dialog
-  // element itself is a click on the backdrop.
+  // A click that lands on the dialog itself is a click on the backdrop.
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) dialog.close();
   });
@@ -268,7 +270,6 @@ toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
 })();
 
 // Scrollspy: mark the nav link of the section in view with aria-current.
-// "location" is the aria-current value for the current place within a page.
 (function () {
   var nav = document.querySelector('.site-header nav');
   if (!nav || !('IntersectionObserver' in window)) return;

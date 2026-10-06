@@ -1,68 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t d">
   <title id="t">Functional flow of the fake review detection pipeline</title>
   <desc id="d">Flow diagram. Data acquisition feeds preprocessing and text mining with NLP. The output splits into training data, which feeds classification modelling, and testing data. Both reach predictions. Predictions feed evaluation metrics, which loop back to preprocessing so the pipeline can be refined and repeated.</desc>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap");
-
     :root {
       color-scheme: dark;
     }
-
     text {
       fill: #F1FDF6;
       font-family: "Oxygen", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       font-size: 15px;
     }
-
     .head {
       font-size: 16px;
       font-weight: 700;
     }
-
     .pct {
       font-size: 14px;
       font-weight: 700;
       text-anchor: middle;
     }
-
     .big {
       font-size: 30px;
       font-weight: 700;
       text-anchor: middle;
     }
-
     .mid {
       fill: #B9E3CC;
       font-size: 14px;
       text-anchor: middle;
     }
-
     .key {
       fill: #B9E3CC;
       font-size: 14px;
     }
-
     .tick {
       fill: #B9E3CC;
       font-size: 13px;
       text-anchor: middle;
     }
-
     .seg {
       stroke: #072F25;
       stroke-width: 2;
     }
-
     .grid {
       stroke: #A4EFC1;
       stroke-opacity: 0.18;
     }
-
     .zero {
       stroke: #B9E3CC;
       stroke-width: 1.5;
     }
-
     .node rect {
       fill: #0B4A3A;
       stroke: #A4EFC1;
@@ -70,39 +58,82 @@
       stroke-width: 1.5;
       transition: stroke 0.2s;
     }
-
     .node:hover rect {
       stroke: #B9E3CC;
       stroke-opacity: 1;
       stroke-width: 2.5;
     }
-
     @media (prefers-reduced-motion: reduce) {
       .node rect {
         transition: none;
       }
     }
-
     .bt {
       font-size: 15px;
       font-weight: 700;
       text-anchor: middle;
     }
-
     .bs {
       fill: #B9E3CC;
       font-size: 12px;
       text-anchor: middle;
     }
   </style>
-  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#A4EFC1"/></marker></defs>
-  <g class="node"><title>Data acquisition: the labelled hotel review corpus</title><rect x="0" y="100" width="148" height="64" rx="9"/><text class="bt" x="74.0" y="121.0">Data acquisition</text><text class="bs" x="74.0" y="138.5">1,600 labelled</text><text class="bs" x="74.0" y="153.5">hotel reviews</text></g>
-  <g class="node"><title>Preprocessing and text mining using NLP</title><rect x="176" y="85" width="154" height="94" rx="9"/><text class="bt" x="253.0" y="113.5">Preprocessing</text><text class="bs" x="253.0" y="133.5">text mining with NLP :</text><text class="bs" x="253.0" y="148.5">regex cleaning,</text><text class="bs" x="253.0" y="163.5">lemmas, TF-IDF n-grams</text></g>
-  <g class="node"><title>Training data</title><rect x="380" y="14" width="140" height="72" rx="9"/><text class="bt" x="450.0" y="39.0">Training data</text><text class="bs" x="450.0" y="59.0">used to fit</text><text class="bs" x="450.0" y="74.0">the models</text></g>
-  <g class="node"><title>Classification modelling</title><rect x="560" y="14" width="160" height="72" rx="9"/><text class="bt" x="640.0" y="37.5">Classification</text><text class="bt" x="640.0" y="55.5">modelling</text><text class="bs" x="640.0" y="74.0">5 classifiers</text></g>
-  <g class="node"><title>Testing data</title><rect x="380" y="114" width="140" height="64" rx="9"/><text class="bt" x="450.0" y="135.0">Testing data</text><text class="bs" x="450.0" y="153.5">held back for</text><text class="bs" x="450.0" y="168.5">scoring</text></g>
-  <g class="node"><title>Predictions</title><rect x="560" y="214" width="160" height="64" rx="9"/><text class="bt" x="640.0" y="235.0">Predictions</text><text class="bs" x="640.0" y="253.5">genuine or fake</text><text class="bs" x="640.0" y="268.5">for each review</text></g>
-  <g class="node"><title>Evaluation metrics</title><rect x="380" y="214" width="140" height="64" rx="9"/><text class="bt" x="450.0" y="235.0">Evaluation</text><text class="bs" x="450.0" y="253.5">accuracy, precision,</text><text class="bs" x="450.0" y="268.5">recall, F1</text></g>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#A4EFC1"/>
+    </marker>
+  </defs>
+  <g class="node">
+    <title>Data acquisition: the labelled hotel review corpus</title>
+    <rect x="0" y="100" width="148" height="64" rx="9"/>
+    <text class="bt" x="74.0" y="121.0">Data acquisition</text>
+    <text class="bs" x="74.0" y="138.5">1,600 labelled</text>
+    <text class="bs" x="74.0" y="153.5">hotel reviews</text>
+  </g>
+  <g class="node">
+    <title>Preprocessing and text mining using NLP</title>
+    <rect x="176" y="85" width="154" height="94" rx="9"/>
+    <text class="bt" x="253.0" y="113.5">Preprocessing</text>
+    <text class="bs" x="253.0" y="133.5">text mining with NLP :</text>
+    <text class="bs" x="253.0" y="148.5">regex cleaning,</text>
+    <text class="bs" x="253.0" y="163.5">lemmas, TF-IDF n-grams</text>
+  </g>
+  <g class="node">
+    <title>Training data</title>
+    <rect x="380" y="14" width="140" height="72" rx="9"/>
+    <text class="bt" x="450.0" y="39.0">Training data</text>
+    <text class="bs" x="450.0" y="59.0">used to fit</text>
+    <text class="bs" x="450.0" y="74.0">the models</text>
+  </g>
+  <g class="node">
+    <title>Classification modelling</title>
+    <rect x="560" y="14" width="160" height="72" rx="9"/>
+    <text class="bt" x="640.0" y="37.5">Classification</text>
+    <text class="bt" x="640.0" y="55.5">modelling</text>
+    <text class="bs" x="640.0" y="74.0">5 classifiers</text>
+  </g>
+  <g class="node">
+    <title>Testing data</title>
+    <rect x="380" y="114" width="140" height="64" rx="9"/>
+    <text class="bt" x="450.0" y="135.0">Testing data</text>
+    <text class="bs" x="450.0" y="153.5">held back for</text>
+    <text class="bs" x="450.0" y="168.5">scoring</text>
+  </g>
+  <g class="node">
+    <title>Predictions</title>
+    <rect x="560" y="214" width="160" height="64" rx="9"/>
+    <text class="bt" x="640.0" y="235.0">Predictions</text>
+    <text class="bs" x="640.0" y="253.5">genuine or fake</text>
+    <text class="bs" x="640.0" y="268.5">for each review</text>
+  </g>
+  <g class="node">
+    <title>Evaluation metrics</title>
+    <rect x="380" y="214" width="140" height="64" rx="9"/>
+    <text class="bt" x="450.0" y="235.0">Evaluation</text>
+    <text class="bs" x="450.0" y="253.5">accuracy, precision,</text>
+    <text class="bs" x="450.0" y="268.5">recall, F1</text>
+  </g>
   <path d="M148 132H176" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
   <path d="M330 132H355V50H380" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
   <path d="M330 132H355V146H380" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>

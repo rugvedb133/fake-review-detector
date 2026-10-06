@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 320 260" width="320" height="260" aria-hidden="true" xmlns:c2pa="http://c2pa.org/manifest">
-  <!-- Decorative hero shape: a review bubble with two stars and a dot.
-       Load it with object (not img) so hover and the script below work. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 320 260" width="320" height="260" aria-hidden="true">
+  <!--
+    Decorative hero shape: a review bubble with two stars and a dot.
+    Load it with object tag (not img), so hover and the script below work.
+  -->
   <defs>
     <radialGradient id="halo">
       <stop offset="0" stop-color="#F1FDF6" stop-opacity="0.95"/>
@@ -10,18 +12,15 @@
       <rect x="90" y="90" width="300" height="180" rx="36"/>
     </clipPath>
   </defs>
-
   <style>
-    /* Declare the page's colour scheme inside the SVG. 
-       Without this, the browser paints an opaque white backdrop
-       behind it when it is embedded with object element on a dark page. */
+    /* Declare colour scheme inside the SVG.
+       Without this, browsers paint an opaque white backdrop
+       behind the SVG when it is embedded with object element on a dark page. */
     :root {
       color-scheme: dark;
     }
-
     /* Stars and dot: solid dark green.
-       On first load they start in the bubble's own colour (invisible),
-       then appear. */
+       On first load they start in the bubble's own colour (invisible), then appear. */
     .mark {
       transition: fill 0.4s ease;
       fill: #072F25;
@@ -30,81 +29,66 @@
       stroke-linejoin: round;
       animation: appear 0.5s ease-out backwards;
     }
-
     .m1 {
       animation-delay: 0.8s;
       transition-delay: 0s;
     }
-
     .m2 {
       animation-delay: 0.95s;
       transition-delay: 0.15s;
     }
-
     .m3 {
       animation-delay: 1.1s;
       transition-delay: 0.3s;
     }
-
     @keyframes appear {
       from {
         fill: #A4EFC1;
         stroke: #A4EFC1;
       }
     }
-
     /* Hover: outline only (fill matches the bubble).
-       The transition delays above make the marks empty out, 
+       The transition delays above make the marks empty out,
        and later fill back in, one by one from left to right.
        The script keeps this class on long enough
        for the last mark to finish before it reverses. */
     .outline .mark {
       fill: #A4EFC1;
     }
-
-    /* Soft halos behind the stars and dot, drifting very slowly. They fade in
-       only after the marks have appeared: a lighter halo behind a mark that is
-       still bubble-coloured would show its outline. */
+    /* Soft halos behind the stars and dot, drifting very slowly.
+       They fade in only after the marks have appeared. */
     .halos {
       animation: haloIn 1.2s ease-out 1.8s backwards;
     }
-
     @keyframes haloIn {
       from {
         opacity: 0;
       }
     }
-
     .halo {
       animation: drift 28s ease-in-out infinite alternate;
     }
-
     .h2 {
       animation-duration: 34s;
       animation-delay: -9s;
     }
-
     .h3 {
       animation-duration: 41s;
       animation-delay: -17s;
     }
-
     @keyframes drift {
       from {
         transform: translate(-7px, -5px);
       }
-
       to {
         transform: translate(7px, 5px);
       }
     }
-
     @media (prefers-reduced-motion: reduce) {
       .mark {
         animation: none;
         transition: none;
       }
-
       .halos,
       .halo {
         animation: none;
@@ -135,7 +119,6 @@
     var HOLD = reduce ? 0 : 700; // last mark's delay (0.3s) + its transition (0.4s)
     var since = 0;
     var timer = 0;
-
     bubble.addEventListener('pointerenter', function () {
       clearTimeout(timer);
       if (!root.classList.contains('outline')) {
@@ -143,7 +126,6 @@
         since = Date.now();
       }
     });
-
     bubble.addEventListener('pointerleave', function () {
       var wait = Math.max(0, HOLD - (Date.now() - since));
       clearTimeout(timer);

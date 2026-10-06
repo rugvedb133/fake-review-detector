@@ -1,68 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 262" width="720" height="262" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 262" width="720" height="262" role="img" aria-labelledby="t d">
   <title id="t">Flow of the web app&#x27;s validation process</title>
   <desc id="d">Flow diagram. The user enters a username, hotel name, booking ID and review. The app validates the user information and asks whether the user is legitimate. If not, it returns to the input form. If yes, it runs the classification model and shows the output, genuine or fake.</desc>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap");
-
     :root {
       color-scheme: dark;
     }
-
     text {
       fill: #F1FDF6;
       font-family: "Oxygen", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       font-size: 15px;
     }
-
     .head {
       font-size: 16px;
       font-weight: 700;
     }
-
     .pct {
       font-size: 14px;
       font-weight: 700;
       text-anchor: middle;
     }
-
     .big {
       font-size: 30px;
       font-weight: 700;
       text-anchor: middle;
     }
-
     .mid {
       fill: #B9E3CC;
       font-size: 14px;
       text-anchor: middle;
     }
-
     .key {
       fill: #B9E3CC;
       font-size: 14px;
     }
-
     .tick {
       fill: #B9E3CC;
       font-size: 13px;
       text-anchor: middle;
     }
-
     .seg {
       stroke: #072F25;
       stroke-width: 2;
     }
-
     .grid {
       stroke: #A4EFC1;
       stroke-opacity: 0.18;
     }
-
     .zero {
       stroke: #B9E3CC;
       stroke-width: 1.5;
     }
-
     .node rect,
     .node polygon {
       fill: #0B4A3A;
@@ -71,44 +59,70 @@
       stroke-width: 1.5;
       transition: stroke 0.2s;
     }
-
     .node:hover rect,
     .node:hover polygon {
       stroke: #B9E3CC;
       stroke-opacity: 1;
       stroke-width: 2.5;
     }
-
     @media (prefers-reduced-motion: reduce) {
       .node rect,
       .node polygon {
         transition: none;
       }
     }
-
     .bt {
       font-size: 15px;
       font-weight: 700;
       text-anchor: middle;
     }
-
     .bs {
       fill: #B9E3CC;
       font-size: 12px;
       text-anchor: middle;
     }
-
     .lab {
       font-size: 14px;
       font-weight: 700;
     }
   </style>
-  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#A4EFC1"/></marker></defs>
-  <g class="node"><title>Input: username, hotel name, booking ID and review</title><polygon points="22,52 168,52 146,138 0,138"/><text class="bt" x="84" y="84">Input</text><text class="bs" x="84" y="103">username, hotel name,</text><text class="bs" x="84" y="118">booking ID, review</text></g>
-  <g class="node"><title>Validate user information against the booking table</title><rect x="208" y="62" width="128" height="66" rx="9"/><text class="bt" x="272" y="90">Validate user</text><text class="bt" x="272" y="108">information</text></g>
-  <g class="node"><title>Legitimate user? Username, hotel booking and confirmation code must all match</title><polygon points="422,44 488,95 422,146 356,95"/><text class="bt" x="422" y="90">Legitimate</text><text class="bt" x="422" y="108">user?</text></g>
-  <g class="node"><title>Run the classification model</title><rect x="560" y="62" width="160" height="66" rx="9"/><text class="bt" x="640" y="86">Run classification</text><text class="bt" x="640" y="104">model</text><text class="bs" x="640" y="123">Multinomial Naive Bayes</text></g>
-  <g class="node"><title>Output: genuine or fake</title><polygon points="592,186 720,186 698,246 570,246"/><text class="bt" x="645" y="212">Output</text><text class="bs" x="645" y="231">genuine or fake</text></g>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#A4EFC1"/>
+    </marker>
+  </defs>
+  <g class="node">
+    <title>Input: username, hotel name, booking ID and review</title>
+    <polygon points="22,52 168,52 146,138 0,138"/>
+    <text class="bt" x="84" y="84">Input</text>
+    <text class="bs" x="84" y="103">username, hotel name,</text>
+    <text class="bs" x="84" y="118">booking ID, review</text>
+  </g>
+  <g class="node">
+    <title>Validate user information against the booking table</title>
+    <rect x="208" y="62" width="128" height="66" rx="9"/>
+    <text class="bt" x="272" y="90">Validate user</text>
+    <text class="bt" x="272" y="108">information</text>
+  </g>
+  <g class="node">
+    <title>Legitimate user? Username, hotel booking and confirmation code must all match</title>
+    <polygon points="422,44 488,95 422,146 356,95"/>
+    <text class="bt" x="422" y="90">Legitimate</text>
+    <text class="bt" x="422" y="108">user?</text>
+  </g>
+  <g class="node">
+    <title>Run the classification model</title>
+    <rect x="560" y="62" width="160" height="66" rx="9"/>
+    <text class="bt" x="640" y="86">Run classification</text>
+    <text class="bt" x="640" y="104">model</text>
+    <text class="bs" x="640" y="123">Multinomial Naive Bayes</text>
+  </g>
+  <g class="node">
+    <title>Output: genuine or fake</title>
+    <polygon points="592,186 720,186 698,246 570,246"/>
+    <text class="bt" x="645" y="212">Output</text>
+    <text class="bs" x="645" y="231">genuine or fake</text>
+  </g>
   <path d="M154 95H208" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
   <path d="M336 95H356" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>
   <path d="M488 95H560" fill="none" stroke="#A4EFC1" stroke-width="2" stroke-linejoin="round" marker-end="url(#arr)"/>

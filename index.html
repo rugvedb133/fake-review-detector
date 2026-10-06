@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#072F25">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://rugvedb133.github.io/fake-review-detector/">
-
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Fake Review Detection using Machine Learning">
@@ -18,24 +17,21 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="A mint speech bubble holding two stars and a dot, beside the title Fake Review Detection using Machine Learning.">
-
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fake Review Detection using Machine Learning">
   <meta name="twitter:description" content="Detecting fake hotel reviews with NLP and a booking check.">
   <meta name="twitter:image" content="https://rugvedb133.github.io/fake-review-detector/images/social-preview.png">
   <meta name="twitter:image:alt" content="A mint speech bubble holding two stars and a dot, beside the title Fake Review Detection using Machine Learning.">
-
   <!-- Icons -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap">
-
+  <!-- Stylesheet and script -->
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -116,16 +112,41 @@
             <button type="button" class="enlarge" data-target="fig-survey-trust">Enlarge<span class="visually-hidden"> the trust questions chart</span></button>
           </figcaption>
         </figure>
-          <details class="table-toggle">
-            <summary>View as a table</summary>
-            <div class="table-scroll" id="tbl-survey-trust" role="group" tabindex="0" aria-label="Answers to the two trust questions (156 respondents)">
-              <table class="data-table" aria-labelledby="cap-tbl-survey-trust">
-                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-trust">Answers to the two trust questions (156 respondents)</span><button type="button" class="enlarge" data-target="tbl-survey-trust">Enlarge<span class="visually-hidden"> the trust questions table</span></button></span></caption>
-                <thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Maybe</th></tr></thead>
-                <tbody><tr><th scope="row">Positive reviews posted on behalf of the company</th><td>95 (60.9%)</td><td>7 (4.5%)</td><td>54 (34.6%)</td></tr><tr><th scope="row">Reviews written out of spite</th><td>80 (51.3%)</td><td>29 (18.6%)</td><td>47 (30.1%)</td></tr></tbody>
-              </table>
-            </div>
-          </details>
+        <details class="table-toggle">
+          <summary>View as a table</summary>
+          <div class="table-scroll" id="tbl-survey-trust" role="group" tabindex="0" aria-label="Answers to the two trust questions (156 respondents)">
+            <table class="data-table" aria-labelledby="cap-tbl-survey-trust">
+              <caption>
+                <span class="caption-inner">
+                  <span class="caption-text" id="cap-tbl-survey-trust">Answers to the two trust questions (156 respondents)</span>
+                  <button type="button" class="enlarge" data-target="tbl-survey-trust">Enlarge<span class="visually-hidden"> the trust questions table</span></button>
+                </span>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Question</th>
+                  <th scope="col">Yes</th>
+                  <th scope="col">No</th>
+                  <th scope="col">Maybe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Positive reviews posted on behalf of the company</th>
+                  <td>95 (60.9%)</td>
+                  <td>7 (4.5%)</td>
+                  <td>54 (34.6%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Reviews written out of spite</th>
+                  <td>80 (51.3%)</td>
+                  <td>29 (18.6%)</td>
+                  <td>47 (30.1%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
         <p>
           On 1-to-5 scales the picture is similar. Most people lean on reviews, 45% often see reviews that talk about the brand more than the product, and only 40% were likely to answer a "was this review useful?" prompt.
         </p>
@@ -138,16 +159,55 @@
             <button type="button" class="enlarge" data-target="fig-survey-likelihood">Enlarge<span class="visually-hidden"> the 1 to 5 questions chart</span></button>
           </figcaption>
         </figure>
-          <details class="table-toggle">
-            <summary>View as a table</summary>
-            <div class="table-scroll" id="tbl-survey-likelihood" role="group" tabindex="0" aria-label="Answers on a 1 to 5 scale (156 respondents)">
-              <table class="data-table" aria-labelledby="cap-tbl-survey-likelihood">
-                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-likelihood">Answers on a 1 to 5 scale (156 respondents)</span><button type="button" class="enlarge" data-target="tbl-survey-likelihood">Enlarge<span class="visually-hidden"> the 1 to 5 questions table</span></button></span></caption>
-                <thead><tr><th scope="col">Question</th><th scope="col">1 (lowest)</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5 (highest)</th></tr></thead>
-                <tbody><tr><th scope="row">Likely to decide based on reviews</th><td>0 (0.0%)</td><td>5 (3.2%)</td><td>36 (23.1%)</td><td>79 (50.6%)</td><td>36 (23.1%)</td></tr><tr><th scope="row">Reviews focus on the brand, not the product</th><td>6 (3.8%)</td><td>23 (14.7%)</td><td>57 (36.5%)</td><td>58 (37.2%)</td><td>12 (7.7%)</td></tr><tr><th scope="row">Likely to answer &ldquo;Did you find this review useful?&rdquo;</th><td>24 (15.4%)</td><td>26 (16.7%)</td><td>44 (28.2%)</td><td>42 (26.9%)</td><td>20 (12.8%)</td></tr></tbody>
-              </table>
-            </div>
-          </details>
+        <details class="table-toggle">
+          <summary>View as a table</summary>
+          <div class="table-scroll" id="tbl-survey-likelihood" role="group" tabindex="0" aria-label="Answers on a 1 to 5 scale (156 respondents)">
+            <table class="data-table" aria-labelledby="cap-tbl-survey-likelihood">
+              <caption>
+                <span class="caption-inner">
+                  <span class="caption-text" id="cap-tbl-survey-likelihood">Answers on a 1 to 5 scale (156 respondents)</span>
+                  <button type="button" class="enlarge" data-target="tbl-survey-likelihood">Enlarge<span class="visually-hidden"> the 1 to 5 questions table</span></button>
+                </span>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Question</th>
+                  <th scope="col">1 (lowest)</th>
+                  <th scope="col">2</th>
+                  <th scope="col">3</th>
+                  <th scope="col">4</th>
+                  <th scope="col">5 (highest)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Likely to decide based on reviews</th>
+                  <td>0 (0.0%)</td>
+                  <td>5 (3.2%)</td>
+                  <td>36 (23.1%)</td>
+                  <td>79 (50.6%)</td>
+                  <td>36 (23.1%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Reviews focus on the brand, not the product</th>
+                  <td>6 (3.8%)</td>
+                  <td>23 (14.7%)</td>
+                  <td>57 (36.5%)</td>
+                  <td>58 (37.2%)</td>
+                  <td>12 (7.7%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Likely to answer &ldquo;Did you find this review useful?&rdquo;</th>
+                  <td>24 (15.4%)</td>
+                  <td>26 (16.7%)</td>
+                  <td>44 (28.2%)</td>
+                  <td>42 (26.9%)</td>
+                  <td>20 (12.8%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
 
         <h3>Who answered</h3>
         <p>
@@ -163,16 +223,47 @@
             <button type="button" class="enlarge" data-target="fig-survey-age">Enlarge<span class="visually-hidden"> the age chart</span></button>
           </figcaption>
         </figure>
-          <details class="table-toggle">
-            <summary>View as a table</summary>
-            <div class="table-scroll" id="tbl-survey-age" role="group" tabindex="0" aria-label="Age group (all 156 respondents; 16–25 includes 2 who left age blank)">
-              <table class="data-table" aria-labelledby="cap-tbl-survey-age">
-                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-age">Age group (all 156 respondents; 16&ndash;25 includes 2 who left age blank)</span><button type="button" class="enlarge" data-target="tbl-survey-age">Enlarge<span class="visually-hidden"> the age table</span></button></span></caption>
-                <thead><tr><th scope="col">Age group</th><th scope="col">Respondents</th></tr></thead>
-                <tbody><tr><th scope="row">15 and below</th><td>2 (1.3%)</td></tr><tr><th scope="row">16&ndash;25</th><td>134 (85.9%)</td></tr><tr><th scope="row">26&ndash;35</th><td>6 (3.8%)</td></tr><tr><th scope="row">36&ndash;45</th><td>2 (1.3%)</td></tr><tr><th scope="row">45 and above</th><td>12 (7.7%)</td></tr></tbody>
-              </table>
-            </div>
-          </details>
+        <details class="table-toggle">
+          <summary>View as a table</summary>
+          <div class="table-scroll" id="tbl-survey-age" role="group" tabindex="0" aria-label="Age group (all 156 respondents; 16–25 includes 2 who left age blank)">
+            <table class="data-table" aria-labelledby="cap-tbl-survey-age">
+              <caption>
+                <span class="caption-inner">
+                  <span class="caption-text" id="cap-tbl-survey-age">Age group (all 156 respondents; 16&ndash;25 includes 2 who left age blank)</span>
+                  <button type="button" class="enlarge" data-target="tbl-survey-age">Enlarge<span class="visually-hidden"> the age table</span></button>
+                </span>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Age group</th>
+                  <th scope="col">Respondents</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">15 and below</th>
+                  <td>2 (1.3%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">16&ndash;25</th>
+                  <td>134 (85.9%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">26&ndash;35</th>
+                  <td>6 (3.8%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">36&ndash;45</th>
+                  <td>2 (1.3%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">45 and above</th>
+                  <td>12 (7.7%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
         <figure class="chart" id="fig-survey-preference">
           <object data="images/survey-preference.svg" type="image/svg+xml" role="img" aria-label="Pie chart of preferred review type" style="aspect-ratio: 430 / 240">
             <img src="images/survey-preference.svg" alt="Pie chart: 69.9% of respondents prefer text reviews and 30.1% prefer star ratings." width="430" height="240">
@@ -182,30 +273,45 @@
             <button type="button" class="enlarge" data-target="fig-survey-preference">Enlarge<span class="visually-hidden"> the review type chart</span></button>
           </figcaption>
         </figure>
-          <details class="table-toggle">
-            <summary>View as a table</summary>
-            <div class="table-scroll" id="tbl-survey-preference" role="group" tabindex="0" aria-label="Preferred review type (156 respondents)">
-              <table class="data-table" aria-labelledby="cap-tbl-survey-preference">
-                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-preference">Preferred review type (156 respondents)</span><button type="button" class="enlarge" data-target="tbl-survey-preference">Enlarge<span class="visually-hidden"> the review type table</span></button></span></caption>
-                <thead><tr><th scope="col">Type</th><th scope="col">Respondents</th></tr></thead>
-                <tbody><tr><th scope="row">Text review</th><td>109 (69.9%)</td></tr><tr><th scope="row">Star rating</th><td>47 (30.1%)</td></tr></tbody>
-              </table>
-            </div>
-          </details>
+        <details class="table-toggle">
+          <summary>View as a table</summary>
+          <div class="table-scroll" id="tbl-survey-preference" role="group" tabindex="0" aria-label="Preferred review type (156 respondents)">
+            <table class="data-table" aria-labelledby="cap-tbl-survey-preference">
+              <caption>
+                <span class="caption-inner">
+                  <span class="caption-text" id="cap-tbl-survey-preference">Preferred review type (156 respondents)</span>
+                  <button type="button" class="enlarge" data-target="tbl-survey-preference">Enlarge<span class="visually-hidden"> the review type table</span></button>
+                </span>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">Respondents</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Text review</th>
+                  <td>109 (69.9%)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Star rating</th>
+                  <td>47 (30.1%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
 
         <h3>What already existed</h3>
         <p>
           We surveyed the market for tools that do something similar. <a href="https://web.archive.org/web/2020/https://reviewmeta.com/" title="(Archived version) ReviewMeta.com - Amazon Review Checker">ReviewMeta<span class="visually-hidden"> (archived version)</span></a> re-scored Amazon reviews and gave an adjusted rating. <a href="https://web.archive.org/web/2020/https://www.fakespot.com/" title="(Archived version) Fakespot | Analyze and identify fake reviews and counterfeits">Fakespot<span class="visually-hidden"> (archived version)</span></a> graded reviews on a handful of shopping sites. <a href="https://web.archive.org/web/2020/https://thereviewindex.com/" title="(Archived version)  Review Summarizer for Gadget Reviews">The Review Index<span class="visually-hidden"> (archived version)</span></a> summarised the reviews for a product.
-        </p>
-        <p>
           They shared two limits. Each worked only on specific sites, and each judged reviews after they were already posted, so nothing stopped the fake ones from going up.
         </p>
 
         <h3>What we tried instead</h3>
         <p>
           We combined two signals: what a review says, and who wrote it. A classifier reads the text, and a booking check confirms the reviewer actually has a reservation before the review is classified.
-        </p>
-        <p>
           We trained and tested on an available labelled dataset of hotel reviews. The original goal was reviews for any kind of e-commerce product, and the booking check is the hotel-specific stand-in for something like a verified purchase. Testing other product categories is the obvious next step.
         </p>
       </div>
@@ -259,15 +365,45 @@
         </p>
         <div class="table-scroll" id="tbl-dataset" role="group" tabindex="0" aria-label="How the 1,600 reviews were collected">
           <table class="data-table" aria-labelledby="cap-tbl-dataset">
-            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-dataset">How the 1,600 reviews were collected</span><button type="button" class="enlarge" data-target="tbl-dataset">Enlarge<span class="visually-hidden"> the dataset table</span></button></span></caption>
+            <caption>
+              <span class="caption-inner">
+                <span class="caption-text" id="cap-tbl-dataset">How the 1,600 reviews were collected</span>
+                <button type="button" class="enlarge" data-target="tbl-dataset">Enlarge<span class="visually-hidden"> the dataset table</span></button>
+              </span>
+            </caption>
             <thead>
-              <tr><th scope="col">Label</th><th scope="col">Tone</th><th scope="col">Where it came from</th><th scope="col">Reviews</th></tr>
+              <tr>
+                <th scope="col">Label</th>
+                <th scope="col">Tone</th>
+                <th scope="col">Where it came from</th>
+                <th scope="col">Reviews</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Truthful</th><td>Positive</td><td>TripAdvisor</td><td>400</td></tr>
-              <tr><th scope="row">Truthful</th><td>Negative</td><td>Mixed web sources</td><td>400</td></tr>
-              <tr><th scope="row">Deceptive</th><td>Positive</td><td>Amazon Mechanical Turk</td><td>400</td></tr>
-              <tr><th scope="row">Deceptive</th><td>Negative</td><td>Amazon Mechanical Turk</td><td>400</td></tr>
+              <tr>
+                <th scope="row">Truthful</th>
+                <td>Positive</td>
+                <td>TripAdvisor</td>
+                <td>400</td>
+              </tr>
+              <tr>
+                <th scope="row">Truthful</th>
+                <td>Negative</td>
+                <td>Mixed web sources</td>
+                <td>400</td>
+              </tr>
+              <tr>
+                <th scope="row">Deceptive</th>
+                <td>Positive</td>
+                <td>Amazon Mechanical Turk</td>
+                <td>400</td>
+              </tr>
+              <tr>
+                <th scope="row">Deceptive</th>
+                <td>Negative</td>
+                <td>Amazon Mechanical Turk</td>
+                <td>400</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -293,16 +429,103 @@
             <button type="button" class="enlarge" data-target="fig-correlation-heatmap">Enlarge<span class="visually-hidden"> the correlation heatmap</span></button>
           </figcaption>
         </figure>
-          <details class="table-toggle">
-            <summary>View as a table</summary>
-            <div class="table-scroll" id="tbl-heatmap" role="group" tabindex="0" aria-label="Pearson correlations, 1,600 reviews">
-              <table class="data-table" aria-labelledby="cap-tbl-heatmap">
-                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-heatmap">Pearson correlations, 1,600 reviews</span><button type="button" class="enlarge" data-target="tbl-heatmap">Enlarge<span class="visually-hidden"> the correlation table</span></button></span></caption>
-                <thead><tr><td></td><th scope="col">polarity</th><th scope="col">fake</th><th scope="col">characters</th><th scope="col">digits</th><th scope="col">non-word characters</th><th scope="col">words</th><th scope="col">sentences</th></tr></thead>
-                <tbody><tr><th scope="row">polarity</th><td>1.00</td><td>0.00</td><td>-0.32</td><td>-0.15</td><td>-0.33</td><td>-0.33</td><td>-0.25</td></tr><tr><th scope="row">fake</th><td>0.00</td><td>1.00</td><td>-0.03</td><td>-0.31</td><td>-0.05</td><td>-0.04</td><td>-0.09</td></tr><tr><th scope="row">characters</th><td>-0.32</td><td>-0.03</td><td>1.00</td><td>0.38</td><td>1.00</td><td>1.00</td><td>0.86</td></tr><tr><th scope="row">digits</th><td>-0.15</td><td>-0.31</td><td>0.38</td><td>1.00</td><td>0.41</td><td>0.40</td><td>0.40</td></tr><tr><th scope="row">non-word characters</th><td>-0.33</td><td>-0.05</td><td>1.00</td><td>0.41</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">words</th><td>-0.33</td><td>-0.04</td><td>1.00</td><td>0.40</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">sentences</th><td>-0.25</td><td>-0.09</td><td>0.86</td><td>0.40</td><td>0.87</td><td>0.87</td><td>1.00</td></tr></tbody>
-              </table>
-            </div>
-          </details>
+        <details class="table-toggle">
+          <summary>View as a table</summary>
+          <div class="table-scroll" id="tbl-heatmap" role="group" tabindex="0" aria-label="Pearson correlations, 1,600 reviews">
+            <table class="data-table" aria-labelledby="cap-tbl-heatmap">
+              <caption>
+                <span class="caption-inner">
+                  <span class="caption-text" id="cap-tbl-heatmap">Pearson correlations, 1,600 reviews</span>
+                  <button type="button" class="enlarge" data-target="tbl-heatmap">Enlarge<span class="visually-hidden"> the correlation table</span></button>
+                </span>
+              </caption>
+              <thead>
+                <tr>
+                  <td></td>
+                  <th scope="col">polarity</th>
+                  <th scope="col">fake</th>
+                  <th scope="col">characters</th>
+                  <th scope="col">digits</th>
+                  <th scope="col">non-word characters</th>
+                  <th scope="col">words</th>
+                  <th scope="col">sentences</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">polarity</th>
+                  <td>1.00</td>
+                  <td>0.00</td>
+                  <td>-0.32</td>
+                  <td>-0.15</td>
+                  <td>-0.33</td>
+                  <td>-0.33</td>
+                  <td>-0.25</td>
+                </tr>
+                <tr>
+                  <th scope="row">fake</th>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>-0.03</td>
+                  <td>-0.31</td>
+                  <td>-0.05</td>
+                  <td>-0.04</td>
+                  <td>-0.09</td>
+                </tr>
+                <tr>
+                  <th scope="row">characters</th>
+                  <td>-0.32</td>
+                  <td>-0.03</td>
+                  <td>1.00</td>
+                  <td>0.38</td>
+                  <td>1.00</td>
+                  <td>1.00</td>
+                  <td>0.86</td>
+                </tr>
+                <tr>
+                  <th scope="row">digits</th>
+                  <td>-0.15</td>
+                  <td>-0.31</td>
+                  <td>0.38</td>
+                  <td>1.00</td>
+                  <td>0.41</td>
+                  <td>0.40</td>
+                  <td>0.40</td>
+                </tr>
+                <tr>
+                  <th scope="row">non-word characters</th>
+                  <td>-0.33</td>
+                  <td>-0.05</td>
+                  <td>1.00</td>
+                  <td>0.41</td>
+                  <td>1.00</td>
+                  <td>1.00</td>
+                  <td>0.87</td>
+                </tr>
+                <tr>
+                  <th scope="row">words</th>
+                  <td>-0.33</td>
+                  <td>-0.04</td>
+                  <td>1.00</td>
+                  <td>0.40</td>
+                  <td>1.00</td>
+                  <td>1.00</td>
+                  <td>0.87</td>
+                </tr>
+                <tr>
+                  <th scope="row">sentences</th>
+                  <td>-0.25</td>
+                  <td>-0.09</td>
+                  <td>0.86</td>
+                  <td>0.40</td>
+                  <td>0.87</td>
+                  <td>0.87</td>
+                  <td>1.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -332,45 +555,142 @@
           This is one review from the dataset: a negative, deceptive Hilton review. The outputs below come from running our preprocessing code on it.
         </p>
         <div class="walkthrough" id="walkthrough" data-label="Walkthrough: one review through the pipeline">
-        <button type="button" class="enlarge" data-target="walkthrough">Enlarge<span class="visually-hidden"> the review walkthrough</span></button>
-        <ol class="stepper" data-stepper>
-          <li class="step">
-            <h4>1. The raw review</h4>
-            <blockquote class="sample">During my stay at the Hilton Chicago it has been quite unpleasant. How so you might ask? Well ill tell you, the towels where scratchy and the service was terrible and by terrible I mean they weren&#x27;t even at the desk when I checked in. Also, When I ordered my breakfast, lunch, and dinner from room service I received the wrong order for all meals and felt a little sick after lunch. Finally, The bill was charging me for stuff I didn&#x27;t want or ask for. But overall the hotel was very bad and unpleasant for me and others. I give it a half a star.
-            </blockquote>
-            <p class="step-note">106 words, as it appears in the dataset.</p>
-          </li>
-          <li class="step">
-            <h4>2. Clean it</h4>
-            <p class="sample">during my stay at the hilton chicago it has been quite unpleasant how so you might ask well ill tell you the towels where scratchy and the service was terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all meals and felt little sick after lunch finally the bill was charging me for stuff didn want or ask for but overall the hotel was very bad and unpleasant for me and others give it half star </p>
-            <p class="step-note">Regular expressions strip punctuation, drop single letters like &ldquo;I&rdquo; and &ldquo;a&rdquo;, and lowercase everything: 97 words left. They also do some collateral damage. &ldquo;weren't&rdquo; became &ldquo;weren&rdquo;, because the apostrophe split the word and the lone &ldquo;t&rdquo; was dropped.</p>
-          </li>
-          <li class="step" data-wipe>
-            <h4>3. Reduce words to their base form</h4>
-            <p class="sample">during my stay at the hilton chicago it <mark>ha</mark> been quite unpleasant how so you might ask well ill tell you the <mark>towel</mark> where scratchy and the service <mark>wa</mark> terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all <mark>meal</mark> and felt little sick after lunch finally the bill <mark>wa</mark> charging me for stuff didn want or ask for but overall the hotel <mark>wa</mark> very bad and unpleasant for me and others give it half star</p>
-            <p class="step-note">A WordNet lemmatizer maps each word to a dictionary form. Six words changed (highlighted). It runs without part-of-speech tags, so it treats every word as a noun: &ldquo;towels&rdquo; correctly becomes &ldquo;towel&rdquo;, but &ldquo;was&rdquo; becomes &ldquo;wa&rdquo; and &ldquo;has&rdquo; becomes &ldquo;ha&rdquo;. The model only needs consistency, so it's harmless, but it's a known wart.</p>
-          </li>
-          <li class="step">
-            <h4>4. Drop filler, then count words and pairs</h4>
-            <ul class="chips"><li>stay</li><li>hilton</li><li>chicago</li><li>ha</li><li>quite</li><li>unpleasant</li><li>might</li><li>ask</li><li>well</li><li>tell</li><li>towel</li><li>service</li><li>terrible</li><li>mean</li><li>even</li><li>desk</li><li>checked</li><li>also</li><li>ordered</li><li>breakfast</li><li>dinner</li><li>received</li><li>wrong</li><li>order</li><li>meal</li><li>felt</li><li>little</li><li>finally</li><li>bill</li><li>stuff</li><li>want</li><li>overall</li><li>bad</li><li>others</li><li>give</li><li>half</li><li>star</li><li>stay hilton</li><li>hilton chicago</li><li>chicago ha</li><li>service wa</li><li>wa terrible</li><li>room service</li><li>hotel wa</li><li>wa bad</li></ul>
-            <p class="step-note">The vectorizer drops 45 common words (&ldquo;the&rdquo;, &ldquo;at&rdquo;, &ldquo;it&rdquo;), leaving 52 single words, and pairs neighbours into 51 two-word phrases. Only terms that appear in at least five training reviews, and are among the 1,500 most frequent, are kept, so this review ends up with 45 distinct terms (shown above) out of 49 occurrences.</p>
-          </li>
-          <li class="step" data-bars>
-            <h4>5. Weigh each term</h4>
-            <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:87.2%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:77.2%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:68.5%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:45.7%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:45.2%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:44.7%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:43.7%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:41.2%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:40.0%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:39.8%"></i></span><span class="num">0.159</span></li></ol>
-            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase.</p>
-          </li>
-          <li class="step">
-            <h4>6. The verdict</h4>
-            <div class="result-card">
-              <p class="rc-small">User details successfully verified</p>
-              <p class="rc-label">Prediction:</p>
-              <p class="rc-verdict">This is a <strong>fake review</strong>.</p>
-            </div>
-            <p class="step-note">The vector goes to our final model, Multinomial Naive Bayes on unigrams and bigrams, and the app prints one line. This review is labelled deceptive in the dataset, so that is the right answer.</p>
-          </li>
-        </ol>
-      </div>
+          <button type="button" class="enlarge" data-target="walkthrough">Enlarge<span class="visually-hidden"> the review walkthrough</span></button>
+          <ol class="stepper" data-stepper>
+            <li class="step">
+              <h4>1. The raw review</h4>
+              <blockquote class="sample">During my stay at the Hilton Chicago it has been quite unpleasant. How so you might ask? Well ill tell you, the towels where scratchy and the service was terrible and by terrible I mean they weren&#x27;t even at the desk when I checked in. Also, When I ordered my breakfast, lunch, and dinner from room service I received the wrong order for all meals and felt a little sick after lunch. Finally, The bill was charging me for stuff I didn&#x27;t want or ask for. But overall the hotel was very bad and unpleasant for me and others. I give it a half a star.
+              </blockquote>
+              <p class="step-note">106 words, as it appears in the dataset.</p>
+            </li>
+            <li class="step">
+              <h4>2. Clean it</h4>
+              <p class="sample">during my stay at the hilton chicago it has been quite unpleasant how so you might ask well ill tell you the towels where scratchy and the service was terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all meals and felt little sick after lunch finally the bill was charging me for stuff didn want or ask for but overall the hotel was very bad and unpleasant for me and others give it half star </p>
+              <p class="step-note">Regular expressions strip punctuation, drop single letters like &ldquo;I&rdquo; and &ldquo;a&rdquo;, and lowercase everything: 97 words left. They also do some collateral damage. &ldquo;weren't&rdquo; became &ldquo;weren&rdquo;, because the apostrophe split the word and the lone &ldquo;t&rdquo; was dropped.</p>
+            </li>
+            <li class="step" data-wipe>
+              <h4>3. Reduce words to their base form</h4>
+              <p class="sample">during my stay at the hilton chicago it <mark>ha</mark> been quite unpleasant how so you might ask well ill tell you the <mark>towel</mark> where scratchy and the service <mark>wa</mark> terrible and by terrible mean they weren even at the desk when checked in also when ordered my breakfast lunch and dinner from room service received the wrong order for all <mark>meal</mark> and felt little sick after lunch finally the bill <mark>wa</mark> charging me for stuff didn want or ask for but overall the hotel <mark>wa</mark> very bad and unpleasant for me and others give it half star</p>
+              <p class="step-note">A WordNet lemmatizer maps each word to a dictionary form. Six words changed (highlighted). It runs without part-of-speech tags, so it treats every word as a noun: &ldquo;towels&rdquo; correctly becomes &ldquo;towel&rdquo;, but &ldquo;was&rdquo; becomes &ldquo;wa&rdquo; and &ldquo;has&rdquo; becomes &ldquo;ha&rdquo;. The model only needs consistency, so it's harmless, but it's a known wart.</p>
+            </li>
+            <li class="step">
+              <h4>4. Drop filler, then count words and pairs</h4>
+              <ul class="chips">
+                <li>stay</li>
+                <li>hilton</li>
+                <li>chicago</li>
+                <li>ha</li>
+                <li>quite</li>
+                <li>unpleasant</li>
+                <li>might</li>
+                <li>ask</li>
+                <li>well</li>
+                <li>tell</li>
+                <li>towel</li>
+                <li>service</li>
+                <li>terrible</li>
+                <li>mean</li>
+                <li>even</li>
+                <li>desk</li>
+                <li>checked</li>
+                <li>also</li>
+                <li>ordered</li>
+                <li>breakfast</li>
+                <li>dinner</li>
+                <li>received</li>
+                <li>wrong</li>
+                <li>order</li>
+                <li>meal</li>
+                <li>felt</li>
+                <li>little</li>
+                <li>finally</li>
+                <li>bill</li>
+                <li>stuff</li>
+                <li>want</li>
+                <li>overall</li>
+                <li>bad</li>
+                <li>others</li>
+                <li>give</li>
+                <li>half</li>
+                <li>star</li>
+                <li>stay hilton</li>
+                <li>hilton chicago</li>
+                <li>chicago ha</li>
+                <li>service wa</li>
+                <li>wa terrible</li>
+                <li>room service</li>
+                <li>hotel wa</li>
+                <li>wa bad</li>
+              </ul>
+              <p class="step-note">The vectorizer drops 45 common words (&ldquo;the&rdquo;, &ldquo;at&rdquo;, &ldquo;it&rdquo;), leaving 52 single words, and pairs neighbours into 51 two-word phrases. Only terms that appear in at least five training reviews, and are among the 1,500 most frequent, are kept, so this review ends up with 45 distinct terms (shown above) out of 49 occurrences.</p>
+            </li>
+            <li class="step" data-bars>
+              <h4>5. Weigh each term</h4>
+              <ol class="weights">
+                <li>
+                  <span class="term">unpleasant</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:87.2%"></i></span>
+                  <span class="num">0.349</span>
+                </li>
+                <li>
+                  <span class="term">terrible</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:77.2%"></i></span>
+                  <span class="num">0.309</span>
+                </li>
+                <li>
+                  <span class="term">ask</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:68.5%"></i></span>
+                  <span class="num">0.274</span>
+                </li>
+                <li>
+                  <span class="term">stay hilton</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:45.7%"></i></span>
+                  <span class="num">0.183</span>
+                </li>
+                <li>
+                  <span class="term">wa bad</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:45.2%"></i></span>
+                  <span class="num">0.181</span>
+                </li>
+                <li>
+                  <span class="term">wa terrible</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:44.7%"></i></span>
+                  <span class="num">0.179</span>
+                </li>
+                <li>
+                  <span class="term">stuff</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:43.7%"></i></span>
+                  <span class="num">0.175</span>
+                </li>
+                <li>
+                  <span class="term">chicago ha</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:41.2%"></i></span>
+                  <span class="num">0.165</span>
+                </li>
+                <li>
+                  <span class="term">mean</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:40.0%"></i></span>
+                  <span class="num">0.160</span>
+                </li>
+                <li>
+                  <span class="term">bill</span>
+                  <span class="wbar" aria-hidden="true"><i style="width:39.8%"></i></span>
+                  <span class="num">0.159</span>
+                </li>
+              </ol>
+              <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase.</p>
+            </li>
+            <li class="step">
+              <h4>6. The verdict</h4>
+              <div class="result-card">
+                <p class="rc-small">User details successfully verified</p>
+                <p class="rc-label">Prediction:</p>
+                <p class="rc-verdict">This is a <strong>fake review</strong>.</p>
+              </div>
+              <p class="step-note">The vector goes to our final model, Multinomial Naive Bayes on unigrams and bigrams, and the app prints one line. This review is labelled deceptive in the dataset, so that is the right answer.</p>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -390,9 +710,58 @@
         </p>
         <div class="table-scroll" id="tbl-baseline" role="group" tabindex="0" aria-label="Models trained on unprocessed text">
           <table class="data-table" aria-labelledby="cap-tbl-baseline">
-            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-baseline">Models trained on unprocessed text</span><button type="button" class="enlarge" data-target="tbl-baseline">Enlarge<span class="visually-hidden"> the raw-text results table</span></button></span></caption>
-            <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead>
-            <tbody><tr><th scope="row">Random Forest</th><td>86.25%</td><td>84.57%</td><td>89.69%</td><td>87.06%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>85.94%</td><td>84.48%</td><td>89.09%</td><td>86.73%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85.31%</td><td>85.98%</td><td>85.45%</td><td>85.71%</td></tr><tr><th scope="row">XGBoost</th><td>80.31%</td><td>78.98%</td><td>84.24%</td><td>81.52%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.06%</td><td>75.63%</td><td>73.33%</td><td>74.46%</td></tr></tbody>
+            <caption>
+              <span class="caption-inner">
+                <span class="caption-text" id="cap-tbl-baseline">Models trained on unprocessed text</span>
+                <button type="button" class="enlarge" data-target="tbl-baseline">Enlarge<span class="visually-hidden"> the raw-text results table</span></button>
+              </span>
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Accuracy</th>
+                <th scope="col">Precision</th>
+                <th scope="col">Recall</th>
+                <th scope="col">F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Random Forest</th>
+                <td>86.25%</td>
+                <td>84.57%</td>
+                <td>89.69%</td>
+                <td>87.06%</td>
+              </tr>
+              <tr>
+                <th scope="row">Multinomial Naive Bayes</th>
+                <td>85.94%</td>
+                <td>84.48%</td>
+                <td>89.09%</td>
+                <td>86.73%</td>
+              </tr>
+              <tr>
+                <th scope="row">Support Vector Classifier</th>
+                <td>85.31%</td>
+                <td>85.98%</td>
+                <td>85.45%</td>
+                <td>85.71%</td>
+              </tr>
+              <tr>
+                <th scope="row">XGBoost</th>
+                <td>80.31%</td>
+                <td>78.98%</td>
+                <td>84.24%</td>
+                <td>81.52%</td>
+              </tr>
+              <tr>
+                <th scope="row">XGBoost Random Forest</th>
+                <td>74.06%</td>
+                <td>75.63%</td>
+                <td>73.33%</td>
+                <td>74.46%</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 
@@ -403,8 +772,15 @@
         <div class="explorer" id="explorer" data-explorer data-label="Accuracy of each model by n-gram setting" hidden>
           <fieldset>
             <legend>n-gram setting (words per phrase)</legend>
-            <div class="chips-radio"><label><input type="radio" name="ngram" value="1"><span>1</span></label><label><input type="radio" name="ngram" value="2"><span>2</span></label><label><input type="radio" name="ngram" value="3"><span>3</span></label><label><input type="radio" name="ngram" value="1-2" checked><span>1&ndash;2</span></label><label><input type="radio" name="ngram" value="2-3"><span>2&ndash;3</span></label><label><input type="radio" name="ngram" value="1-2-3"><span>1&ndash;2&ndash;3</span></label></div>
-        <button type="button" class="enlarge" data-target="explorer">Enlarge<span class="visually-hidden"> the n-gram explorer</span></button>
+            <div class="chips-radio">
+              <label><input type="radio" name="ngram" value="1"><span>1</span></label>
+              <label><input type="radio" name="ngram" value="2"><span>2</span></label>
+              <label><input type="radio" name="ngram" value="3"><span>3</span></label>
+              <label><input type="radio" name="ngram" value="1-2" checked><span>1&ndash;2</span></label>
+              <label><input type="radio" name="ngram" value="2-3"><span>2&ndash;3</span></label>
+              <label><input type="radio" name="ngram" value="1-2-3"><span>1&ndash;2&ndash;3</span></label>
+            </div>
+            <button type="button" class="enlarge" data-target="explorer">Enlarge<span class="visually-hidden"> the n-gram explorer</span></button>
           </fieldset>
           <ul class="rbars" aria-live="polite"></ul>
           <p class="step-note" data-best></p>
@@ -412,9 +788,70 @@
         </div>
         <div class="table-scroll" id="tbl-ngram" role="group" tabindex="0" aria-label="Accuracy of each model for each n-gram setting">
           <table class="data-table" aria-labelledby="cap-tbl-ngram">
-            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-ngram">Accuracy of each model for each n-gram setting</span><button type="button" class="enlarge" data-target="tbl-ngram">Enlarge<span class="visually-hidden"> the n-gram accuracy table</span></button></span></caption>
-            <thead><tr><th scope="col">Model</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">1&ndash;2</th><th scope="col">2&ndash;3</th><th scope="col">1&ndash;2&ndash;3</th></tr></thead>
-            <tbody><tr><th scope="row">Random Forest</th><td>84.375%</td><td>78.125%</td><td>72.8125%</td><td>86.25%</td><td>78.75%</td><td>85.3125%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>86.25%</td><td>82.5%</td><td>71.5625%</td><td><strong>88.125%</strong></td><td>79.375%</td><td>87.5%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85%</td><td>70.3125%</td><td>67.1875%</td><td>85.625%</td><td>73.125%</td><td>86.25%</td></tr><tr><th scope="row">XGBoost</th><td>79.375%</td><td>75.3125%</td><td>71.25%</td><td>81.5625%</td><td>75.3125%</td><td>82.8125%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.375%</td><td>67.1875%</td><td>60.3125%</td><td>72.8125%</td><td>66.5625%</td><td>72.8125%</td></tr></tbody>
+            <caption>
+              <span class="caption-inner">
+                <span class="caption-text" id="cap-tbl-ngram">Accuracy of each model for each n-gram setting</span>
+                <button type="button" class="enlarge" data-target="tbl-ngram">Enlarge<span class="visually-hidden"> the n-gram accuracy table</span></button>
+              </span>
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">1&ndash;2</th>
+                <th scope="col">2&ndash;3</th>
+                <th scope="col">1&ndash;2&ndash;3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Random Forest</th>
+                <td>84.375%</td>
+                <td>78.125%</td>
+                <td>72.8125%</td>
+                <td>86.25%</td>
+                <td>78.75%</td>
+                <td>85.3125%</td>
+              </tr>
+              <tr>
+                <th scope="row">Multinomial Naive Bayes</th>
+                <td>86.25%</td>
+                <td>82.5%</td>
+                <td>71.5625%</td>
+                <td><strong>88.125%</strong></td>
+                <td>79.375%</td>
+                <td>87.5%</td>
+              </tr>
+              <tr>
+                <th scope="row">Support Vector Classifier</th>
+                <td>85%</td>
+                <td>70.3125%</td>
+                <td>67.1875%</td>
+                <td>85.625%</td>
+                <td>73.125%</td>
+                <td>86.25%</td>
+              </tr>
+              <tr>
+                <th scope="row">XGBoost</th>
+                <td>79.375%</td>
+                <td>75.3125%</td>
+                <td>71.25%</td>
+                <td>81.5625%</td>
+                <td>75.3125%</td>
+                <td>82.8125%</td>
+              </tr>
+              <tr>
+                <th scope="row">XGBoost Random Forest</th>
+                <td>74.375%</td>
+                <td>67.1875%</td>
+                <td>60.3125%</td>
+                <td>72.8125%</td>
+                <td>66.5625%</td>
+                <td>72.8125%</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <p>
@@ -427,9 +864,104 @@
         </p>
         <div class="table-scroll" id="tbl-finalists" role="group" tabindex="0" aria-label="The ten best combinations">
           <table class="data-table" aria-labelledby="cap-tbl-finalists">
-            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-finalists">The ten best combinations</span><button type="button" class="enlarge" data-target="tbl-finalists">Enlarge<span class="visually-hidden"> the finalists table</span></button></span></caption>
-            <thead><tr><th scope="col">Model</th><th scope="col">n-grams</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">AUC</th><th scope="col">F1</th></tr></thead>
-            <tbody><tr><th scope="row">Random Forest</th><td>1</td><td>84.375%</td><td>82.486%</td><td>84.242%</td><td>85.38%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2</td><td>86.25%</td><td>84.971%</td><td>86.158%</td><td>86.982%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2&ndash;3</td><td>85.3125%</td><td>85.119%</td><td>85.269%</td><td>85.886%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1</td><td>86.25%</td><td>85.38%</td><td>86.178%</td><td>86.905%</td></tr><tr class="best"><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2</td><td>88.125%</td><td>88.024%</td><td>88.093%</td><td>88.554%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2&ndash;3</td><td>87.5%</td><td>87.879%</td><td>87.488%</td><td>87.879%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1</td><td>85%</td><td>85.455%</td><td>84.985%</td><td>85.455%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2</td><td>85.625%</td><td>85.629%</td><td>85.591%</td><td>86.144%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2&ndash;3</td><td>86.25%</td><td>86.228%</td><td>86.217%</td><td>86.747%</td></tr><tr><th scope="row">XGBoost</th><td>1&ndash;2&ndash;3</td><td>82.8125%</td><td>81.977%</td><td>82.727%</td><td>83.68%</td></tr></tbody>
+            <caption>
+              <span class="caption-inner">
+                <span class="caption-text" id="cap-tbl-finalists">The ten best combinations</span>
+                <button type="button" class="enlarge" data-target="tbl-finalists">Enlarge<span class="visually-hidden"> the finalists table</span></button>
+              </span>
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">n-grams</th>
+                <th scope="col">Accuracy</th>
+                <th scope="col">Precision</th>
+                <th scope="col">AUC</th>
+                <th scope="col">F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Random Forest</th>
+                <td>1</td>
+                <td>84.375%</td>
+                <td>82.486%</td>
+                <td>84.242%</td>
+                <td>85.38%</td>
+              </tr>
+              <tr>
+                <th scope="row">Random Forest</th>
+                <td>1&ndash;2</td>
+                <td>86.25%</td>
+                <td>84.971%</td>
+                <td>86.158%</td>
+                <td>86.982%</td>
+              </tr>
+              <tr>
+                <th scope="row">Random Forest</th>
+                <td>1&ndash;2&ndash;3</td>
+                <td>85.3125%</td>
+                <td>85.119%</td>
+                <td>85.269%</td>
+                <td>85.886%</td>
+              </tr>
+              <tr>
+                <th scope="row">Multinomial Naive Bayes</th>
+                <td>1</td>
+                <td>86.25%</td>
+                <td>85.38%</td>
+                <td>86.178%</td>
+                <td>86.905%</td>
+              </tr>
+                <tr class="best">
+                <th scope="row">Multinomial Naive Bayes</th>
+                <td>1&ndash;2</td>
+                <td>88.125%</td>
+                <td>88.024%</td>
+                <td>88.093%</td>
+                <td>88.554%</td>
+              </tr>
+              <tr>
+                <th scope="row">Multinomial Naive Bayes</th>
+                <td>1&ndash;2&ndash;3</td>
+                <td>87.5%</td>
+                <td>87.879%</td>
+                <td>87.488%</td>
+                <td>87.879%</td>
+              </tr>
+              <tr>
+                <th scope="row">Support Vector Classifier</th>
+                <td>1</td>
+                <td>85%</td>
+                <td>85.455%</td>
+                <td>84.985%</td>
+                <td>85.455%</td>
+              </tr>
+              <tr>
+                <th scope="row">Support Vector Classifier</th>
+                <td>1&ndash;2</td>
+                <td>85.625%</td>
+                <td>85.629%</td>
+                <td>85.591%</td>
+                <td>86.144%</td>
+              </tr>
+              <tr>
+                <th scope="row">Support Vector Classifier</th>
+                <td>1&ndash;2&ndash;3</td>
+                <td>86.25%</td>
+                <td>86.228%</td>
+                <td>86.217%</td>
+                <td>86.747%</td>
+              </tr>
+              <tr>
+                <th scope="row">XGBoost</th>
+                <td>1&ndash;2&ndash;3</td>
+                <td>82.8125%</td>
+                <td>81.977%</td>
+                <td>82.727%</td>
+                <td>83.68%</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <p class="note">
@@ -488,8 +1020,6 @@
         <h3>What we'd flag</h3>
         <p>
           The gate is blunt: it turns away anything it can't verify, including honest reviews from people who booked somewhere else, and it is only as good as the booking data behind it. It is also hotel-specific. For other products, the stand-in would be something like a verified purchase.
-        </p>
-        <p>
           The two halves were also never tested together. The classifier was scored on a research corpus of reviews, and the booking table was invented to match it, so we can't say how they would behave on real traffic.
         </p>
       </div>
@@ -547,17 +1077,13 @@
         <h3>The exercise</h3>
         <p>
           The course asked us to act as a company, with the output of our project work as our product. Over its assignments we made a brochure, a pamphlet, an advertisement video, and a website.
-        </p>
-        <p>
           The pitch was a service for e-commerce platforms that filters fraudulent reviews as they are posted, so shoppers never see them. What we said set it apart was that it uses several signals together, the review text and the reviewer, rather than judging text alone.
-        </p>
-        <p>
           <a href="https://sites.google.com/spit.ac.in/fidelity-tech">Visit the startup's website</a>, built for the same exercise, hosted on Google Sites.
         </p>
         <figure class="chart" id="fig-video" data-label="Advertisement video from the entrepreneurship exercise">
           <iframe class="video-frame" src="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/preview" title="Advertisement video from the entrepreneurship exercise" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
           <figcaption>
-            <span class="caption-text">The advertisement video for the exercise. <a href="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/view">Watch it on Google Drive</a>.</span>
+            <span class="caption-text">The advertisement video for the exercise. <a class="pill-link" href="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/view">Watch it on Google Drive</a></span>
             <button type="button" class="enlarge" data-target="fig-video">Enlarge<span class="visually-hidden"> the advertisement video</span></button>
           </figcaption>
         </figure>
@@ -565,8 +1091,6 @@
         <h3>How the pitch relates to the project</h3>
         <p>
           The pitch was built on our original proposal: reviews from any e-commerce site, filtered in real time. Within the time we had, we trained and tested on hotel reviews only. The model was trained on Google Colab. Only the web frontend ran on our own machines, and we didn't deploy it, because the evaluation didn't require that.
-        </p>
-        <p>
           The exercise kept the bigger plan in view, and made it clear which parts we had shown and which were still ahead.
         </p>
       </div>
@@ -613,7 +1137,7 @@
         <summary>Citations &amp; references</summary>
         <ol class="references-list">
           <li>
-            J. Bhopale, R. Bhise, A. Mane, and K. Talele, 
+            J. Bhopale, R. Bhise, A. Mane, and K. Talele,
             <em>A Review-and-Reviewer based approach for Fake Review Detection</em>,
             2021 Fourth International Conference on Electrical, Computer and Communication Technologies (ICECCT), 2021.
             <a href="https://doi.org/10.1109/ICECCT52121.2021.9616697">doi:&nbsp;10.1109/ICECCT52121.2021.9616697</a>
@@ -636,7 +1160,7 @@
 
       <p>
         <a href="https://rugvedb133.github.io/projects.html">&larr; Back to all projects</a>
-        &middot;
+        &Star;
         <a href="https://github.com/rugvedb133/fake-review-detector/tree/gh-pages" target="_blank" rel="noopener">Website source repo<span class="visually-hidden"> (opens in a new tab)</span></a>
       </p>
     </div>

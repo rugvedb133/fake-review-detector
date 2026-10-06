@@ -1,6 +1,6 @@
 // Demo replay of the frontend: replays the web app's pages step by step.
-// Nothing here runs the model; the inputs are examples and the verdicts and
-// error messages are the app's own wording.
+// Nothing here runs the model;
+// the inputs are examples and the verdicts and error messages are simulated.
 
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -117,7 +117,8 @@
     }
     playBtn.disabled = false;
     playBtn.textContent = 'Play again';
-    // Nothing is left to skip. Move focus first so a keyboard user isn't dropped.
+    // Nothing is left to skip.
+    // Move focus first so a keyboard user isn't dropped.
     if (document.activeElement === skipBtn) playBtn.focus();
     skipBtn.disabled = true;
   }
