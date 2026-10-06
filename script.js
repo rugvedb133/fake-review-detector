@@ -43,9 +43,14 @@ function initStepper(list) {
   status.className = 'status';
   status.setAttribute('aria-live', 'polite');
 
+  var enlargeBtn = document.querySelector('.enlarge[data-target="walkthrough"]')
+
   controls.appendChild(prev);
   controls.appendChild(next);
   controls.appendChild(status);
+  if (!list.parentNode?.parentNode?.classList.contains('lightbox-body')) {
+    controls.appendChild(enlargeBtn);
+  }
   list.parentNode.insertBefore(controls, list);
 
   // Step 5's weight bars grow from the left every time the step is shown.
@@ -198,6 +203,7 @@ function initExplorer(box) {
 
 toArray(document.querySelectorAll('[data-stepper]')).forEach(initStepper);
 toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
+
 // Lightbox: one native <dialog>. The enlarge buttons point at an element by
 // id; a clone of it (and its caption) goes into the dialog and is thrown away
 // when the dialog closes, however it closes.

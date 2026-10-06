@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Fake Review Detection using Machine Learning">
-  <meta property="og:description" content="Detecting fake hotel reviews with NLP and a booking check. A capstone project published at IEEE ICECCT 2021.">
+  <meta property="og:description" content="Detecting fake hotel reviews with NLP and a booking check.">
   <meta property="og:url" content="https://rugvedb133.github.io/fake-review-detector/">
   <meta property="og:image" content="https://rugvedb133.github.io/fake-review-detector/images/social-preview.png">
   <meta property="og:image:width" content="1200">
@@ -56,7 +56,7 @@
           <li><a href="#paper">Paper</a></li>
           <li><a href="#startup">Pitch</a></li>
           <li><a href="#reflection">Reflection</a></li>
-          <li><a href="https://rugvedb133.github.io/projects.html">All projects</a></li>
+          <li id="projects"><a href="/projects.html">All projects ↗</a></li>
         </ul>
       </nav>
     </div>
@@ -67,10 +67,10 @@
       <div class="wrap hero-grid">
         <div class="hero-text">
           <p class="tag">Capstone Project</p>
-          <h1 id="hero-title">Detecting fake hotel reviews with NLP and a booking check</h1>
+          <h1 id="hero-title">Detecting Fake Hotel Reviews with NLP and a Booking Check</h1>
           <p class="lede">
             We trained a classifier to tell genuine hotel reviews from deceptive ones, and put a booking check in front of it so only reviews from verified reservations reach the model.
-            It started as a capstone project in a group of three and was later published at IEEE ICECCT 2021.
+            It started as a group capstone project and was later published at IEEE ICECCT.
           </p>
           <dl class="stats">
             <div>
@@ -79,7 +79,7 @@
             </div>
             <div>
               <dt>Labelled reviews</dt>
-              <dd>1,600</dd>
+              <dd>~ 1,600</dd>
             </div>
             <div>
               <dt>Published</dt>
@@ -97,7 +97,7 @@
 
     <section class="section" id="problem" aria-labelledby="problem-title">
       <div class="wrap">
-        <h2 id="problem-title">Why fake reviews are worth solving</h2>
+        <h2 id="problem-title">Why Fake Reviews are worth solving</h2>
         <p class="lede">
           Reviews steer what people buy, and shoppers know they can't fully trust them. That gap is what we wanted to work on.
         </p>
@@ -115,18 +115,17 @@
             <span class="caption-text">Suspected company-posted positive reviews and spite reviews, 156 respondents.</span>
             <button type="button" class="enlarge" data-target="fig-survey-trust">Enlarge<span class="visually-hidden"> the trust questions chart</span></button>
           </figcaption>
+        </figure>
           <details class="table-toggle">
             <summary>View as a table</summary>
             <div class="table-scroll" id="tbl-survey-trust" role="group" tabindex="0" aria-label="Answers to the two trust questions (156 respondents)">
-              <table class="data-table">
-                <caption>Answers to the two trust questions (156 respondents)</caption>
+              <table class="data-table" aria-labelledby="cap-tbl-survey-trust">
+                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-trust">Answers to the two trust questions (156 respondents)</span><button type="button" class="enlarge" data-target="tbl-survey-trust">Enlarge<span class="visually-hidden"> the trust questions table</span></button></span></caption>
                 <thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Maybe</th></tr></thead>
                 <tbody><tr><th scope="row">Positive reviews posted on behalf of the company</th><td>95 (60.9%)</td><td>7 (4.5%)</td><td>54 (34.6%)</td></tr><tr><th scope="row">Reviews written out of spite</th><td>80 (51.3%)</td><td>29 (18.6%)</td><td>47 (30.1%)</td></tr></tbody>
               </table>
             </div>
-            <button type="button" class="enlarge" data-target="tbl-survey-trust">Enlarge<span class="visually-hidden"> table: Answers to the two trust questions (156 respondents)</span></button>
           </details>
-        </figure>
         <p>
           On 1-to-5 scales the picture is similar. Most people lean on reviews, 45% often see reviews that talk about the brand more than the product, and only 40% were likely to answer a "was this review useful?" prompt.
         </p>
@@ -138,23 +137,22 @@
             <span class="caption-text">The three 1-to-5 questions, centred on the neutral rating 3. 156 respondents.</span>
             <button type="button" class="enlarge" data-target="fig-survey-likelihood">Enlarge<span class="visually-hidden"> the 1 to 5 questions chart</span></button>
           </figcaption>
+        </figure>
           <details class="table-toggle">
             <summary>View as a table</summary>
             <div class="table-scroll" id="tbl-survey-likelihood" role="group" tabindex="0" aria-label="Answers on a 1 to 5 scale (156 respondents)">
-              <table class="data-table">
-                <caption>Answers on a 1 to 5 scale (156 respondents)</caption>
+              <table class="data-table" aria-labelledby="cap-tbl-survey-likelihood">
+                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-likelihood">Answers on a 1 to 5 scale (156 respondents)</span><button type="button" class="enlarge" data-target="tbl-survey-likelihood">Enlarge<span class="visually-hidden"> the 1 to 5 questions table</span></button></span></caption>
                 <thead><tr><th scope="col">Question</th><th scope="col">1 (lowest)</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5 (highest)</th></tr></thead>
                 <tbody><tr><th scope="row">Likely to decide based on reviews</th><td>0 (0.0%)</td><td>5 (3.2%)</td><td>36 (23.1%)</td><td>79 (50.6%)</td><td>36 (23.1%)</td></tr><tr><th scope="row">Reviews focus on the brand, not the product</th><td>6 (3.8%)</td><td>23 (14.7%)</td><td>57 (36.5%)</td><td>58 (37.2%)</td><td>12 (7.7%)</td></tr><tr><th scope="row">Likely to answer &ldquo;Did you find this review useful?&rdquo;</th><td>24 (15.4%)</td><td>26 (16.7%)</td><td>44 (28.2%)</td><td>42 (26.9%)</td><td>20 (12.8%)</td></tr></tbody>
               </table>
             </div>
-            <button type="button" class="enlarge" data-target="tbl-survey-likelihood">Enlarge<span class="visually-hidden"> table: Answers on a 1 to 5 scale (156 respondents)</span></button>
           </details>
-        </figure>
 
         <h3>Who answered</h3>
         <p>
-          156 people answered a Google Form that we shared with classmates and friends over five days in September 2020. Respondents came from every age band, from under 15 to over 45, though most (about 86%) were 16 to 25.
-          Read it as a snapshot of young online shoppers, not a poll of everyone. Two people left age blank and we counted them as 16 to 25, as in our report.
+          The survey was run through a Google Form that we shared with classmates and friends.
+          156 people answered, with respondents from every age band, from under 15 to over 45, though most (about 86%) were 16 to 25.
         </p>
         <figure class="chart" id="fig-survey-age">
           <object data="images/survey-age.svg" type="image/svg+xml" role="img" aria-label="Doughnut chart of respondents' ages, with a second doughnut splitting the other ages" style="aspect-ratio: 650 / 275">
@@ -164,18 +162,17 @@
             <span class="caption-text">Age of the respondents. The small doughnut splits everyone outside 16 to 25.</span>
             <button type="button" class="enlarge" data-target="fig-survey-age">Enlarge<span class="visually-hidden"> the age chart</span></button>
           </figcaption>
+        </figure>
           <details class="table-toggle">
             <summary>View as a table</summary>
             <div class="table-scroll" id="tbl-survey-age" role="group" tabindex="0" aria-label="Age group (all 156 respondents; 16–25 includes 2 who left age blank)">
-              <table class="data-table">
-                <caption>Age group (all 156 respondents; 16&ndash;25 includes 2 who left age blank)</caption>
+              <table class="data-table" aria-labelledby="cap-tbl-survey-age">
+                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-age">Age group (all 156 respondents; 16&ndash;25 includes 2 who left age blank)</span><button type="button" class="enlarge" data-target="tbl-survey-age">Enlarge<span class="visually-hidden"> the age table</span></button></span></caption>
                 <thead><tr><th scope="col">Age group</th><th scope="col">Respondents</th></tr></thead>
                 <tbody><tr><th scope="row">15 and below</th><td>2 (1.3%)</td></tr><tr><th scope="row">16&ndash;25</th><td>134 (85.9%)</td></tr><tr><th scope="row">26&ndash;35</th><td>6 (3.8%)</td></tr><tr><th scope="row">36&ndash;45</th><td>2 (1.3%)</td></tr><tr><th scope="row">45 and above</th><td>12 (7.7%)</td></tr></tbody>
               </table>
             </div>
-            <button type="button" class="enlarge" data-target="tbl-survey-age">Enlarge<span class="visually-hidden"> table: Age group (all 156 respondents; 16–25 includes 2 who left age blank)</span></button>
           </details>
-        </figure>
         <figure class="chart" id="fig-survey-preference">
           <object data="images/survey-preference.svg" type="image/svg+xml" role="img" aria-label="Pie chart of preferred review type" style="aspect-ratio: 430 / 240">
             <img src="images/survey-preference.svg" alt="Pie chart: 69.9% of respondents prefer text reviews and 30.1% prefer star ratings." width="430" height="240">
@@ -184,25 +181,24 @@
             <span class="caption-text">When deciding what to buy, 70% preferred text reviews to star ratings.</span>
             <button type="button" class="enlarge" data-target="fig-survey-preference">Enlarge<span class="visually-hidden"> the review type chart</span></button>
           </figcaption>
+        </figure>
           <details class="table-toggle">
             <summary>View as a table</summary>
             <div class="table-scroll" id="tbl-survey-preference" role="group" tabindex="0" aria-label="Preferred review type (156 respondents)">
-              <table class="data-table">
-                <caption>Preferred review type (156 respondents)</caption>
+              <table class="data-table" aria-labelledby="cap-tbl-survey-preference">
+                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-survey-preference">Preferred review type (156 respondents)</span><button type="button" class="enlarge" data-target="tbl-survey-preference">Enlarge<span class="visually-hidden"> the review type table</span></button></span></caption>
                 <thead><tr><th scope="col">Type</th><th scope="col">Respondents</th></tr></thead>
                 <tbody><tr><th scope="row">Text review</th><td>109 (69.9%)</td></tr><tr><th scope="row">Star rating</th><td>47 (30.1%)</td></tr></tbody>
               </table>
             </div>
-            <button type="button" class="enlarge" data-target="tbl-survey-preference">Enlarge<span class="visually-hidden"> table: Preferred review type (156 respondents)</span></button>
           </details>
-        </figure>
 
         <h3>What already existed</h3>
         <p>
-          We surveyed the market for tools that do something similar. <a href="https://web.archive.org/web/2020/https://reviewmeta.com/" title="Archived version">ReviewMeta<span class="visually-hidden"> (archived version)</span></a> re-scored Amazon reviews and gave an adjusted rating. <a href="https://web.archive.org/web/2020/https://www.fakespot.com/" title="Archived version">Fakespot<span class="visually-hidden"> (archived version)</span></a> graded reviews on a handful of shopping sites. <a href="https://web.archive.org/web/2020/https://thereviewindex.com/" title="Archived version">The Review Index<span class="visually-hidden"> (archived version)</span></a> summarised the reviews for a product.
+          We surveyed the market for tools that do something similar. <a href="https://web.archive.org/web/2020/https://reviewmeta.com/" title="(Archived version) ReviewMeta.com - Amazon Review Checker">ReviewMeta<span class="visually-hidden"> (archived version)</span></a> re-scored Amazon reviews and gave an adjusted rating. <a href="https://web.archive.org/web/2020/https://www.fakespot.com/" title="(Archived version) Fakespot | Analyze and identify fake reviews and counterfeits">Fakespot<span class="visually-hidden"> (archived version)</span></a> graded reviews on a handful of shopping sites. <a href="https://web.archive.org/web/2020/https://thereviewindex.com/" title="(Archived version)  Review Summarizer for Gadget Reviews">The Review Index<span class="visually-hidden"> (archived version)</span></a> summarised the reviews for a product.
         </p>
         <p>
-          They shared two limits. Each worked only on specific sites, and each judged reviews after they were already posted, so nothing stopped the fake ones from going up. The market has moved since: Mozilla shut Fakespot down in July 2025, and ReviewMeta now appears to be offline.
+          They shared two limits. Each worked only on specific sites, and each judged reviews after they were already posted, so nothing stopped the fake ones from going up.
         </p>
 
         <h3>What we tried instead</h3>
@@ -210,7 +206,7 @@
           We combined two signals: what a review says, and who wrote it. A classifier reads the text, and a booking check confirms the reviewer actually has a reservation before the review is classified.
         </p>
         <p>
-          We trained and tested on hotel reviews because that's where a labelled dataset existed, and our time was limited. The original goal was reviews for any kind of e-commerce product, and the booking check is the hotel-specific stand-in for something like a verified purchase. Testing other product categories is the obvious next step.
+          We trained and tested on an available labelled dataset of hotel reviews. The original goal was reviews for any kind of e-commerce product, and the booking check is the hotel-specific stand-in for something like a verified purchase. Testing other product categories is the obvious next step.
         </p>
       </div>
     </section>
@@ -237,13 +233,14 @@
 
         <ul class="tools">
           <li class="tool" data-tool="python">Python</li>
+          <li class="tool" data-tool="jupyter">Jupyter Notebook</li>
           <li class="tool" data-tool="pandas">pandas</li>
           <li class="tool" data-tool="numpy">NumPy</li>
-          <li class="tool" data-tool="NLTK">NLTK</li>
+          <li class="tool" data-tool="nltk">NLTK</li>
           <li class="tool" data-tool="scikitlearn">scikit-learn</li>
-          <li class="tool" data-tool="XGBoost">XGBoost</li>
-          <li class="tool" data-tool="Matplotlib">Matplotlib</li>
-          <li class="tool" data-tool="Seaborn">Seaborn</li>
+          <li class="tool" data-tool="xgboost">XGBoost</li>
+          <li class="tool" data-tool="matplotlib">Matplotlib</li>
+          <li class="tool" data-tool="seaborn">Seaborn</li>
           <li class="tool" data-tool="flask">Flask</li>
         </ul>
       </div>
@@ -253,28 +250,27 @@
       <div class="wrap">
         <h2 id="data-title">The data we trained on</h2>
         <p class="lede">
-          We didn't collect our own reviews. We used a public research dataset of hotel reviews where every review already carries a label.
+          We used a public research dataset of hotel reviews where every review already carries a label.
         </p>
 
         <h3>What's in it</h3>
         <p>
-          The corpus holds 1,600 reviews of 20 Chicago hotels, perfectly balanced: 800 truthful and 800 deceptive, half positive and half negative, with 80 reviews per hotel. Credit for collecting it is in the footer.
+          The corpus holds 1,600 reviews of 20 Chicago hotels, perfectly balanced: 800 truthful and 800 deceptive, half positive and half negative, with 80 reviews per hotel.
         </p>
         <div class="table-scroll" id="tbl-dataset" role="group" tabindex="0" aria-label="How the 1,600 reviews were collected">
-          <table class="data-table">
-            <caption>How the 1,600 reviews were collected</caption>
+          <table class="data-table" aria-labelledby="cap-tbl-dataset">
+            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-dataset">How the 1,600 reviews were collected</span><button type="button" class="enlarge" data-target="tbl-dataset">Enlarge<span class="visually-hidden"> the dataset table</span></button></span></caption>
             <thead>
               <tr><th scope="col">Label</th><th scope="col">Tone</th><th scope="col">Where it came from</th><th scope="col">Reviews</th></tr>
             </thead>
             <tbody>
               <tr><th scope="row">Truthful</th><td>Positive</td><td>TripAdvisor</td><td>400</td></tr>
-              <tr><th scope="row">Truthful</th><td>Negative</td><td>Mixed web sources (labelled &ldquo;Web&rdquo; in the file)</td><td>400</td></tr>
-              <tr><th scope="row">Deceptive</th><td>Positive</td><td>Paid crowd workers (Amazon Mechanical Turk)</td><td>400</td></tr>
-              <tr><th scope="row">Deceptive</th><td>Negative</td><td>Paid crowd workers (Amazon Mechanical Turk)</td><td>400</td></tr>
+              <tr><th scope="row">Truthful</th><td>Negative</td><td>Mixed web sources</td><td>400</td></tr>
+              <tr><th scope="row">Deceptive</th><td>Positive</td><td>Amazon Mechanical Turk</td><td>400</td></tr>
+              <tr><th scope="row">Deceptive</th><td>Negative</td><td>Amazon Mechanical Turk</td><td>400</td></tr>
             </tbody>
           </table>
         </div>
-        <button type="button" class="enlarge" data-target="tbl-dataset">Enlarge<span class="visually-hidden"> table: How the 1,600 reviews were collected</span></button>
 
         <h3>A caveat about the labels</h3>
         <p>
@@ -293,21 +289,20 @@
             <img src="images/correlation-heatmap.svg" alt="Correlation heatmap: only the digit count correlates noticeably with the fake label (-0.31); length-type features are near zero." width="720" height="482">
           </object>
           <figcaption>
-            <span class="caption-text">Correlations between simple features and the fake label. We recomputed this chart for the page: the digits column in our original report had a bug, so its values differ there.</span>
+            <span class="caption-text">Correlations between simple features and the fake label.</span>
             <button type="button" class="enlarge" data-target="fig-correlation-heatmap">Enlarge<span class="visually-hidden"> the correlation heatmap</span></button>
           </figcaption>
+        </figure>
           <details class="table-toggle">
             <summary>View as a table</summary>
             <div class="table-scroll" id="tbl-heatmap" role="group" tabindex="0" aria-label="Pearson correlations, 1,600 reviews">
-              <table class="data-table">
-                <caption>Pearson correlations, 1,600 reviews</caption>
+              <table class="data-table" aria-labelledby="cap-tbl-heatmap">
+                <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-heatmap">Pearson correlations, 1,600 reviews</span><button type="button" class="enlarge" data-target="tbl-heatmap">Enlarge<span class="visually-hidden"> the correlation table</span></button></span></caption>
                 <thead><tr><td></td><th scope="col">polarity</th><th scope="col">fake</th><th scope="col">characters</th><th scope="col">digits</th><th scope="col">non-word characters</th><th scope="col">words</th><th scope="col">sentences</th></tr></thead>
                 <tbody><tr><th scope="row">polarity</th><td>1.00</td><td>0.00</td><td>-0.32</td><td>-0.15</td><td>-0.33</td><td>-0.33</td><td>-0.25</td></tr><tr><th scope="row">fake</th><td>0.00</td><td>1.00</td><td>-0.03</td><td>-0.31</td><td>-0.05</td><td>-0.04</td><td>-0.09</td></tr><tr><th scope="row">characters</th><td>-0.32</td><td>-0.03</td><td>1.00</td><td>0.38</td><td>1.00</td><td>1.00</td><td>0.86</td></tr><tr><th scope="row">digits</th><td>-0.15</td><td>-0.31</td><td>0.38</td><td>1.00</td><td>0.41</td><td>0.40</td><td>0.40</td></tr><tr><th scope="row">non-word characters</th><td>-0.33</td><td>-0.05</td><td>1.00</td><td>0.41</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">words</th><td>-0.33</td><td>-0.04</td><td>1.00</td><td>0.40</td><td>1.00</td><td>1.00</td><td>0.87</td></tr><tr><th scope="row">sentences</th><td>-0.25</td><td>-0.09</td><td>0.86</td><td>0.40</td><td>0.87</td><td>0.87</td><td>1.00</td></tr></tbody>
               </table>
             </div>
-            <button type="button" class="enlarge" data-target="tbl-heatmap">Enlarge<span class="visually-hidden"> table: Pearson correlations, 1,600 reviews</span></button>
           </details>
-        </figure>
       </div>
     </section>
 
@@ -320,7 +315,7 @@
 
         <h3>The shape of it</h3>
         <p>
-          The flow is the usual one for a text classifier. Reviews are cleaned and converted to features, split into training and testing data, and used to fit five different models. Their predictions on the held-back reviews are scored, and the scores send us back to preprocessing to try again.
+          The flow is the usual one for a text classifier. Reviews are cleaned and converted to features, split into training and testing data, and used to fit five different models. Their predictions on the held-back reviews are scored, and the scores are sent back to preprocessing to try again.
         </p>
         <figure class="chart" id="fig-pipeline-diagram">
           <object data="images/pipeline-diagram.svg" type="image/svg+xml" role="img" aria-label="Flow diagram of the pipeline from data acquisition to evaluation, looping back to preprocessing" style="aspect-ratio: 720 / 300">
@@ -334,10 +329,10 @@
 
         <h3>Following one review through</h3>
         <p>
-          This is the review our report uses as its example: a negative, deceptive Hilton review from the dataset. The outputs below come from running our project's own preprocessing code on it.
+          This is one review from the dataset: a negative, deceptive Hilton review. The outputs below come from running our preprocessing code on it.
         </p>
-        <button type="button" class="enlarge" data-target="walkthrough">Enlarge<span class="visually-hidden"> the review walkthrough</span></button>
         <div class="walkthrough" id="walkthrough" data-label="Walkthrough: one review through the pipeline">
+        <button type="button" class="enlarge" data-target="walkthrough">Enlarge<span class="visually-hidden"> the review walkthrough</span></button>
         <ol class="stepper" data-stepper>
           <li class="step">
             <h4>1. The raw review</h4>
@@ -363,7 +358,7 @@
           <li class="step" data-bars>
             <h4>5. Weigh each term</h4>
             <ol class="weights"><li><span class="term">unpleasant</span><span class="wbar" aria-hidden="true"><i style="width:87.2%"></i></span><span class="num">0.349</span></li><li><span class="term">terrible</span><span class="wbar" aria-hidden="true"><i style="width:77.2%"></i></span><span class="num">0.309</span></li><li><span class="term">ask</span><span class="wbar" aria-hidden="true"><i style="width:68.5%"></i></span><span class="num">0.274</span></li><li><span class="term">stay hilton</span><span class="wbar" aria-hidden="true"><i style="width:45.7%"></i></span><span class="num">0.183</span></li><li><span class="term">wa bad</span><span class="wbar" aria-hidden="true"><i style="width:45.2%"></i></span><span class="num">0.181</span></li><li><span class="term">wa terrible</span><span class="wbar" aria-hidden="true"><i style="width:44.7%"></i></span><span class="num">0.179</span></li><li><span class="term">stuff</span><span class="wbar" aria-hidden="true"><i style="width:43.7%"></i></span><span class="num">0.175</span></li><li><span class="term">chicago ha</span><span class="wbar" aria-hidden="true"><i style="width:41.2%"></i></span><span class="num">0.165</span></li><li><span class="term">mean</span><span class="wbar" aria-hidden="true"><i style="width:40.0%"></i></span><span class="num">0.160</span></li><li><span class="term">bill</span><span class="wbar" aria-hidden="true"><i style="width:39.8%"></i></span><span class="num">0.159</span></li></ol>
-            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase. The weights come from a vectorizer we rebuilt with the notebook's settings, so they can differ slightly from the one we saved.</p>
+            <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase.</p>
           </li>
           <li class="step">
             <h4>6. The verdict</h4>
@@ -372,7 +367,7 @@
               <p class="rc-label">Prediction:</p>
               <p class="rc-verdict">This is a <strong>fake review</strong>.</p>
             </div>
-            <p class="step-note">The vector goes to our final model, Multinomial Naive Bayes on unigrams and bigrams, and the app prints one line, in the wording of Figure 4.5 in our report. This review is labelled deceptive in the dataset, so that is the right answer. We didn't re-run our saved model for this page, so this step shows the correct answer, not a recorded prediction.</p>
+            <p class="step-note">The vector goes to our final model, Multinomial Naive Bayes on unigrams and bigrams, and the app prints one line. This review is labelled deceptive in the dataset, so that is the right answer.</p>
           </li>
         </ol>
       </div>
@@ -391,16 +386,15 @@
           We started by giving unprocessed review text to five classifiers: Random Forest, Multinomial Naive Bayes, a Support Vector Classifier, XGBoost and XGBoost's random-forest mode. Random Forest led on accuracy, recall and F1, and the Support Vector Classifier led on precision.
         </p>
         <p>
-          The scores looked good, but as our report puts it, the models failed to perform on unseen data that wasn't part of the dataset. The report doesn't put a number on that failure. We went back to the text, added the preprocessing from the last section, and tried n-grams.
+          The scores looked good, but the models failed to perform on unseen data that wasn't part of the dataset. We went back to the text, added the preprocessing from the last section, and tried n-grams.
         </p>
         <div class="table-scroll" id="tbl-baseline" role="group" tabindex="0" aria-label="Models trained on unprocessed text">
-          <table class="data-table">
-            <caption>Models trained on unprocessed text</caption>
+          <table class="data-table" aria-labelledby="cap-tbl-baseline">
+            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-baseline">Models trained on unprocessed text</span><button type="button" class="enlarge" data-target="tbl-baseline">Enlarge<span class="visually-hidden"> the raw-text results table</span></button></span></caption>
             <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead>
             <tbody><tr><th scope="row">Random Forest</th><td>86.25%</td><td>84.57%</td><td>89.69%</td><td>87.06%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>85.94%</td><td>84.48%</td><td>89.09%</td><td>86.73%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85.31%</td><td>85.98%</td><td>85.45%</td><td>85.71%</td></tr><tr><th scope="row">XGBoost</th><td>80.31%</td><td>78.98%</td><td>84.24%</td><td>81.52%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.06%</td><td>75.63%</td><td>73.33%</td><td>74.46%</td></tr></tbody>
           </table>
         </div>
-        <button type="button" class="enlarge" data-target="tbl-baseline">Enlarge<span class="visually-hidden"> table: Models trained on unprocessed text</span></button>
 
         <h3>Same models, six n-gram settings</h3>
         <p>
@@ -410,20 +404,19 @@
           <fieldset>
             <legend>n-gram setting (words per phrase)</legend>
             <div class="chips-radio"><label><input type="radio" name="ngram" value="1"><span>1</span></label><label><input type="radio" name="ngram" value="2"><span>2</span></label><label><input type="radio" name="ngram" value="3"><span>3</span></label><label><input type="radio" name="ngram" value="1-2" checked><span>1&ndash;2</span></label><label><input type="radio" name="ngram" value="2-3"><span>2&ndash;3</span></label><label><input type="radio" name="ngram" value="1-2-3"><span>1&ndash;2&ndash;3</span></label></div>
+        <button type="button" class="enlarge" data-target="explorer">Enlarge<span class="visually-hidden"> the n-gram explorer</span></button>
           </fieldset>
           <ul class="rbars" aria-live="polite"></ul>
           <p class="step-note" data-best></p>
           <p class="step-note">Bars start at 50%, which is chance for a balanced two-class problem.</p>
         </div>
-        <button type="button" class="enlarge" data-target="explorer">Enlarge<span class="visually-hidden"> the n-gram explorer</span></button>
         <div class="table-scroll" id="tbl-ngram" role="group" tabindex="0" aria-label="Accuracy of each model for each n-gram setting">
-          <table class="data-table">
-            <caption>Accuracy of each model for each n-gram setting</caption>
+          <table class="data-table" aria-labelledby="cap-tbl-ngram">
+            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-ngram">Accuracy of each model for each n-gram setting</span><button type="button" class="enlarge" data-target="tbl-ngram">Enlarge<span class="visually-hidden"> the n-gram accuracy table</span></button></span></caption>
             <thead><tr><th scope="col">Model</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">1&ndash;2</th><th scope="col">2&ndash;3</th><th scope="col">1&ndash;2&ndash;3</th></tr></thead>
             <tbody><tr><th scope="row">Random Forest</th><td>84.375%</td><td>78.125%</td><td>72.8125%</td><td>86.25%</td><td>78.75%</td><td>85.3125%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>86.25%</td><td>82.5%</td><td>71.5625%</td><td><strong>88.125%</strong></td><td>79.375%</td><td>87.5%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>85%</td><td>70.3125%</td><td>67.1875%</td><td>85.625%</td><td>73.125%</td><td>86.25%</td></tr><tr><th scope="row">XGBoost</th><td>79.375%</td><td>75.3125%</td><td>71.25%</td><td>81.5625%</td><td>75.3125%</td><td>82.8125%</td></tr><tr><th scope="row">XGBoost Random Forest</th><td>74.375%</td><td>67.1875%</td><td>60.3125%</td><td>72.8125%</td><td>66.5625%</td><td>72.8125%</td></tr></tbody>
           </table>
         </div>
-        <button type="button" class="enlarge" data-target="tbl-ngram">Enlarge<span class="visually-hidden"> table: Accuracy of each model for each n-gram setting</span></button>
         <p>
           Single words and any mix that includes them did best. Pairs or triples on their own fell away: the best triples-only score was 72.8%. That is probably because on a corpus of 1,600 reviews most three-word phrases appear once.
         </p>
@@ -433,18 +426,15 @@
           We compared the ten best combinations on more metrics. Multinomial Naive Bayes on single words plus pairs led every column, including precision, which we cared about most because calling a genuine review fake is the costlier mistake. It became our final model.
         </p>
         <div class="table-scroll" id="tbl-finalists" role="group" tabindex="0" aria-label="The ten best combinations">
-          <table class="data-table">
-            <caption>The ten best combinations</caption>
+          <table class="data-table" aria-labelledby="cap-tbl-finalists">
+            <caption><span class="caption-inner"><span class="caption-text" id="cap-tbl-finalists">The ten best combinations</span><button type="button" class="enlarge" data-target="tbl-finalists">Enlarge<span class="visually-hidden"> the finalists table</span></button></span></caption>
             <thead><tr><th scope="col">Model</th><th scope="col">n-grams</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">AUC</th><th scope="col">F1</th></tr></thead>
             <tbody><tr><th scope="row">Random Forest</th><td>1</td><td>84.375%</td><td>82.486%</td><td>84.242%</td><td>85.38%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2</td><td>86.25%</td><td>84.971%</td><td>86.158%</td><td>86.982%</td></tr><tr><th scope="row">Random Forest</th><td>1&ndash;2&ndash;3</td><td>85.3125%</td><td>85.119%</td><td>85.269%</td><td>85.886%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1</td><td>86.25%</td><td>85.38%</td><td>86.178%</td><td>86.905%</td></tr><tr class="best"><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2</td><td>88.125%</td><td>88.024%</td><td>88.093%</td><td>88.554%</td></tr><tr><th scope="row">Multinomial Naive Bayes</th><td>1&ndash;2&ndash;3</td><td>87.5%</td><td>87.879%</td><td>87.488%</td><td>87.879%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1</td><td>85%</td><td>85.455%</td><td>84.985%</td><td>85.455%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2</td><td>85.625%</td><td>85.629%</td><td>85.591%</td><td>86.144%</td></tr><tr><th scope="row">Support Vector Classifier</th><td>1&ndash;2&ndash;3</td><td>86.25%</td><td>86.228%</td><td>86.217%</td><td>86.747%</td></tr><tr><th scope="row">XGBoost</th><td>1&ndash;2&ndash;3</td><td>82.8125%</td><td>81.977%</td><td>82.727%</td><td>83.68%</td></tr></tbody>
           </table>
         </div>
-        <button type="button" class="enlarge" data-target="tbl-finalists">Enlarge<span class="visually-hidden"> table: The ten best combinations</span></button>
         <p class="note">
-          About the AUC column: in the notebooks we kept, AUC was computed from each model's predicted labels, not its probabilities. For a two-class problem that makes it the same as balanced accuracy, so it is a useful cross-check but not a separate measure of how well the model ranks reviews.
+          AUC was computed from each model's predicted labels, not its probabilities. For a two-class problem that makes it the same as balanced accuracy, so it is a useful cross-check but not a separate measure of how well the model ranks reviews.
         </p>
-
-        <h3>How much to read into 88.1%</h3>
         <p>
           Every accuracy above is a multiple of 1/320, so each score comes from 320 test reviews. At that size, one review is 0.3 points, and a rough 95% margin on 88% accuracy is about &plusmn;3.6 points. So Naive Bayes, Random Forest and the Support Vector Classifier are closer than their ranking suggests.
         </p>
@@ -480,24 +470,24 @@
           </figcaption>
         </figure>
         <p>
-          The booking record is a small table of 50 made-up bookings that we wrote for the hotels in the dataset. A real platform would ask its own booking system instead. We had no such data, so this stands in for it.
+          The booking record is a small table of 50 made-up bookings that we wrote for the hotels in the dataset, which stands in for the data from the booking system of a real platform.
         </p>
 
         <h3>The app itself</h3>
         <p>
-          The form takes four inputs, and the app answers with a verdict or one of three error messages. Pick a scenario in the replay below to see each one. This replay simulates how it ran.
+          The form takes four inputs, and the app answers with a verdict or one of three error messages. Pick a scenario in the replay below to see each one. This replay simulates how the app ran.
         </p>
         <figure class="chart demo-figure">
           <iframe class="demo-frame" src="demo.html" title="Demo replay of the frontend" loading="lazy"></iframe>
           <figcaption>
-            <span class="caption-text">Demo replay of the frontend. The inputs are examples, and nothing here runs the model.</span>
+            <span class="caption-text">Demo replay of the frontend. The inputs are examples, and nothing here runs on the actual model.</span>
             <a class="pill-link" href="demo.html">Open it on its own page</a>
           </figcaption>
         </figure>
 
         <h3>What we'd flag</h3>
         <p>
-          The gate is blunt: it turns away anything it can't verify, including honest reviews from people who booked somewhere else, and it is only as good as the booking data behind it. It is also hotel-specific. For other products the stand-in would be something like a verified purchase.
+          The gate is blunt: it turns away anything it can't verify, including honest reviews from people who booked somewhere else, and it is only as good as the booking data behind it. It is also hotel-specific. For other products, the stand-in would be something like a verified purchase.
         </p>
         <p>
           The two halves were also never tested together. The classifier was scored on a research corpus of reviews, and the booking table was invented to match it, so we can't say how they would behave on real traffic.
@@ -531,36 +521,19 @@
         </dl>
         <p>
           The paper is called <cite>A Review-and-Reviewer based approach for Fake Review Detection</cite>. We presented it at the Fourth International Conference on Electrical, Computer and Communication Technologies, and it was published in the IEEE proceedings.
-        </p>
-        <p>
           Check it out on IEEE Xplore: <a href="https://doi.org/10.1109/ICECCT52121.2021.9616697">doi: 10.1109/ICECCT52121.2021.9616697</a>
         </p>
 
         <h3>What it says</h3>
         <p>
-          The argument is simple. Most earlier work judges either the text of a review or the person who wrote it, and we tried both for hotel reviews. The paper walks through the NLP pipeline (tokenizing, lemmatizing, vectorizing), compares five classifiers on the same features, and puts the best one behind a web app that also checks the reviewer's details. Multinomial Naive Bayes on single words and pairs came out on top at 88.1% accuracy.
+          Most earlier work judges either the text of a review or the person who wrote it, and we tried both for our project. The paper walks through the NLP pipeline (tokenizing, lemmatizing, vectorizing), compares five classifiers on the same features, and puts the best one behind a web app that also checks the reviewer's details. Multinomial Naive Bayes on single words and pairs came out on top at 88.1% accuracy.
         </p>
 
         <h3>What it leaves open</h3>
         <p>
-          The paper is upfront about two things. Asking users to type in their own details is tedious, so it suggests building that information into the model itself. And it says the approach could carry over to other services such as hospitals, restaurants, theatres and shops. We never tested either idea.
+          The paper is upfront about two things. Asking users to type in their own details is tedious, so it suggests building that information into the model itself. And it says the approach could carry over to other services such as hospitals, restaurants, theatres and shops. While that was a part of our original project proposal, we did not get to actually test it due to time constraints.
         </p>
 
-        <details class="citations">
-          <summary>Citations</summary>
-          <ol>
-            <li>
-              J. Bhopale, R. Bhise, A. Mane and K. Talele, &ldquo;A Review-and-Reviewer based approach for Fake Review Detection,&rdquo; 2021 Fourth International Conference on Electrical, Computer and Communication Technologies (ICECCT), 2021.
-              <a href="https://doi.org/10.1109/ICECCT52121.2021.9616697">doi:10.1109/ICECCT52121.2021.9616697</a>
-            </li>
-            <li>
-              M. Ott, Y. Choi, C. Cardie and J. T. Hancock, &ldquo;Finding Deceptive Opinion Spam by Any Stretch of the Imagination,&rdquo; ACL 2011.
-            </li>
-            <li>
-              M. Ott, C. Cardie and J. T. Hancock, &ldquo;Negative Deceptive Opinion Spam,&rdquo; NAACL-HLT 2013.
-            </li>
-          </ol>
-        </details>
       </div>
     </section>
 
@@ -573,12 +546,13 @@
 
         <h3>The exercise</h3>
         <p>
-          The course asked us to act as a company, with the output of our project work as our product. Over its assignments we made a brochure, a pamphlet, an advertisement video and a website.
+          The course asked us to act as a company, with the output of our project work as our product. Over its assignments we made a brochure, a pamphlet, an advertisement video, and a website.
         </p>
-
-        <h3>The pitch</h3>
         <p>
           The pitch was a service for e-commerce platforms that filters fraudulent reviews as they are posted, so shoppers never see them. What we said set it apart was that it uses several signals together, the review text and the reviewer, rather than judging text alone.
+        </p>
+        <p>
+          <a href="https://sites.google.com/spit.ac.in/fidelity-tech">Visit the startup's website</a>, built for the same exercise, hosted on Google Sites.
         </p>
         <figure class="chart" id="fig-video" data-label="Advertisement video from the entrepreneurship exercise">
           <iframe class="video-frame" src="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/preview" title="Advertisement video from the entrepreneurship exercise" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
@@ -587,13 +561,10 @@
             <button type="button" class="enlarge" data-target="fig-video">Enlarge<span class="visually-hidden"> the advertisement video</span></button>
           </figcaption>
         </figure>
-        <p>
-          <a href="https://sites.google.com/spit.ac.in/fidelity-tech">Visit the startup's website</a>, built for the same exercise, hosted on Google Sites.
-        </p>
 
         <h3>How the pitch relates to the project</h3>
         <p>
-          The pitch was built on our original proposal: reviews from any e-commerce site, filtered in real time. Within the time we had, we trained and tested on hotel reviews only, so we couldn't run the wider plan through the model. The model was trained on Google Colab. Only the web frontend ran on our own machines, and we didn't deploy it, because the evaluation didn't require that.
+          The pitch was built on our original proposal: reviews from any e-commerce site, filtered in real time. Within the time we had, we trained and tested on hotel reviews only. The model was trained on Google Colab. Only the web frontend ran on our own machines, and we didn't deploy it, because the evaluation didn't require that.
         </p>
         <p>
           The exercise kept the bigger plan in view, and made it clear which parts we had shown and which were still ahead.
@@ -610,12 +581,12 @@
 
         <h3>Hand-made features backfired</h3>
         <p>
-          Early on we added hand-made features next to the text, such as length and digit counts. The result was a collapse: Naive Bayes fell to 50.25% accuracy with 7.5% recall, which is chance. Revisiting our code for this page, we found that one of those columns was miscomputed and none of them were scaled. So the experiment says more about how we built the features than about whether they could help. We dropped them and went back to the text alone.
+          Early on we added hand-made features next to the text, such as length and digit counts. The result was a collapse: Naive Bayes fell to 50.25% accuracy with 7.5% recall, which is chance. The experiment says more about how we built the features than about whether they could help. We dropped them and went back to the text alone.
         </p>
 
         <h3>Look at the middle of the pipeline</h3>
         <p>
-          Walking one review through our preprocessing for this page showed things we had missed. The regexes turn &ldquo;weren't&rdquo; into &ldquo;weren&rdquo;, and the lemmatizer, run without part-of-speech tags, turns &ldquo;was&rdquo; into &ldquo;wa&rdquo;. The model learns around them, but a quick read of the intermediate output would have caught both much earlier.
+          The regexes turn &ldquo;weren't&rdquo; into &ldquo;weren&rdquo;, and the lemmatizer, run without part-of-speech tags, turns &ldquo;was&rdquo; into &ldquo;wa&rdquo;. The model learns around them, but this could have been caught much earlier.
         </p>
 
         <h3>One test set isn't a verdict</h3>
@@ -625,7 +596,7 @@
 
         <h3>The data decides what a score means</h3>
         <p>
-          The fake reviews were written to order by paid workers, so 88% means we can tell those from real ones. Our own first models looked good on the test split and then failed on unseen data, which is the same warning from the other side. We didn't report how the final model does on reviews from outside the corpus, and that is the number we would most want.
+          The fake reviews were written to order by paid workers, so 88% means we can tell those from real ones. Our own first models looked good on the test split and then failed on unseen data, which is the same warning from the other side.
         </p>
 
         <h3>With more time</h3>
@@ -638,13 +609,35 @@
 
   <footer class="site-footer">
     <div class="wrap">
+      <details class="references fine">
+        <summary>Citations &amp; references</summary>
+        <ol class="references-list">
+          <li>
+            J. Bhopale, R. Bhise, A. Mane, and K. Talele, 
+            <em>A Review-and-Reviewer based approach for Fake Review Detection</em>,
+            2021 Fourth International Conference on Electrical, Computer and Communication Technologies (ICECCT), 2021.
+            <a href="https://doi.org/10.1109/ICECCT52121.2021.9616697">doi:&nbsp;10.1109/ICECCT52121.2021.9616697</a>
+          </li>
+          <li>
+            M. Ott, Y. Choi, C. Cardie, and J. T. Hancock,
+            <em>Finding Deceptive Opinion Spam by Any Stretch of the Imagination</em>,
+            49th Annual Meeting of the Association for Computational Linguistics, 2011, pp. 309–319.
+            <a href="https://aclanthology.org/P11-1032/">aclanthology.org/P11-1032</a>
+            <a href="https://doi.org/10.48550/arXiv.1107.4557">doi:&nbsp;10.48550/arXiv.1107.4557</a>
+          </li>
+          <li>
+            M. Ott, C. Cardie, and J. T. Hancock,
+            <em>Negative Deceptive Opinion Spam</em>,
+            2013 Conference of the North American Chapter of the Association for Computational Linguistics, 2013, pp. 497-501.
+            <a href="https://aclanthology.org/N13-1053/">aclanthology.org/N13-1053/</a>
+          </li>
+        </ol>
+      </details>
+
       <p>
         <a href="https://rugvedb133.github.io/projects.html">&larr; Back to all projects</a>
         &middot;
         <a href="https://github.com/rugvedb133/fake-review-detector/tree/gh-pages" target="_blank" rel="noopener">Website source repo<span class="visually-hidden"> (opens in a new tab)</span></a>
-      </p>
-      <p class="fine">
-        Review data: M. Ott, Y. Choi, C. Cardie and J. T. Hancock, "Finding Deceptive Opinion Spam by Any Stretch of the Imagination", ACL 2011; M. Ott, C. Cardie and J. T. Hancock, "Negative Deceptive Opinion Spam", NAACL-HLT 2013.
       </p>
     </div>
   </footer>

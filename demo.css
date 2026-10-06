@@ -12,6 +12,7 @@
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
   padding-block: 1rem;
+  overflow-x: auto;
 }
 
 .demo-top h1 {
@@ -20,7 +21,7 @@
 }
 
 .demo {
-  width: min(640px, 100% - 2rem);
+  width: min(1360px, 100% - 2 * var(--gutter));
   margin-inline: auto;
   padding-block: 1.5rem 2rem;
 }
@@ -31,29 +32,40 @@
   font-size: 0.93rem;
 }
 
+.demo .note {
+  margin-top: 0.25rem;
+}
+
 .demo fieldset {
   margin: 0 0 1rem;
   padding: 0;
   border: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-around;
 }
 
 .demo legend {
   margin-bottom: 0.5rem;
   padding: 0;
   font-weight: 700;
+  display: contents;
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.6rem;
 }
 
 .demo .status {
   min-height: 1.6em;
-  margin: 0.9rem 0;
+  margin: 0.5rem auto 0;
   color: var(--muted);
   font-size: 0.95rem;
+  text-align: center;
 }
 
 /* the replayed app: dark by default, original mint when embedded */
@@ -67,6 +79,8 @@
   border: 1px solid var(--line);
   border-radius: 0.8rem;
   text-align: center;
+  max-width: 960px;
+  margin: auto;
 }
 
 html.embedded .screen {
@@ -75,6 +89,7 @@ html.embedded .screen {
   --s-field: var(--text);
   --s-line: var(--accent);
   --s-strong: var(--ink);
+  box-shadow:  0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 html.embedded .screen .view-result,
@@ -83,7 +98,7 @@ html.embedded .screen .view-error {
 }
 
 .view {
-  padding: 1.25rem 1rem 1.5rem;
+  padding: 1rem;
   background: var(--s-bg);
   color: var(--s-text);
 }
@@ -101,14 +116,14 @@ html.embedded .screen .view-error {
 .app-title {
   max-width: none;
   margin: 0;
-  font-size: 1.45rem;
+  font-size: 1.75rem;
   font-variant: small-caps;
   font-weight: 700;
 }
 
 .field {
   min-height: 2.3rem;
-  max-width: 22rem;
+  max-width: 32rem;
   margin-inline: auto;
   padding: 0.35rem 0.6rem;
   border: 1px solid var(--s-line);
@@ -160,6 +175,11 @@ button.mock-btn {
   cursor: pointer;
 }
 
+button.mock-btn:hover {
+  border-color: var(--s-strong);
+  background-color: var(--s-bg);
+}
+
 .view p {
   max-width: none;
   margin: 0 0 0.5rem;
@@ -173,11 +193,16 @@ button.mock-btn {
   color: var(--s-strong);
 }
 
+.view-result p,
+.view-error p {
+  text-align: center;
+}
+
 .given {
   max-width: 30rem;
   margin: 0 auto;
   font-size: 0.9rem;
-  text-align: left;
+  text-align: justify;
 }
 
 html.embedded body {
@@ -201,4 +226,12 @@ html.embedded .chips-radio span {
 html.embedded .demo .status,
 html.embedded .demo .note {
   color: var(--ink);
+}
+
+html.embedded {
+  scrollbar-gutter: auto;
+}
+
+html.embedded .demo .note {
+  display: none;
 }

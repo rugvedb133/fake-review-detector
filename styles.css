@@ -46,7 +46,7 @@ body {
 }
 
 .wrap {
-  width: min(1080px, 100% - 2 * var(--gutter));
+  width: min(1360px, 100% - 2 * var(--gutter));
   margin-inline: auto;
 }
 
@@ -57,7 +57,6 @@ h1, h2, h3 {
 }
 
 h1 {
-  max-width: 20ch;
   font-size: clamp(2rem, 5.2vw, 3.35rem);
   font-weight: 700;
 }
@@ -69,16 +68,17 @@ h2 {
 
 p {
   max-width: var(--measure);
-  margin: 0 0 1rem;
+  margin: 0 0 0.25rem;
+  text-align: justify;
 }
 
 a {
   color: var(--mint);
-  text-underline-offset: 0.2em;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #fff;
+  color: var(--fake);
 }
 
 :focus-visible {
@@ -114,6 +114,10 @@ a:hover {
 
 .skip-link:focus {
   top: 1rem;
+}
+
+#top-link {
+  display: none;
 }
 
 .explain {
@@ -171,7 +175,6 @@ a:hover {
 /* the section currently in view, set by script.js */
 .site-header nav a[aria-current="location"] {
   border-bottom-color: var(--mint);
-  color: var(--text);
 }
 
 /* hero */
@@ -240,8 +243,8 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem 2.5rem;
-  margin: 2rem 0 0;
-  padding-top: 1.25rem;
+  margin: 1rem 0 0;
+  padding-top: 1rem;
   border-top: 1px solid var(--line);
 }
 
@@ -259,7 +262,7 @@ a:hover {
 
 /* footer */
 .site-footer {
-  padding-block: 1.75rem;
+  padding-block: 0.75rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.92rem;
@@ -270,13 +273,76 @@ a:hover {
 }
 
 .site-footer .fine {
-  max-width: 80ch;
   font-size: 0.85rem;
+}
+
+.site-footer a {
+  text-decoration: none;
+}
+
+.site-footer a[href*="github.com"]::after {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-left: 0.5em;
+  vertical-align: -0.17em;
+  background-color: currentColor;
+  mask-image: url("https://simpleicons.org/icons/github.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: bottom;
+}
+
+.references {
+  margin-bottom: 0.5rem;
+  margin-inline: initial !important;
+}
+.references summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--mint);
+  width: fit-content;
+}
+.references summary:hover { color: var(--paper-2); }
+.references:hover summary::marker { color: var(--fake); }
+.references[open] summary { color: var(--paper-2); }
+
+.references-list {
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  gap: 0.5rem;
+}
+.references-list li {
+  text-align: justify;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding-left: 5px;
+}
+.references-list em {
+  color: var(--mint);
+  font-style: italic;
+}
+.references-list a { color: var(--muted); }
+.references-list a:hover { color: var(--fake); }
+.references-list li:hover a::after {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-left: 0.5em;
+  vertical-align: -0.17em;
+  background-color: currentColor;
+  mask-image: url("https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.x/svgs-full/solid/external-link-alt.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: bottom;
 }
 
 /* sections */
 .section {
-  padding-block: clamp(2.5rem, 7vw, 4.5rem);
+  padding-block: clamp(2rem, 3.5vw, 3rem);
   border-top: 1px solid var(--line);
 }
 
@@ -285,29 +351,26 @@ a:hover {
 }
 
 .section h3 {
-  margin: 2.5rem 0 0.75rem;
+  margin-block: 1rem 0.75rem;
   font-size: 1.25rem;
+  color: var(--paper-2);
 }
 
 .section .lede {
-  margin-top: 0;
+  margin-block: 0 0.25rem;
 }
 
 .section p strong {
   color: var(--mint);
 }
 
-.note {
-  padding-left: 1rem;
-  border-left: 3px solid var(--accent);
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
 /* charts */
 .chart {
+  max-width: 960px;
+  margin: 0.5rem auto;
+}
+.chart[id^="fig-survey-"] {
   max-width: 720px;
-  margin: 1.75rem 0;
 }
 
 .chart object {
@@ -325,6 +388,7 @@ a:hover {
 .chart figcaption {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: baseline;
   gap: 0.4rem 1rem;
   margin-top: 0.5rem;
@@ -344,6 +408,11 @@ details summary {
   font-weight: 700;
 }
 
+details:not([open]) {
+  width: fit-content;
+  margin: auto;
+}
+
 .table-toggle {
   margin-top: 0.75rem;
   font-size: 0.92rem;
@@ -351,25 +420,47 @@ details summary {
 
 .table-toggle summary {
   font-weight: 400;
+  text-align: center;
 }
 
 /* data tables */
 .table-scroll {
   max-width: 100%;
-  margin-top: 0.75rem;
   overflow-x: auto;
+  padding: 0.5rem 0.5rem 0;
 }
 
 .data-table {
-  width: 100%;
+  width: min(100%, 1080px);
   border-collapse: collapse;
   font-size: 0.9rem;
+  margin-inline: auto;
 }
 
 .data-table caption {
   padding-bottom: 0.4rem;
   color: var(--muted);
   text-align: left;
+}
+
+/* Caption text and the Enlarge button side by side. The caption stays a normal
+   table caption; the flex layout lives in an inner wrapper that sticks to the
+   left, so the button doesn't scroll away on narrow screens. The wrapper's
+   padding leaves room for the focus ring. */
+.caption-inner {
+  position: sticky;
+  left: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  width: fit-content;
+  max-width: min(100%, calc(100vw - 5rem));
+}
+
+.data-table caption .enlarge {
+  margin-top: 0;
 }
 
 .data-table th,
@@ -385,9 +476,13 @@ details summary {
 }
 
 /* stepper */
+.walkthrough {
+  max-width: 1080px;
+  margin-inline: auto;
+}
 .stepper {
-  max-width: 720px;
-  margin: 1.5rem 0 0;
+  max-width: 1080px;
+  margin: 1.5rem auto 0;
   padding: 0;
   list-style: none;
 }
@@ -413,6 +508,7 @@ details summary {
   font-size: 0.97rem;
   line-height: 1.7;
   overflow-wrap: anywhere;
+  text-align: justify;
 }
 
 .sample mark {
@@ -438,6 +534,7 @@ details summary {
 .chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 0.4rem;
   margin: 0 0 0.9rem;
   padding: 0;
@@ -489,10 +586,10 @@ details summary {
 .stepper-controls {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   gap: 0.75rem;
-  max-width: 720px;
-  margin-top: 1.25rem;
+  max-width: 1080px;
+  margin: 1.25rem auto 1rem;
 }
 
 .stepper-controls .status {
@@ -527,17 +624,18 @@ details summary {
 
 /* verdict card (mirrors the app's result screen) */
 .result-card {
-  margin: 0 0 0.75rem;
+  margin: 0 auto 0.75rem;
   padding: 1rem 1.25rem;
-  border-radius: 0.8rem;
-  background: var(--paper);
+  border-radius: 1rem;
+  background: var(--mint);
   color: var(--ink);
-  text-align: center;
+  max-width: 640px;
 }
 
 .result-card p {
   max-width: none;
   margin: 0 0 0.4rem;
+  text-align: center;
 }
 
 .result-card .rc-small {
@@ -559,11 +657,11 @@ details summary {
 
 /* results explorer */
 .explorer {
-  max-width: 720px;
-  margin: 1.5rem 0;
-  padding: 1.1rem 1.25rem;
+  max-width: 1080px;
+  margin: 1rem auto;
+  padding: 1rem 1rem;
   border: 1px solid var(--line);
-  border-radius: 0.8rem;
+  border-radius: 1rem;
   background: var(--panel);
 }
 
@@ -571,12 +669,16 @@ details summary {
   margin: 0;
   padding: 0;
   border: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
 }
 
 .explorer legend {
   margin-bottom: 0.6rem;
   padding: 0;
   font-weight: 700;
+  display: contents;
 }
 
 .chips-radio {
@@ -604,10 +706,20 @@ details summary {
   background: var(--bg);
 }
 
+.chips-radio span:hover {
+  background-color: var(--accent);
+  border-color: var(--mint);
+}
+
 .chips-radio input:checked + span {
   border-color: var(--mint);
   background: var(--accent);
   font-weight: 700;
+}
+
+.chips-radio input:checked + span:hover {
+  background: var(--panel);
+  border-color: var(--muted);
 }
 
 .chips-radio input:focus-visible + span {
@@ -625,7 +737,7 @@ details summary {
 
 .rbars li {
   display: grid;
-  grid-template-columns: minmax(8rem, 12rem) 1fr 4.6rem;
+  grid-template-columns: minmax(8rem, 12rem) 1fr 4rem;
   gap: 0.75rem;
   align-items: center;
   font-size: 0.95rem;
@@ -654,6 +766,7 @@ details summary {
 
 .rbars .top {
   font-weight: 700;
+  color: var(--mint);
 }
 
 .rbars .num {
@@ -686,6 +799,10 @@ details summary {
 }
 
 /* embedded demo replay */
+.demo-figure {
+  max-width: 1080px;
+}
+
 .demo-frame {
   display: block;
   width: 100%;
@@ -696,6 +813,16 @@ details summary {
 }
 
 /* citations */
+cite {
+  quotes: "“" "”";
+}
+cite::before {
+  content: open-quote;
+}
+cite::after {
+  content: close-quote;
+}
+
 .citations {
   max-width: 720px;
   margin-top: 1.75rem;
@@ -722,12 +849,25 @@ details summary {
   background: var(--panel);
 }
 
+a[href*="drive.google.com"]:hover::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  vertical-align: -0.17em;
+  background-color: currentColor;
+  mask-image: url("https://simpleicons.org/icons/googledrive.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: bottom;
+}
+
 /* stack */
 .stack-cards {
   display: grid;
   gap: 1rem;
-  max-width: 720px;
-  margin: 1.5rem 0 1.25rem;
+  margin: 1.25rem auto;
 }
 
 @media (min-width: 640px) {
@@ -781,8 +921,7 @@ details summary {
 .tools {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  max-width: 720px;
+  gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -812,6 +951,11 @@ details summary {
   --color: #3776AB;
 }
 
+[data-tool="jupyter"] {
+  --logo: url("https://cdn.simpleicons.org/jupyter");
+  --color: #F37626;
+}
+
 [data-tool="pandas"] {
   --logo: url("https://cdn.simpleicons.org/pandas");
   --color: #150458;
@@ -822,14 +966,34 @@ details summary {
   --color: #013243;
 }
 
+[data-tool="nltk"] {
+  --logo: url("https://cdn.simpleicons.org/pypi");
+  --color: #3775A9;
+}
+
 [data-tool="scikitlearn"] {
   --logo: url("https://cdn.simpleicons.org/scikitlearn");
   --color: #F7931E;
 }
 
+[data-tool="xgboost"] {
+  --logo: url("https://raw.githubusercontent.com/chyunsu3/XGBoostVTuberLogo/main/XGBoostLogoOfficial.svg");
+  --color: #0068c7;
+}
+
+[data-tool="matplotlib"] {
+  --logo: url("https://raw.githubusercontent.com/matplotlib/mpl-brochure-site/main/docs/_static/images/documentation.svg");
+  --color: #1f77b4;
+}
+
+[data-tool="seaborn"] {
+  --logo: url("https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg");
+  --color: #4EAEAA;
+}
+
 [data-tool="flask"] {
   --logo: url("https://cdn.simpleicons.org/flask");
-  --color: #000000;
+  --color: #53a9d1;
 }
 
 [data-tool="googlecolab"] {
@@ -869,8 +1033,13 @@ details summary {
     scroll-padding-top: 6rem;
   }
 
+  #projects,
   .brand {
     display: none;
+  }
+
+  #top-link {
+    display: unset;
   }
 
   .bar {
@@ -893,8 +1062,8 @@ details summary {
 
 /* lightbox: one dialog, filled with a clone of whatever was enlarged */
 /* the small pill style shared by Enlarge buttons and the demo link */
-.pill-link,
-.enlarge {
+.enlarge,
+.pill-link {
   margin-top: 0.6rem;
   padding: 0.3rem 0.9rem;
   border: 1px solid var(--line);
@@ -919,8 +1088,8 @@ details summary {
   text-decoration: none;
 }
 
-.pill-link:hover,
-.enlarge:hover {
+.enlarge:hover,
+.pill-link:hover {
   border-color: var(--mint);
   background: var(--panel);
   color: var(--mint);
