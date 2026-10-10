@@ -1,6 +1,5 @@
 /* Styles for demo.html only.
    Loaded after styles.css
-   (which provides the colour and type tokens)
    so that any rules can be overridden if necessary. */
 
 .demo-top {
@@ -70,9 +69,7 @@
   text-align: center;
 }
 
-/* app colors:
-    dark by default (matching the index page's theme),
-    light mint when embedded */
+/* dark app colors: standalone */
 .screen {
   --s-bg:     var(--panel);
   --s-text:   var(--text);
@@ -87,6 +84,7 @@
   margin: auto;
 }
 
+/* light app colors: embedded */
 html.embedded .screen {
   --s-bg:     var(--paper-2);
   --s-text:   var(--ink);
@@ -98,7 +96,7 @@ html.embedded .screen {
 
 html.embedded .screen .view-result,
 html.embedded .screen .view-error {
-  --s-bg: var(--paper);
+  --s-bg:     var(--paper);
 }
 
 .view {

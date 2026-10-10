@@ -1,4 +1,3 @@
-// Fake Review Detector: page behaviour.
 // The page reads fine without JavaScript.
 // This file only adds enhancements.
 'use strict';
@@ -7,9 +6,7 @@ document.documentElement.classList.add('js');
 
 var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function toArray(list) {
-  return Array.prototype.slice.call(list);
-}
+function toArray(list) { return Array.prototype.slice.call(list); }
 
 // The root itself plus everything inside it that matches.
 function within(root, selector) {
@@ -130,12 +127,12 @@ function initStepper(list) {
 // Results explorer: pick an n-gram setting and see the five models ranked.
 var MODELS = ['Random Forest', 'Multinomial Naive Bayes', 'Support Vector Classifier', 'XGBoost', 'XGBoost Random Forest'];
 var ACC = {
-  '1':     [0.84375, 0.8625,  0.85,     0.79375,  0.74375],
-  '2':     [0.78125, 0.825,   0.703125, 0.753125, 0.671875],
-  '3':     [0.728125, 0.715625, 0.671875, 0.7125,  0.603125],
-  '1-2':   [0.8625,  0.88125, 0.85625,  0.815625, 0.728125],
-  '2-3':   [0.7875,  0.79375, 0.73125,  0.753125, 0.665625],
-  '1-2-3': [0.853125, 0.875,  0.8625,   0.828125, 0.728125]
+  '1':     [0.84375,  0.8625,   0.85,     0.79375,  0.74375 ],
+  '2':     [0.78125,  0.825,    0.703125, 0.753125, 0.671875],
+  '3':     [0.728125, 0.715625, 0.671875, 0.7125,   0.603125],
+  '1-2':   [0.8625,   0.88125,  0.85625,  0.815625, 0.728125],
+  '2-3':   [0.7875,   0.79375,  0.73125,  0.753125, 0.665625],
+  '1-2-3': [0.853125, 0.875,    0.8625,   0.828125, 0.728125]
 };
 var BEST = 0.88125;
 

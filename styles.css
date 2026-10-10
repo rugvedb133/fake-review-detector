@@ -441,11 +441,7 @@ details:not([open]) {
   text-align: left;
 }
 
-/* Caption text and the Enlarge button side by side.
-   The caption stays a normal table caption;
-   the flex layout lives in an inner wrapper that sticks to the left,
-   so the button doesn't scroll away on narrow screens.
-   The wrapper's padding leaves room for the focus ring. */
+/* Caption text with Enlarge button side by side */
 .caption-inner {
   position: sticky;
   left: 0.5rem;
@@ -518,7 +514,7 @@ details:not([open]) {
   transition: background-size 0.35s ease-out, color 0.35s ease-out;
 }
 
-/* set by the script until step 3 is first viewed, then removed to wipe in */
+/* step 3: wipe-once */
 .sample mark.wipe-pending {
   background-size: 0% 100%;
   color: var(--text);
@@ -940,8 +936,7 @@ a[href*="drive.google.com"]:hover::after {
   color: var(--ink);
 }
 
-/* Logos, straight from Simple Icons, are used as masks.
-   Mask colour is mint normally, and changes to the brand colour on hover. */
+/* Tool logos */
 [data-tool="python"] {
   --logo: url("https://cdn.simpleicons.org/python");
   --color: #3776AB;
@@ -1023,7 +1018,7 @@ a[href*="drive.google.com"]:hover::after {
   }
 }
 
-/* narrow screens: keep the sticky header to two short rows */
+/* header on narrow screens */
 @media (max-width: 1000px) {
   html {
     scroll-padding-top: 6rem;
@@ -1051,7 +1046,7 @@ a[href*="drive.google.com"]:hover::after {
   }
 }
 
-/* the small pill style shared by Enlarge buttons and the demo link */
+/* small pill buttons */
 .enlarge,
 .pill-link {
   margin-top: 0.6rem;
@@ -1084,7 +1079,7 @@ a[href*="drive.google.com"]:hover::after {
   color: var(--mint);
 }
 
-/* lightbox: single dialog, filled with a clone of whatever was enlarged */
+/* lightbox */
 .lightbox {
   width: min(1100px, 94vw);
   max-height: 92vh;

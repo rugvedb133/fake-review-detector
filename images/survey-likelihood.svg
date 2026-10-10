@@ -146,8 +146,8 @@
     <rect class="seg" x="468.1" y="180" width="65.9" height="36" fill="#3FA37F"/>
     <text class="pct" x="501.1" y="203.0" style="fill:#072F25;font-size:14px">12.8%</text>
   </g>
-  <text class="tick" x="51.4" y="238">40%</text>
-  <text class="tick" x="154.3" y="238">20%</text>
+  <text class="tick" x="51.4" y="238">-40%</text>
+  <text class="tick" x="154.3" y="238">-20%</text>
   <text class="tick" x="257.1" y="238">0%</text>
   <text class="tick" x="360.0" y="238">20%</text>
   <text class="tick" x="462.9" y="238">40%</text>
