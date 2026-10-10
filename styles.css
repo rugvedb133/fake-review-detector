@@ -833,71 +833,6 @@ cite::after {
   color: var(--muted);
 }
 
-/* video */
-/* a lightweight stand-in until the play button is pressed,
-   so the player isn't loaded for visitor who never watch it. 
-   Without JavaScript the stand-in stays hidden and the caption's Drive link is the way in. */
-.video-facade {
-  display: none;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  place-content: center;
-  place-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: 0.8rem;
-  background: linear-gradient(135deg, var(--panel), var(--bg));
-  color: var(--text);
-  font: inherit;
-  text-align: center;
-  cursor: pointer;
-}
-
-.js .video-facade {
-  display: grid;
-}
-
-.video-play {
-  position: relative;
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 50%;
-  background: var(--mint);
-  transition: background-color 0.2s;
-}
-
-.video-play::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-35%, -50%);
-  border-top: 0.9rem solid transparent;
-  border-bottom: 0.9rem solid transparent;
-  border-left: 1.4rem solid var(--ink);
-}
-
-.video-facade:hover .video-play {
-  background: var(--text);
-}
-
-.video-label {
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.video-note {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .video-play {
-    transition: none;
-  }
-}
-
 /* embedded video */
 .video-frame {
   display: block;
@@ -1216,4 +1151,34 @@ a[href*="drive.google.com"]:hover::after {
   .lightbox[open] {
     animation: none;
   }
+}
+
+/* glossary and abbreviations */
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+  cursor: help;
+}
+
+.glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0 2rem;
+  margin: 1.5rem 0 0;
+}
+
+.glossary div {
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.glossary dt {
+  color: var(--mint);
+  font-weight: 700;
+}
+
+.glossary dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  text-align: justify;
 }

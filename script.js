@@ -200,40 +200,8 @@ function initExplorer(box) {
   render(box.querySelector('input[type="radio"]:checked').value);
 }
 
-// Video: show a light stand-in first and load Google's player only on click.
-function loadVideo(box, focus) {
-  if (box.querySelector('iframe')) return;
-  var frame = document.createElement('iframe');
-  frame.className = 'video-frame';
-  frame.src = box.getAttribute('data-video');
-  frame.title = box.getAttribute('data-title');
-  frame.allow = 'fullscreen';
-  frame.setAttribute('allowfullscreen', '');
-  frame.setAttribute('allow', 'autoplay');
-  box.textContent = '';
-  box.appendChild(frame);
-  // The button that was clicked is gone, so hand keyboard focus to the player.
-  if (focus) frame.focus();
-}
-
-// Put the stand-in back, which also stops the video if it was playing.
-function unloadVideo(box) {
-  if (!box.querySelector('iframe') || !box.facade) return;
-  box.textContent = '';
-  box.appendChild(box.facade);
-}
-
-function initVideo(box) {
-  box.facade = box.querySelector('.video-facade');
-  if (!box.facade) return;
-  box.facade.addEventListener('click', function () {
-    loadVideo(box, true);
-  });
-}
-
 toArray(document.querySelectorAll('[data-stepper]')).forEach(initStepper);
 toArray(document.querySelectorAll('[data-explorer]')).forEach(initExplorer);
-toArray(document.querySelectorAll('[data-video]')).forEach(initVideo);
 
 // Lightbox uses a single <dialog> element.
 // The enlarge buttons point at an element by id;
@@ -250,10 +218,6 @@ toArray(document.querySelectorAll('[data-video]')).forEach(initVideo);
   function open(id) {
     var source = document.getElementById(id);
     if (!source) return;
-
-    // Two players would play over each other, so the page's own goes back to
-    // its stand-in while the enlarged one is open.
-    within(source, '[data-video]').forEach(unloadVideo);
 
     var clone = source.cloneNode(true);
     // Remove id from being repated in clone and also remove other page controls.
@@ -278,10 +242,6 @@ toArray(document.querySelectorAll('[data-video]')).forEach(initVideo);
     body.appendChild(clone);
     within(clone, '[data-stepper]').forEach(initStepper);
     within(clone, '[data-explorer]').forEach(initExplorer);
-    // Someone who enlarges a video wants to watch it: no stand-in in the dialog.
-    within(clone, '[data-video]').forEach(function (box) {
-      loadVideo(box, false);
-    });
     dialog.showModal();
   }
 

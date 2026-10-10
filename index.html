@@ -52,6 +52,7 @@
           <li><a href="#paper">Paper</a></li>
           <li><a href="#startup">Pitch</a></li>
           <li><a href="#reflection">Reflection</a></li>
+          <li><a href="#glossary">Glossary</a></li>
           <li id="projects"><a href="/projects.html">All projects ↗</a></li>
         </ul>
       </nav>
@@ -63,10 +64,10 @@
       <div class="wrap hero-grid">
         <div class="hero-text">
           <p class="tag">Capstone Project</p>
-          <h1 id="hero-title">Detecting Fake Hotel Reviews with NLP and a Booking Check</h1>
+          <h1 id="hero-title">Detecting Fake Hotel Reviews with <abbr title="Natural Language Processing">NLP</abbr> and a Booking Check</h1>
           <p class="lede">
             We trained a classifier to tell genuine hotel reviews from deceptive ones, and put a booking check in front of it so only reviews from verified reservations reach the model.
-            It started as a group capstone project and was later published at IEEE ICECCT.
+            It started as a group capstone project and was later published at IEEE <abbr title="International Conference on Electrical, Computer and Communication Technologies">ICECCT</abbr>.
           </p>
           <dl class="stats">
             <div>
@@ -678,7 +679,7 @@
                   <span class="num">0.159</span>
                 </li>
               </ol>
-              <p class="step-note">TF-IDF gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase.</p>
+              <p class="step-note"><abbr title="term frequency–inverse document frequency">TF-IDF</abbr> gives a term more weight when it appears often in this review and rarely across the others. These are the ten heaviest, and the bars are scaled so a weight of 0.4 fills the track. The whole review becomes a vector of 1,500 such weights, almost all zero, and that vector is all the classifier ever sees. Note &ldquo;wa terrible&rdquo;, the lemmatizer wart showing up inside a phrase.</p>
             </li>
             <li class="step">
               <h4>6. The verdict</h4>
@@ -703,7 +704,7 @@
 
         <h3>First attempt: raw text</h3>
         <p>
-          We started by giving unprocessed review text to five classifiers: Random Forest, Multinomial Naive Bayes, a Support Vector Classifier, XGBoost and XGBoost's random-forest mode. Random Forest led on accuracy, recall and F1, and the Support Vector Classifier led on precision.
+          We started by giving unprocessed review text to five classifiers: Random Forest, Multinomial Naive Bayes, a Support Vector Classifier, XGBoost and XGBoost's random-forest mode. Random Forest led on accuracy, recall and <abbr title="F1 score: the balance of precision and recall">F1</abbr>, and the Support Vector Classifier led on precision.
         </p>
         <p>
           The scores looked good, but the models failed to perform on unseen data that wasn't part of the dataset. We went back to the text, added the preprocessing from the last section, and tried n-grams.
@@ -876,7 +877,7 @@
                 <th scope="col">n-grams</th>
                 <th scope="col">Accuracy</th>
                 <th scope="col">Precision</th>
-                <th scope="col">AUC</th>
+                <th scope="col"><abbr title="area under the ROC curve">AUC</abbr></th>
                 <th scope="col">F1</th>
               </tr>
             </thead>
@@ -1081,13 +1082,7 @@
           <a href="https://sites.google.com/spit.ac.in/fidelity-tech">Visit the startup's website</a>, built for the same exercise, hosted on Google Sites.
         </p>
         <figure class="chart" id="fig-video" data-label="Advertisement video from the entrepreneurship exercise">
-          <div class="video" data-video="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/preview" data-title="Advertisement video from the entrepreneurship exercise">
-            <button type="button" class="video-facade">
-              <span class="video-play" aria-hidden="true"></span>
-              <span class="video-label">Play video<span class="visually-hidden">: advertisement video from the entrepreneurship exercise</span></span>
-              <span class="video-note">from Google Drive</span>
-            </button>
-          </div>
+          <iframe class="video-frame" src="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/preview" title="Advertisement video from the entrepreneurship exercise" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
           <figcaption>
             <span class="caption-text">The advertisement video for the exercise. <a class="pill-link" href="https://drive.google.com/file/d/19Lig60uZQT7nKnvUlC8qkqhTb_HhwyMV/view">Watch it on Google Drive</a></span>
             <button type="button" class="enlarge" data-target="fig-video">Enlarge<span class="visually-hidden"> the advertisement video</span></button>
@@ -1133,6 +1128,107 @@
         <p>
           We would run the original plan on other kinds of product reviews, and test the booking check and the classifier together on real traffic instead of a made-up table. We would cross-validate, fix the two preprocessing quirks, and deploy the app, so the replay on this page could be the real thing.
         </p>
+      </div>
+    </section>
+
+    <section class="section" id="glossary" aria-labelledby="glossary-title">
+      <div class="wrap">
+        <h2 id="glossary-title">Glossary</h2>
+        <details>
+          <summary class="lede">
+            The terms and abbreviations used on this page, in plain language.
+          </summary>
+          <dl class="glossary">
+            <div>
+              <dt>Accuracy</dt>
+              <dd>The share of test reviews the model labelled correctly.</dd>
+            </div>
+            <div>
+              <dt>AUC</dt>
+              <dd>Area under the ROC curve: a score from 0.5 (guessing) to 1 (perfect) for how well a model separates two classes.</dd>
+            </div>
+            <div>
+              <dt>Classifier</dt>
+              <dd>A model that sorts items into classes. Ours sorts reviews into genuine and fake.</dd>
+            </div>
+            <div>
+              <dt>Cross-validation</dt>
+              <dd>Scoring a model several times on different splits of the data and averaging the results, for a steadier score.</dd>
+            </div>
+            <div>
+              <dt>Deceptive review</dt>
+              <dd>A fake review.</dd>
+            </div>
+            <div>
+              <dt>F1 score</dt>
+              <dd>One number that balances precision and recall.</dd>
+            </div>
+            <div>
+              <dt>Held-out test reviews</dt>
+              <dd>Reviews set aside before training and used only to score the model.</dd>
+            </div>
+            <div>
+              <dt>Lemmatization</dt>
+              <dd>Reducing a word to its dictionary form, such as &ldquo;towels&rdquo; to &ldquo;towel&rdquo;.</dd>
+            </div>
+            <div>
+              <dt>Multinomial Naive Bayes</dt>
+              <dd>A simple classifier that treats each word's count as independent evidence.</dd>
+            </div>
+            <div>
+              <dt>N-gram</dt>
+              <dd>A run of n neighbouring words: a unigram is one word, a bigram is a pair, a trigram is a triple.</dd>
+            </div>
+            <div>
+              <dt>NLP</dt>
+              <dd>Natural language processing: computer methods for working with human language.</dd>
+            </div>
+            <div>
+              <dt>Pearson correlation</dt>
+              <dd>A number from &minus;1 to 1 for how closely two measurements rise and fall together. Zero means no linear relationship.</dd>
+            </div>
+            <div>
+              <dt>Polarity</dt>
+              <dd>Whether a review is positive or negative in tone.</dd>
+            </div>
+            <div>
+              <dt>Precision</dt>
+              <dd>Precision is the share of reviews called fake that really were fake.</dd>
+            </div>
+            <div>
+              <dt>Recall</dt>
+              <dd>Recall is the share of the fake reviews that the model found.</dd>
+            </div>
+            <div>
+              <dt>Random Forest</dt>
+              <dd>A Random Forest classifier has many decision trees vote.</dd>
+            </div>
+            <div>
+              <dt>SVC</dt>
+              <dd>A Support Vector Classifier (SVC) draws the widest possible boundary between the classes.</dd>
+            </div>
+            <div>
+              <dt>XGBoost</dt>
+              <dd>XGBoost adds trees one at a time, each correcting the last.</dd>
+            </div>
+            <div>
+              <dt>Regular expression</dt>
+              <dd>A pattern for finding and replacing text, such as stripping punctuation.</dd>
+            </div>
+            <div>
+              <dt>Stop words</dt>
+              <dd>Very common words, such as &ldquo;the&rdquo; and &ldquo;at&rdquo;, that are dropped before counting.</dd>
+            </div>
+            <div>
+              <dt>TF-IDF</dt>
+              <dd>Term frequency&ndash;inverse document frequency: a word's weight goes up when it appears often in one review and down when it appears in many reviews.</dd>
+            </div>
+            <div>
+              <dt>Vectorizing</dt>
+              <dd>Turning text into a list of numbers that a model can use.</dd>
+            </div>
+          </dl>
+        </details>
       </div>
     </section>
   </main>
